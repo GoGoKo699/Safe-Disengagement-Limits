@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Exact finite checks of common-gamma full-state exit DP, ready/cold multiplier DP, and heterogeneous recurring frontier against all-permutation affine-constraint fractional-knapsack optimization; separately labeled analytic quadratic-loss nonconcentration certificate. Not an exhaustion of continuous-time policies, proof of concentration, empirical validation, or novelty assessment.",
+  "arithmetic": "fractions.Fraction only. Proportional-model input is rational X=exp(gamma*H), rather than rational physical H. The separate quadratic fixture uses a rational physical deadline and analytic time/work bounds.",
+  "assumptions": "Proportional calculations: gamma>0, M_i>0, a_i>=0, s>max_i gamma*M_i; independent instantaneous cutover; paid initialization. The separately labeled quadratic fixture has its own model.",
+  "domain": {
+    "heterogeneous": "n=1..4, seeds=0..7; gamma=(1/3,2/3)[seed%2]; M_i=(1+(2*i+seed)%5)/(1+(seed+i)%2); a_i=(1+(3*i+seed)%7)/(1+(seed//2)%2); s=max gamma*M_i+(1+seed%3)/2.",
+    "zero_releases": "For every n=1..4, gamma=1/2, M_i=(i+1)/2, s=n/4+1; either all a_i=0 or a_i=i%2 (zero-based indices).",
+    "initial_states": "Each p_i/M_i in {0,1/3,1}; all Cartesian products.",
+    "deadlines": "All distinct cold-subset multipliers, every adjacent midpoint, X=1, and cold-full-system multiplier plus 1.",
+    "homogeneous": "n=1..4; M in {1/2,2}; a in {1,3}; gamma in {1/3,1}; s=gamma*M+1/2; all k=0..n-1 and partial fractions {0,1/4,1/2,3/4,1}."
+  },
+  "counts": {
+    "heterogeneous_models": 40,
+    "full_state_dp_permutation_comparisons": 1200,
+    "cold_subset_dp_permutation_comparisons": 300,
+    "affine_order_constraints": 330,
+    "frontier_knapsack_comparisons": 598,
+    "per_order_knapsack_optimizations": 8792,
+    "monotonicity_comparisons": 558,
+    "nominally_infeasible_deadlines": 95,
+    "zero_upkeep_plateau_checks": 80,
+    "homogeneous_frontier_regressions": 400,
+    "prescribed_partial_first_counterexamples": 1,
+    "input_validation_rejections": 21,
+    "quadratic_nonconcentration_certificates": 1
+  },
+  "prescribed_partial_first_counterexample": {
+    "gamma": "1/10",
+    "s": "1",
+    "modules": [
+      {
+        "M": "1",
+        "a": "1"
+      },
+      {
+        "M": "1/10",
+        "a": "100"
+      }
+    ],
+    "initial_state": [
+      "1/10",
+      "0"
+    ],
+    "partial_first_multiplier": "220/199",
+    "cold_first_multiplier": "1009901/998910",
+    "meaning": "Partial-first is not optimal for every prescribed concentrated state; it suffices for an upkeep-minimizing witness."
+  },
+  "quadratic_nonconcentration_boundary": {
+    "scope": "Separate nonlinear-loss boundary fixture; exact analytic bounds, not an implementation or solution of the quadratic optimization problem.",
+    "model": "n=2; M_1=M_2=1; a_1=a_2=1/100; s=10; g_1(p)=g_2(p)=p^2 on [0,1]; physical deadline H=23/500.",
+    "distributed_state": [
+      "4/5",
+      "4/5"
+    ],
+    "distributed_upkeep": "32/25",
+    "first_stage_time_upper": "1/45",
+    "remaining_preparation_lower": "884/1125",
+    "second_stage_time_upper": "964/40545",
+    "exit_time_upper": "373/8109",
+    "deadline_margin": "7/4054500",
+    "available_copy_work_upper": "23023/50000",
+    "one_full_required_partial_lower": "26977/50000",
+    "concentrated_upkeep_lower": "3227758529/2500000000",
+    "strict_upkeep_gap_lower": "27758529/2500000000",
+    "conclusion": "The displayed two-partial state meets H at upkeep 32/25, while every deadline-feasible state with at most one partial module has strictly greater upkeep. General monotone smooth loss does not inherit the common-linear concentration theorem; no unequal-gamma conclusion is inferred."
+  }
+}

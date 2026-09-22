@@ -4,12 +4,17 @@
 
 Theory-first research on cooperative, bounded-time handover to an independent fallback. The controller obeys the removal request; the difficulty is keeping essential service running after it leaves. This project studies resource accounting, not an agent's incentive to resist shutdown.
 
-**Research status:** an exact heterogeneous readiness frontier, with a proof covering arbitrary parallel/preemptive exit schedules and an exponential subset algorithm. A separate two-module theorem resolves cold startup at the critical upkeep budget. The homogeneous clearing theorem now has an explicit prior-art reduction. Publication novelty, a validated engineering implementation, and external proof review remain **unestablished**. See [STATUS.md](STATUS.md).
+**Research status:** serial optimality is now proved from arbitrary partial preparation for fixed and monotone smooth loss. A heterogeneous proportional-loss subclass has an explicit upkeep frontier and an exact rational algorithm in transformed deadline coordinates. Interface counterexamples and primary-source reductions constrain these claims; publication novelty remains **unestablished**. There is no validated implementation, external proof review, or submission-ready paper. See [STATUS.md](STATUS.md).
 
 ## Start here
 
 | Reading goal | Entry point |
 |---|---|
+| Read the strongest current result | [Full-state fixed-loss seriality and algorithm](research/2026-09-22-pass9-partial-states.md), [smooth extension and attained upkeep](research/2026-09-22-pass9-smooth-partial.md) |
+| Compute heterogeneous proportional upkeep | [Concentration theorem and exact transformed-deadline frontier](research/2026-09-22-pass10-proportional-frontier.md) |
+| Understand the latest interface findings | [Acknowledged obligations and positive delay](research/2026-09-22-pass6-interface.md), [pipeline policy limits](research/2026-09-22-pass8-pipeline-policy.md) |
+| See what delayed capacity release changes | [Exact overlap/preemption counterexamples and surviving upkeep reduction](research/2026-09-22-pass6-latency.md) |
+| Account for finite updates and service slack | [Atomic-update theorem](research/2026-09-22-pass7-finite-updates.md), [bounded final freeze](research/2026-09-22-pass8-bounded-freeze.md), [sporadic-task reduction](research/2026-09-22-pass7-prior-art.md) |
 | Understand the current candidate result | [Heterogeneous readiness: definitions and exact upkeep](research/2026-09-22-heterogeneous-readiness.md) |
 | Check the all-policy exit optimum | [Weighted-potential proof and subset algorithm](research/2026-09-22-heterogeneous-scheduling.md) |
 | See why simple ordering rules fail | [Exact ordering counterexamples](research/2026-09-22-ordering-limits.md) |
@@ -17,17 +22,40 @@ Theory-first research on cooperative, bounded-time handover to an independent fa
 | Change the invalidation law | [State-dependent erosion and serial dominance](research/2026-09-22-state-dependent-loss.md) |
 | Read the explicit continuous upkeep frontier | [Homogeneous proportional readiness](research/2026-09-22-proportional-readiness.md) |
 | See the assumption that changes the conclusion | [Proportional-invalidation countermodel, section 8](checkpoints/active-2026-09-22/NOTE.md#8-assumption-stress-test-a-smooth-alternative-removes-the-staircase) |
-| Check overlap with established research | [Current scheduling/interface audit](research/2026-09-22-literature-audit.md), [dissipativity reduction](research/2026-09-22-dissipativity.md), and [passive comparison](checkpoints/passive-2026-09-22/LITERATURE.md) |
+| Check overlap with established research | [Full-state contribution assessment](research/2026-09-22-pass9-assessment.md), [earlier coupled-scheduling audit](research/2026-09-22-pass6-prior-art.md), [source reductions](research/2026-09-22-literature-audit.md), and [dissipativity reduction](research/2026-09-22-dissipativity.md) |
 | Audit the proof boundaries | [Internal proof audit](research/2026-09-22-proof-audit.md) and [referee-style assessment](research/2026-09-22-referee-assessment.md) |
 | Understand the earlier benchmark | [Passive commitments](checkpoints/passive-2026-09-22/NOTE.md) |
 | Reproduce the finite checks | Run `python verify.py` from the repository root |
 | Continue the investigation | [Current work order](work_orders/CURRENT.md) and [agent instructions](AGENTS.md) |
 
-A first reading can stop after the heterogeneous readiness and scheduling notes,
-followed by the current literature audit. The homogeneous result below is a
-simple special case. Both dated checkpoints remain immutable historical records.
+A first reading should pair a mathematical result with its interface and
+prior-art boundaries. The homogeneous result below is a simple special case.
+Both dated checkpoints remain immutable historical records.
 
-## Current heterogeneous result
+## Full-state results
+
+An exchange argument now proves that some full-speed serial exit schedule is
+optimal from **every** initial preparation vector, for both reflected fixed
+loss and nondecreasing Lipschitz smooth loss vanishing at zero. Completing one
+module early frees enough time to postpone the other allocations; later copying
+suffers no greater terminal deterioration. A forward subset algorithm tracks
+elapsed time and passive decay, so partial states are included explicitly.
+
+For smooth loss, the deadline-ready set is compact. Minimum total loss over
+that set is attained and gives exact initialized recurring upkeep. With common
+proportional coefficient `gamma`, unequal sizes and releases, and
+`s>max_i gamma*M_i`, some upkeep optimizer has full modules, at most one partial
+module, and a cold remainder. The [explicit frontier](research/2026-09-22-pass10-proportional-frontier.md)
+can be queried in `O(n*2^n)` arithmetic operations; rational parameters and
+`X=exp(gamma*H)` specified rationally give exact rational results. This is an
+exponential arithmetic bound, not a polynomial-time or bit-complexity claim.
+
+These results retain independent instantaneous handoffs and paid initialization.
+The postponement principle is close to classical deterioration scheduling;
+the nearest full proofs remain a material novelty gate. Concentration does not
+mean that every concentrated state's best exit processes its partial module first.
+
+## Ready/cold fixed-loss specialization
 
 Module `i` has preparation size `M_i`, released capacity `a_i`, and maximum
 invalidation rate `d_i`. Let `F(S)` be the optimal exit time from a fully ready
@@ -45,8 +73,8 @@ is `s-D(H)` when `D(H)<=s`; otherwise indefinite readiness is infeasible.
 The weighted-potential proof establishes serial optimality before using the
 recurrence. Evaluating all subsets costs `O(n*2^n)` arithmetic operations.
 The formula covers arbitrary normal preparation histories after paid
-initialization. It does not assert serial optimality from arbitrary partially
-prepared request states.
+initialization. The separate full-state theorem above supplies the formerly
+unresolved extension to arbitrary partially prepared request states.
 
 Partial preparation can still matter for **startup**. For two modules with
 `d_i>0` and `s=d_1+d_2`, cold normal-operation warmup can reach exactly the
@@ -65,8 +93,9 @@ With proportional loss `gamma*p`, the homogeneous model instead has a
 continuous, piecewise analytic upkeep frontier. An aggregate-potential bound
 shows that concentrating a prescribed total preparation into full modules and
 at most one partial module gives the best exit deadline. This solves the
-homogeneous smooth recurring problem for `s>gamma*M`; it does not solve the
-heterogeneous smooth readiness region. See the [full proof](research/2026-09-22-proportional-readiness.md).
+homogeneous smooth recurring problem for `s>gamma*M`. Passes 9–10 now extend
+the state oracle and solve the heterogeneous common-coefficient subclass.
+See the [earlier homogeneous proof](research/2026-09-22-proportional-readiness.md).
 
 ## Homogeneous special case
 
@@ -92,6 +121,25 @@ This does not say that full normal service has throughput `u*`: the mandatory no
 
 ## The boundary matters
 
+The new service analysis distinguishes receiver freshness from safe source
+departure: independently sustained in-flight information can arrive after the
+source leaves if the actual response deadline permits it. Positive delay and
+ownership fencing still require explicit accounting. Copying alone establishes
+neither independent service nor a complete handover protocol.
+
+When capacity is released only after an immutable residual drain, overlapping
+handoffs and even interrupted preparation can be strictly necessary. The old
+serial recurrence cannot just acquire an extra drain-time term. Its support
+upkeep argument survives only with a new, unresolved deadline-feasibility oracle.
+
+For a single version with atomic updates separated by `Delta>M/s`, preparation
+age matters. If a declared protocol permits at most `B` time units of final
+frozen copying, `0<=B<=M/s`, the exact normal upkeep in that model is
+`max(0,2*M-s*H-s*B)/Delta` for `H>=M/s`; smaller deadlines are infeasible at
+a reset. This is a restricted protocol theorem. Its normal work constraint
+reduces to standard sporadic-task scheduling, and its frozen-copy budget is
+the familiar stop-and-copy allowance. Neither is presented as a new general law.
+
 The fixed-rate invalidation assumption is load-bearing. A one-service proportional-invalidation model gives a **continuous** maintenance frontier instead of the staircase above. The staircase is not a universal law of dependence.
 
 The independent fallback, its essential-service capability, and a sufficient handover interface are assumed, not created by copying data. Services have no shared-state cutover barriers; cutover has zero latency; receiver resources are provisioned separately. These restrictions and excluded alternatives are explicit in the [active model](checkpoints/active-2026-09-22/NOTE.md).
@@ -106,6 +154,9 @@ Python 3.10 or newer; standard library only:
 python verify.py
 python -B analysis/verify_heterogeneous.py
 python -B analysis/verify_state_dependent.py
+python -B analysis/verify_handoff.py
+python -B analysis/verify_partial_states.py
+python -B analysis/verify_proportional.py
 ```
 
 The root runner checks checkpoint hashes, runs both original verifiers in temporary directories, and compares their complete reports with the archived reports. It writes `build/verification.json` without modifying the checkpoints. It refuses optimized Python because the original verifiers use assertions.
@@ -125,6 +176,17 @@ The [separate state-dependent report](results/state-dependent-verification.json)
 distinguishes exact local inequalities from floating logarithmic/exponential
 identity checks with explicit tolerances. Compare both outputs with their
 tracked reports using the commands in [STATUS.md](STATUS.md).
+
+The [handoff report](results/handoff-verification.json) reconstructs the exact
+drain schedules and checks finite-update/freeze identities, event boundaries,
+and finite-prefix resource accounting using rational arithmetic. These are
+small finite checks, not searches over all continuous-time policies.
+
+The [partial-state report](results/partial-state-verification.json) checks the
+forward algorithm against independent serial permutations, while separating
+rational checks from floating smooth-flow identities. The [proportional report](results/proportional-frontier-verification.json)
+checks exact transformed-deadline queries against independent per-order linear
+optimization and reconstructs the returned preparation and exit witnesses.
 
 ## Provenance and license
 

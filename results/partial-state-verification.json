@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Exact DP/permutation agreement, reflection/postponement and explicit exchange instances, sampled smaller-loss robustness, plus floating proportional identities. Not a measurable-policy exhaustion, continuous-time theorem proof, empirical validation, or novelty audit.",
+  "domains": {
+    "two_module_DP": "432 ordered parameter models: M,a in {1,2}, d in {0,1,2}, s in {0,1,2}; all cold/half/full initial states",
+    "three_module_DP": "81 ordered models from (M,a,d)={(1,1,0),(2,1,1),(1,2,2)} and s in {0,1,3}; all cold/half/full states",
+    "larger_DP": "Three deterministic four-module models with all quarter/three-quarter states; two five-module models with four explicit fractional patterns each",
+    "exact_postponement": "Two half-unit control segments; b in {1,2,3}, d in {0,1/2,1,2}, p0 in {0,1/2,1}, each rate in {0,b/2,b}; right-packed work and identical suffix",
+    "exchange": "Two specified rational two/three-module control histories, each checked with released capacity zero and two; all cumulative-control breakpoints checked",
+    "smaller_losses": "Every seventh finite DP case: zero, half-maximum, and stage-dependent alternating loss fractions {0,1/2,1}",
+    "implementation_limit": "DP reuses existing Model/Module validation a_i>0; theorem's a_i=0 extension receives standalone exchange checks only",
+    "float_checks": "Proportional partial stages with M in {1/2,1,2}, b in {1,2,3}, gamma in {0,1/4,1/2,1}; fractional initial states and waits; two-piece postponed controls (grids in verifier)"
+  },
+  "exact_arithmetic": "fractions.Fraction",
+  "floating_arithmetic": {
+    "tolerance": 2e-12,
+    "maximum_stage_scaled_absolute_error": 1.7763568394002505e-15,
+    "scope": "Analytic exponential segment evolution only; no numerical ODE integration or general nonlinear-loss verification."
+  },
+  "counts": {
+    "parameter_models": 518,
+    "partial_state_DP_comparisons": 6131,
+    "independent_permutation_evaluations": 13359,
+    "ready_cold_oracle_agreements": 2376,
+    "smaller_loss_attaining_order_checks": 1836,
+    "exact_reflection_formula_checks": 648,
+    "exact_postponement_and_suffix_checks": 324,
+    "explicit_exchange_constructions": 4,
+    "floating_proportional_partial_stages": 288,
+    "floating_proportional_postponement_checks": 162,
+    "invalid_input_rejections": 6
+  },
+  "examples": {
+    "waiting_decay_matters": {
+      "exact_time": "1",
+      "incorrect_ignored_decay_value": "3/4"
+    },
+    "initial_preparation_changes_order": {
+      "cold_optimal_order": [
+        1,
+        0
+      ],
+      "partial_optimal_order": [
+        0,
+        1
+      ],
+      "partial_optimum": "3/5"
+    },
+    "measurable_exchange_piecewise_instances": [
+      {
+        "original_first_completion": "1",
+        "new_first_completion": "2/3",
+        "postponed_prefix_work": [
+          "1"
+        ],
+        "old_other_terminal_states": [
+          "1/2"
+        ],
+        "new_other_terminal_states": [
+          "5/6"
+        ]
+      },
+      {
+        "original_first_completion": "1",
+        "new_first_completion": "3/5",
+        "postponed_prefix_work": [
+          "1",
+          "3/5"
+        ],
+        "old_other_terminal_states": [
+          "0",
+          "3/2"
+        ],
+        "new_other_terminal_states": [
+          "1/5",
+          "3/2"
+        ]
+      }
+    ]
+  }
+}
