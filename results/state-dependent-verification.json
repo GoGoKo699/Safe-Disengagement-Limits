@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Finite checks for g(p)=gamma*p: exact local algebra/coefficient monotonicity, aggregate exit envelope, floating logarithmic stage/jump and homogeneous frontier/inverse identities; exact points on an excluded non-Lipschitz counterexample. Not a continuous-time proof, general-loss theorem verification, empirical validation, or novelty audit.",
+  "domain": "b in {0,1/2,1,2,3}; gamma in {0,1/4,1/2,1,2}; M in {1/2,1,2}; quarter-size state and quarter-capacity allocation grids; released a in {1/2,1,2}.",
+  "exact_arithmetic": "fractions.Fraction: reflected (v-gamma*p)/(b-gamma*p)<=v/b and capacity coefficient decrease",
+  "floating_arithmetic": {
+    "formula": "c=-log(1-gamma*M/b)/gamma; c=M/b when gamma=0; infinity when b<=gamma*M",
+    "inverse": "p(c)=-(b/gamma)*expm1(-gamma*c), with p(c)=b*c when gamma=0",
+    "scaled_absolute_tolerance": 2e-12,
+    "maximum_inverse_scaled_absolute_error": 1.1102230246251565e-16
+  },
+  "counts": {
+    "exact_reflected_derivative_checks": 1280,
+    "exact_capacity_coefficient_checks": 768,
+    "finite_proportional_stages": 41,
+    "blocked_stage_checks": 34,
+    "floating_jump_checks": 615,
+    "non_Lipschitz_counterexample_points": 17,
+    "frontier_boundary_continuities": 160,
+    "proportional_frontier_identity_points": 800,
+    "single_module_archived_identity_points": 96,
+    "aggregate_envelope_checks": 9440,
+    "concentrated_envelope_equalities": 192
+  },
+  "homogeneous_readiness_frontier": {
+    "assumptions": "Homogeneous M,a,d>0; gamma=d/M and s>d; paid initialization.",
+    "interpretation": "T(Q) is a lower bound for every preparation state of total Q, attained by a concentrated state; arbitrary states with equal Q need not have equal exit times.",
+    "floating_domain": "n=1..4; M,a in {1,2}; d in {1/2,1}; s=d+extra with extra in {1/2,1}; quarter-module initial amounts.",
+    "exact_aggregate_domain": "n=1..3; M,a in {1,2}; gamma in {1/2,1}; s=gamma*M+1/2; every transfer count, cold/half/full remaining states, quarter-capacity allocation simplex.",
+    "maximum_inverse_scaled_absolute_error": 2.220446049250313e-16,
+    "single_module_archived_example_upkeep": 0.2928932188134525
+  },
+  "excluded_counterexample": {
+    "loss": "g(q)=1-sqrt(1-q), not Lipschitz at q=1",
+    "capacity_and_target": "b=M=1",
+    "trajectory": "p(t)=t-t^2/4, 0<=t<=2",
+    "conclusion": "Finite-time arrival at p=1 despite b=g(1); the strict eligibility rule needs the stated regularity assumption."
+  }
+}
