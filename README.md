@@ -7,7 +7,11 @@ Theory-first research on cooperative, bounded-time handover to an independent fa
 **Research status:** every upkeep-minimizing state has at most one partial
 module under unequal positive proportional loss, even with inaccessible initial
 rates. An explicit frontier accounts for cold modules before that partial module.
-Rate barriers and critical-budget startup have separate exact results. These
+An exact three-module construction now sustains critical readiness after cold
+warmup without robustly reaching its unique minimizing state; two modules
+cannot show this separation in the stated domain. Working manuscript sources
+are available. Final PDF and committed-snapshot verification await recovery
+from an execution-environment disconnect. These
 are theorems in an idealized instantaneous-handoff model; publication novelty
 remains **unestablished**. There is no validated implementation, external proof
 review, or submission-ready paper. See [STATUS.md](STATUS.md).
@@ -16,6 +20,8 @@ review, or submission-ready paper. See [STATUS.md](STATUS.md).
 
 | Reading goal | Entry point |
 |---|---|
+| Read the working paper | [Editable manuscript and recovery status](paper/README.md) |
+| Understand the new startup separation | [Critical viability](research/2026-09-22-pass15-critical-viability.md) and [two-module boundary](research/2026-09-22-pass15-two-module-boundary.md) |
 | Read the strongest current result | [Unequal-decay concentration](research/2026-09-22-pass11-unequal-decay.md) and [explicit frontier](research/2026-09-22-pass12-unequal-frontier.md) |
 | Check the all-state scheduling foundation | [Fixed-loss seriality](research/2026-09-22-pass9-partial-states.md), [smooth extension and attained upkeep](research/2026-09-22-pass9-smooth-partial.md) |
 | Separate paid initialization and cold startup | [Rate barriers and upkeep floor](research/2026-09-22-pass13-barriers-startup.md), [critical-budget criterion and counterexamples](research/2026-09-22-pass14-critical-startup.md) |
@@ -30,7 +36,7 @@ review, or submission-ready paper. See [STATUS.md](STATUS.md).
 | Change the invalidation law | [State-dependent erosion and serial dominance](research/2026-09-22-state-dependent-loss.md) |
 | Read the explicit continuous upkeep frontier | [Homogeneous proportional readiness](research/2026-09-22-proportional-readiness.md) |
 | See the assumption that changes the conclusion | [Proportional-invalidation countermodel, section 8](checkpoints/active-2026-09-22/NOTE.md#8-assumption-stress-test-a-smooth-alternative-removes-the-staircase) |
-| Check overlap with established research | [Latest concentration audit](research/2026-09-22-pass11-prior-art.md), [full-state contribution assessment](research/2026-09-22-pass9-assessment.md), [earlier coupled-scheduling audit](research/2026-09-22-pass6-prior-art.md), [source reductions](research/2026-09-22-literature-audit.md), and [dissipativity reduction](research/2026-09-22-dissipativity.md) |
+| Check overlap with established research | [Focused assessment](research/2026-09-22-pass15-assessment.md), [Latest concentration audit](research/2026-09-22-pass11-prior-art.md), [full-state contribution assessment](research/2026-09-22-pass9-assessment.md), [earlier coupled-scheduling audit](research/2026-09-22-pass6-prior-art.md), [source reductions](research/2026-09-22-literature-audit.md), and [dissipativity reduction](research/2026-09-22-dissipativity.md) |
 | Audit the proof boundaries | [Internal proof audit](research/2026-09-22-proof-audit.md) and [referee-style assessment](research/2026-09-22-referee-assessment.md) |
 | Understand the earlier benchmark | [Passive commitments](checkpoints/passive-2026-09-22/NOTE.md) |
 | Reproduce the finite checks | Run `python verify.py` from the repository root |
@@ -186,6 +192,7 @@ python -B analysis/verify_handoff.py
 python -B analysis/verify_partial_states.py
 python -B analysis/verify_proportional.py
 python -B analysis/verify_unequal_proportional.py
+python -B analysis/verify_critical_viability.py
 ```
 
 The root runner checks checkpoint hashes, runs both original verifiers in temporary directories, and compares their complete reports with the archived reports. It writes `build/verification.json` without modifying the checkpoints. It refuses optimized Python because the original verifiers use assertions.
@@ -220,6 +227,13 @@ optimization and reconstructs the returned preparation and exit witnesses. The
 exact algebraic and rate-barrier certificates from floating DP/permutation
 comparisons. Those numerical comparisons are a reference check, not certified
 transcendental deadline decisions.
+
+The new viability verifier checks the exact startup construction and its
+interval certificate, with floating checks separately labeled. Its original
+local run passed before the environment disconnected. The recovered source
+checkpoint requires a rerun; the original new JSON report and PDF could not be
+retrieved. See [the recovery record](research/2026-09-22-continuation-pass15-16.md)
+and [CURRENT.md](work_orders/CURRENT.md) for the remaining checks.
 
 ## Provenance and license
 

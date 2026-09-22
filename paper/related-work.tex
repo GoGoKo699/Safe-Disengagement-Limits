@@ -1,0 +1,127 @@
+% Source inspection records: research/2026-09-22-pass11-prior-art.md and
+% research/2026-09-22-pass15-assessment.md. Glazebrook 1992/1993 were inspected
+% at abstract/metadata level only; no theorem-level separation is asserted.
+\section{Related work and interpretation}
+\label{sec:related}
+
+\subsection{Deteriorating work and initial preparation}
+
+Scheduling with deterioration already asks when delaying or interrupting a
+job increases the work required to complete it. Glazebrook
+\cite{Glazebrook1992,Glazebrook1993} studies sufficient conditions for
+nonpreemptive or permutation policies in stochastic deterioration models.
+A more directly inspectable repair-state formulation is given by Gehlot,
+Sundaram, and Ukkusuri \cite{GehlotSundaramUkkusuri2020}. In their discrete
+model, the selected component gains a fixed repair increment, other components
+lose fixed health increments, and both failure and full repair are absorbing.
+Their Theorem~1 removes preemptions when each deterioration increment is at
+least the corresponding repair increment. Its proof postpones a partially
+repaired component and compares the resulting service durations. Their
+subsequent model incorporates precedence constraints and a finite deadline
+\cite{GehlotSundaramUkkusuri2020Interdependent}.
+
+Our supporting serial reduction uses the same broad idea that service moved
+later suffers less deterioration. Its hypotheses differ: zero preparation is
+recoverable, controls are continuous and divisible, loss depends on current
+preparation, and completed modules may increase available capacity. We do not
+present nonpreemption under deterioration as a new general principle. The
+main optimization here concerns the \emph{initial preparation vector} and its
+ongoing maintenance cost, after an exact exit-time characterization has been
+established.
+
+Controllable-processing-time scheduling is consequently another essential
+comparison. Shioura, Shakhlevich, and Strusevich
+\cite{ShiouraShakhlevichStrusevich2015} minimize linear compression cost under
+a common deadline and develop algorithms for linear optimization over a
+box-constrained submodular region. Their Section~3.1, Theorem~2, states the
+standard greedy rule that contains our common-decay fixed-order optimization.
+Indeed, if an order has deadline inequality
+\[
+ A_\pi-\sum_r w_r p_{\pi_r}\leq X,
+ \qquad \sum_r w_rM_{\pi_r}=A_\pi-1,
+\]
+then the substitution $y_r=w_r(M_{\pi_r}-p_{\pi_r})$ gives
+\[
+ \max\sum_r\frac{\gamma}{w_r}y_r,
+ \qquad 0\leq y_r\leq w_rM_{\pi_r},
+ \qquad \sum_r y_r\leq X-1.
+\]
+Thus one-partial-coordinate existence in this specialization is ordinary
+linear allocation. The strict ordering of the model's weights supplies the
+additional preparation-prefix property. Taking a finite minimum over orders
+does not change the attribution of the fixed-order optimization.
+
+Wei, Wang, and Ji \cite{WeiWangJi2012} combine start-time deterioration with
+controllable processing times of the form $a_j+bt-\theta u_j$. Their
+Section~3 expands a prescribed order's completion time into a weighted affine
+function of resource allocations. For identical module sizes $M$, common
+decay $\gamma$, and zero releases, our serial recurrence becomes their
+recurrence after setting $D=s-\gamma M>0$, $z=e^{\gamma t}-1$,
+$b=\gamma M/D$, $a_j=\gamma M/D$, $\theta=\gamma/D$, and $u_j=p_j$.
+This is an exact restricted timing correspondence; their formulation assumes
+nonpreemption and optimizes weighted scheduling and resource costs.
+
+Nonlinear resource dependence alone also does not distinguish the present
+problem. Li, Wang, and Wang \cite{LiWangWang2015} consider durations
+$((a_j/u_j)^k+bt)r^\alpha$ and derive optimal investment and sequencing from
+separable convex resource terms and rearrangement. Our initial preparation
+instead interacts with waiting through
+\[
+ \tau_i(t,p;b)=\frac{1}{\gamma_i}
+ \log\frac{b-\gamma_i p e^{-\gamma_i t}}{b-\gamma_iM_i}.
+\]
+The mixed derivative with respect to $t$ and $p$ is strictly positive, whereas
+their duration is additively separable in start time and investment. Directly
+identifying their resource variable with initial preparation therefore does
+not give this model.
+
+The unequal-rate concentration theorem is the structural question beyond
+these fixed-order correspondences. Its deadline-preserving pair exchange
+excludes two interior coordinates even without a common affine clock. The
+cost coefficients are the decay coefficients themselves, rather than arbitrary
+investment prices. Nonnegative capacity release preserves the exchange; the
+result also includes zero releases. The quadratic-loss example identifies a
+boundary of this particular concentration property, while leaving seriality
+intact. It is not a claim that nonlinear resource models generally concentrate
+investment.
+
+\subsection{Maintenance, service, and initialization}
+
+The passage from minimum maintenance to long-run optional throughput is a
+storage argument. With $Q=\sum_i p_i$, a ready trajectory under maximum loss
+satisfies $\dot Q\leq s-u-C(H)$. Integrating and using bounded storage gives
+the average-throughput bound. This is the established connection between a
+storage inequality and optimal steady operation discussed by Faulwasser
+et al.\ \cite{FaulwasserEtAl2017}. We prove the particular reflected-system
+inequality directly; the contribution under study is the readiness geometry
+and its optimizer, not the averaging principle.
+
+The model assumes an independent receiver and an instantaneous transfer
+primitive. This is stronger than possession of a copied image. Practical
+fault-tolerant execution must preserve externally acknowledged obligations:
+Scales, Nelson, and Venkitachalam
+\cite{ScalesNelsonVenkitachalam2010}, Sections~2.2--2.3, gate external output
+on sufficient backup replay information and treat takeover separately.
+Live migration likewise distinguishes pre-copy, source suspension, remaining
+transfer, commitment, and activation \cite{ClarkEtAl2005}, Section~3.3.
+These mechanisms demonstrate why bandwidth accounting alone does not imply
+correct ownership transfer or a bounded service response.
+
+Here proportional loss is a pathwise uncertainty envelope. Randomly located
+record updates may motivate an expected proportional drift, but that
+expectation does not establish the envelope for every update history. A
+finite-delay implementation would also need an explicit contract for
+acknowledgements, in-flight information, queuing, and fencing. The results
+therefore describe perishable preparation under the stated ideal handoff
+interface, rather than an implementation-independent migration bound.
+
+Finally, maintaining an optimal state and reaching it from a cold system are
+different questions. Paid initialization makes the stationary throughput
+construction feasible whenever its maintenance fits the budget. Without that
+allowance, strict maintenance slack permits finite warmup, while equality
+requires a separate reachability analysis. The critical three-module
+construction further separates finite entry into an indefinitely ready
+trajectory from finite arrival at a stationary optimum: the former can be
+possible when the unique optimum is unreachable. No readiness guarantee is
+asserted during an unprepared warmup. This distinction is part of the service
+contract, not an adjustment to the long-run objective.

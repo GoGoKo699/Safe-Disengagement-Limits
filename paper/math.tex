@@ -1,0 +1,602 @@
+\section{Model and the readiness objective}
+\label{sec:model}
+
+Let \(N=\{1,\ldots,n\}\) be a finite collection of independent modules.
+Module \(i\) has preparation capacity \(M_i>0\) and releases source capacity
+\(a_i\geq0\) when it transfers. The initial spare source capacity is \(s\geq0\).
+Preparation \(p_i\) belongs to \([0,M_i]\). Before a removal request, no
+module transfers, and nonnegative preparation allocations \(v_i\) and
+optional work \(u\) satisfy
+\begin{equation}
+ u+\sum_{i\in N}v_i\leq s.
+ \label{eq:normal-budget}
+\end{equation}
+Following a request, optional work stops. If \(D\) is the transferred set,
+the available preparation capacity is
+\begin{equation}
+ b(D)=s+\sum_{j\in D}a_j.
+ \label{eq:released-capacity}
+\end{equation}
+A module can transfer when its preparation equals \(M_i\). Transfer is
+instantaneous, removes that module's preparation obligation, and releases
+\(a_i\) immediately. Releases and transfers have no cross-module constraints.
+
+The main structural results concern proportional losses
+\(g_i(p)=\gamma_i p\), with \(\gamma_i>0\). The scheduling reduction will be
+proved for the larger class
+\begin{equation}
+ g_i:[0,M_i]\longrightarrow[0,\infty)
+ \quad\text{nondecreasing and Lipschitz},\qquad g_i(0)=0.
+ \label{eq:smooth-class}
+\end{equation}
+Allowed actual losses are measurable and obey
+\(0\leq\rho_i(t)\leq g_i(p_i(t))\).
+The uncertainty set includes every simultaneous maximum feedback
+\(\rho_i=g_i(p_i)\); it is a product constraint on the actual states.
+Under maximum feedback, before transfer the dynamics are
+\begin{equation}
+ \dot p_i=
+ \begin{cases}
+ v_i-g_i(p_i),&0\leq p_i<M_i,\\
+ \min\{v_i-g_i(M_i),0\},&p_i=M_i.
+ \end{cases}
+ \label{eq:reflected-dynamics}
+\end{equation}
+There is no lower reflection term because \(g_i(0)=0\) and \(v_i\geq0\).
+The corresponding upper-reflected dynamics apply under smaller losses.
+
+Policies are deterministic and causal, with measurable allocations. They may
+prepare modules in parallel, interrupt preparation, and adapt to observations.
+Every guarantee below quantifies over all allowed loss histories. In
+particular, maximum feedback is an admissible adversary for every policy,
+rather than a fixed numerical loss trace shared by different trajectories.
+Scalar comparison implies that larger initial preparation and smaller losses
+cannot worsen a feasible exit strategy. Transfers can likewise be performed
+earlier without harming another module: capacity is nondecreasing and the
+modules are independent.
+
+Write \(F(p)\) for the infimum, over such policies starting at \(p\), of their
+worst-case time to transfer all modules. Infinite values are allowed. For a
+finite deadline \(H\geq0\), define the ready set and its minimum upkeep by
+\begin{equation}
+ \mathcal R_H=\{p\in\textstyle\prod_i[0,M_i]:F(p)\leq H\},
+ \qquad
+ C(H)=\min_{p\in\mathcal R_H}\sum_i g_i(p_i).
+ \label{eq:readiness-cost}
+\end{equation}
+Attainment of this minimum is established below. A uniformly ready normal
+policy must belong to \(\mathcal R_H\) at every counterfactual request time,
+after every admissible normal loss history.
+
+The model presupposes a sufficient transfer state and separately paid
+receiver resources. It does not derive a proportional loss envelope from a
+network or replication protocol. Initial preparation is paid before the
+uniform-readiness guarantee begins unless a separate warmup construction is
+given. Positive handoff latency, delayed capacity release, and interdependent
+transfers are outside these assumptions.
+
+\section{Serial exit from arbitrary preparation}
+\label{sec:seriality}
+
+A full-capacity serial schedule transfers initially full modules at time zero
+and then assigns the entire available capacity to one remaining module until
+it transfers. Its order is chosen as part of the optimization.
+
+\begin{lemma}[Postponing scalar input]
+\label{lemma:postponement}
+Extend a function \(g\) satisfying \eqref{eq:smooth-class} constantly beyond
+\(M\). Consider the uncapped equation \(y'=v-g(y)\) with the same initial
+condition under nonnegative bounded measurable inputs \(v_{\rm old}\) and
+\(v_{\rm new}\). If
+\[
+ D(t)=\int_0^t(v_{\rm new}-v_{\rm old})(r)\,dr\leq0
+ \quad(0\leq t\leq T),\qquad D(T)=0,
+\]
+then \(y_{\rm new}(T)\geq y_{\rm old}(T)\).
+\end{lemma}
+\begin{proof}
+Both solutions remain nonnegative. Set \(z=y_{\rm new}-y_{\rm old}\) and
+\[
+ \alpha(t)=
+ \begin{cases}
+ \dfrac{g(y_{\rm new}(t))-g(y_{\rm old}(t))}{z(t)},&z(t)\ne0,\\
+ 0,&z(t)=0.
+ \end{cases}
+\]
+Monotonicity and Lipschitz continuity give
+\(0\leq\alpha(t)\leq\operatorname{Lip}(g)\) almost everywhere. Thus
+\(z'=v_{\rm new}-v_{\rm old}-\alpha z\), and variation of constants gives
+\[
+ z(T)=\int_0^T k(t)D'(t)\,dt,\qquad
+ k(t)=\exp\left(-\int_t^T\alpha(r)\,dr\right).
+\]
+Since \(k'=\alpha k\geq0\), integration by parts yields
+\(z(T)=-\int_0^T k'(t)D(t)\,dt\geq0\).
+\end{proof}
+
+The uncapped equation is only a comparison device. In a constructed physical
+schedule, transfer a module at its first hit of \(M\) and omit its subsequent
+planned allocations. This increases available capacity. A module that has
+not hit \(M\) agrees with its uncapped comparison trajectory.
+
+\begin{theorem}[Arbitrary-state seriality]
+\label{thm:seriality}
+Under \eqref{eq:smooth-class}, every finite feasible maximum-loss exit schedule
+can be replaced by a full-capacity serial schedule whose final completion is
+no later. Consequently, if \(F(p)<\infty\), an optimizing serial order attains
+the robust value \(F(p)\). The optimum is attained among finitely many orders.
+No preservation of an arbitrary schedule's completion order is asserted.
+\end{theorem}
+\begin{proof}
+Initially full modules can transfer immediately. Let \(b\) be the resulting
+capacity, and consider the remaining subfull modules. We may likewise transfer
+every module at its first hit of its target: delaying a transfer cannot help,
+because its release is nonnegative and its remaining loss is then removed.
+If \(b=0\), none can
+increase, so no finite exit is possible. Otherwise take a finite schedule
+under maximum loss, and let \(i\) be a first module to complete, at time \(T\).
+Capacity is \(b\) before that time.
+
+A subfull module can complete at constant capacity \(b\) only if
+\(b>g_i(M_i)\). Indeed, if \(b\leq g_i(M_i)\), a root of \(b-g_i\) is an
+equilibrium barrier for the full-rate scalar equation. Lipschitz uniqueness
+prevents finite-time arrival from below or crossing of that root. Starting
+above a lower root gives nonpositive full-rate drift and cannot reach the
+larger target. Allocating less than \(b\) cannot improve this comparison.
+Conversely, \(b>g_i(M_i)\) gives a strictly positive drift throughout the
+preparation interval.
+
+The time to prepare \(i\) immediately at rate \(b\) is therefore
+\[
+ \tau=\int_{p_i(0)}^{M_i}\frac{dq}{b-g_i(q)}.
+\]
+Let \(V_i=\int_0^T v_i(t)\,dt\) in the original schedule. For
+\(W_i(p)=\int_0^p dq/(b-g_i(q))\), its trajectory satisfies
+\[
+ \frac{d}{dt}W_i(p_i(t))
+ =\frac{v_i-g_i(p_i)}{b-g_i(p_i)}
+ \leq\frac{v_i}{b},
+\]
+because \(0\leq v_i\leq b\) and \(g_i\geq0\). Integration gives
+\(V_i\geq b\tau\). If \(W\) denotes all work allocated to the other modules
+before \(T\), the shared budget gives
+\begin{equation}
+ W\leq b(T-\tau).
+ \label{eq:first-stage-work}
+\end{equation}
+
+We now postpone all those other modules' work to \([\tau,T]\), retaining
+each module's total allocation and never increasing its cumulative allocation
+before \(T\). For \(j\ne i\), let
+\(E_j=\int_0^\tau v_j(t)\,dt\). On \([\tau,T]\), retain its old allocation
+and define spare rate
+\[
+ h(t)=b-\sum_{j\ne i}v_j(t)\geq0.
+\]
+Equation \eqref{eq:first-stage-work} implies
+\[
+ \int_\tau^T h(t)\,dt
+ =b(T-\tau)-W+\sum_{j\ne i}E_j
+ \geq\sum_{j\ne i}E_j.
+\]
+Order the other modules arbitrarily and write
+\(B(t)=\int_\tau^t h(r)\,dr\). Cumulative repayment to module \(j\) is
+\[
+ A_j(t)=\min\left\{E_j,
+       \max\left\{0,B(t)-\sum_{\ell\ {\rm before}\ j}E_\ell\right\}\right\}.
+\]
+These absolutely continuous functions satisfy \(A_j(T)=E_j\) and
+\(\sum_j A_j'\leq h\) almost everywhere. Give other modules zero allocation
+before \(\tau\), and allocation \(v_j+A_j'\) afterward. Their total rate is at
+most \(b\). For each module the new cumulative input is no larger than the
+old one at every intermediate time and is equal at \(T\).
+
+Prepare \(i\) at rate \(b\) until \(\tau\) and transfer it. Its release makes
+the postponed allocations feasible. Lemma~\ref{lemma:postponement} shows that
+at \(T\) every other module has at least its original preparation, unless it
+has already completed, which is better. Stop such newly completed modules
+and omit their later planned allocations. Simultaneous original completions
+cause no difficulty: all their targets have been reached by \(T\).
+
+At \(T\) the constructed state and completed set dominate the originals.
+Replay the original suffix while omitting allocations to already completed
+modules. Scalar comparison and nondecreasing capacity preserve domination.
+The resulting schedule finishes no later than the original and has a
+full-capacity first stage. Apply the same argument to its residual schedule
+at \(\tau\). Induction on the number of remaining modules gives a serial
+schedule no slower than the original.
+
+For a fixed initial vector there are finitely many serial orders. Every
+finite stage has a unique full-rate completion time, and inaccessible orders
+are assigned infinity. The least finite order value is therefore attained.
+Any robust policy must face simultaneous maximum feedback, so its
+worst-case time is at least this value. Conversely, execute an optimizing
+order against a virtual maximum-loss trajectory. Under smaller losses,
+transfer each module no later than its virtual completion; greater
+preparation and earlier capacity release preserve the comparison for the
+remaining stages. This policy attains the same bound for every allowed loss
+history and proves the robust assertion.
+\end{proof}
+
+\begin{lemma}[Compact readiness]
+\label{lemma:compactness}
+For every finite \(H\geq0\), \(\mathcal R_H\) is nonempty and compact.
+Consequently the minimum in \eqref{eq:readiness-cost} is attained.
+\end{lemma}
+\begin{proof}
+The all-full state exits at time zero. To prove closedness without assuming
+continuity of hitting times at rate barriers, fix a permutation and
+nonnegative stage durations \(\ell_1,\ldots,\ell_n\) with
+\(\sum_r\ell_r\leq H\). During stage \(r\), allocate the full capacity of its
+completed prefix to the selected module; unserved modules decay passively.
+Require every selected module to be full at its stage endpoint. A full
+module may voluntarily wait for its specified stage, and a zero-duration
+stage is allowed when it is already full.
+
+Passive flows and fixed-capacity upper-reflected scalar flows are continuous
+in initial state and elapsed time. This follows from the Lipschitz drift
+estimate and scalar comparison; upper reflection does not increase the
+distance between ordered scalar states. Each endpoint constraint is
+therefore closed in the compact product of the preparation box and the
+duration simplex. Its projection onto the initial states is compact.
+Taking the finite union over permutations remains compact.
+
+Every projected witness is a feasible schedule, including deliberate
+delays of already full modules. Conversely, Theorem~\ref{thm:seriality}
+supplies such a witness for every state in \(\mathcal R_H\). Thus this
+projection equals the ready set, including initially full and inaccessible-rate
+boundaries. The upkeep objective is continuous, so it attains its minimum.
+\end{proof}
+
+A uniformly ready normal policy guarantees long-run optional rate \(r\) if,
+on every allowed loss history,
+\[
+ \liminf_{T\to\infty}\frac1T\int_0^T u(t)\,dt\geq r.
+\]
+The optimal guaranteed rate is the supremum of these guarantees over
+uniformly ready normal policies, allowing paid initialization.
+
+\begin{theorem}[Exact initialized upkeep]
+\label{thm:maintenance}
+With paid initialization, the maximum guaranteed long-run optional rate under
+uniform \(H\)-readiness is \(s-C(H)\) when \(C(H)\leq s\).
+If \(C(H)>s\), indefinite uniform readiness is impossible even with no
+optional work.
+\end{theorem}
+\begin{proof}
+On maximum feedback put \(Q=\sum_i p_i\). For a uniformly ready policy,
+upper reflection and \eqref{eq:normal-budget} imply, almost everywhere,
+\[
+ Q'\leq \sum_i v_i-\sum_i g_i(p_i)\leq s-u-C(H).
+\]
+Hence for every duration \(T\),
+\begin{equation}
+ \int_0^T u(t)\,dt
+ \leq [s-C(H)]T+Q(0)-Q(T).
+ \label{eq:storage-bound}
+\end{equation}
+The bounded storage term proves the asymptotic upper bound on this allowed
+history. If \(C(H)>s\), the same inequality contradicts \(u\geq0\) for
+sufficiently large \(T\).
+
+For attainment, initialize at a minimizing \(p^*\), allocate
+\(v_i=g_i(p_i^*)\), and use \(u=s-C(H)\). Under maximum loss the target is
+stationary. Under every smaller loss history scalar comparison preserves
+\(p\geq p^*\). The ready set is upward closed by the same comparison, so
+every request meets \(H\). This constant optional allocation attains the
+bound. It does not assert that the actual state is stationary under smaller
+losses, or that \(p^*\) is reachable from cold with the normal budget.
+\end{proof}
+
+\section{Concentration under unequal proportional losses}
+\label{sec:concentration}
+
+For the remainder of the core results let \(g_i(p)=\gamma_i p\), with all
+\(\gamma_i>0\), and write \(d_i=\gamma_iM_i\).
+A coordinate is \emph{partial} when \(0<p_i<M_i\).
+If a serial stage for module \(i\) begins at global time \(t_0\), has capacity
+\(b>d_i\), and the module's initial preparation was \(p_i\), its completion
+time \(t_1\) satisfies
+\begin{equation}
+ e^{\gamma_i t_1}
+ =\frac{b e^{\gamma_i t_0}-\gamma_i p_i}{b-d_i}.
+ \label{eq:proportional-stage}
+\end{equation}
+The waiting state is \(p_i e^{-\gamma_i t_0}\). A subfull module cannot
+complete at capacity \(b\leq d_i\), even if its initial preparation is
+arbitrarily close to full.
+
+\begin{theorem}[Unequal-rate concentration]
+\label{thm:concentration}
+For every \(s\geq0\) and finite \(H\geq0\), every minimizer defining \(C(H)\)
+has at most one partial coordinate. Thus a minimizing state consists of a
+fully prepared set, at most one partial module, and otherwise cold modules.
+\end{theorem}
+\begin{proof}
+Suppose a minimizing state had at least two partial coordinates. Choose an
+attaining serial schedule, transferring all initially full modules at time
+zero. Let \(j,k\) be consecutive partial modules in its remaining order.
+Every intervening module is cold. Denote the start and end of stage \(j\)
+by \(t_0,t_j\), the end of stage \(k\) by \(t_k\), and their capacities by
+\(b_j,b_k\). Put
+\[
+ D_j=b_j-\gamma_jM_j>0,\qquad
+ D_k=b_k-\gamma_kM_k>0.
+\]
+These inequalities follow from actual finite stage feasibility, without any
+assumption that the original capacity exceeds every full loss.
+
+The total duration \(L\geq0\) of the intervening cold stages is independent
+of their absolute start time and of initial preparations of \(j,k\).
+Replace \(p_j\) by \(x\), keeping all other earlier stages fixed. Equation
+\eqref{eq:proportional-stage} gives
+\[
+ t_j(x)=\frac1{\gamma_j}
+ \log\frac{b_j e^{\gamma_jt_0}-\gamma_jx}{D_j}.
+\]
+Choose the replacement \(y(x)\) for \(p_k\) to preserve its original
+completion time:
+\begin{equation}
+ \gamma_k y(x)=
+ b_k e^{\gamma_k L}
+ \left(\frac{b_j e^{\gamma_jt_0}-\gamma_jx}{D_j}\right)^{\gamma_k/\gamma_j}
+ -D_k e^{\gamma_k t_k}.
+ \label{eq:pair-compensation}
+\end{equation}
+At the original point this gives \(y=p_k\). Both coordinates are interior,
+so a two-sided open interval of small variations remains inside their
+physical bounds. Their stage durations remain positive by continuity
+(or directly by \eqref{eq:proportional-stage}). All intervening cold stages
+retain their durations. Once stage \(k\) ends, global time and the completed
+set agree with the original schedule; every later unserved module has its
+unchanged passive state at that same time. The suffix therefore reproduces
+the original final deadline.
+
+Only the selected pair's upkeep varies:
+\begin{equation}
+ c(x)=\gamma_jx+
+ b_k e^{\gamma_k L}
+ \left(\frac{b_j e^{\gamma_jt_0}-\gamma_jx}{D_j}\right)^{\gamma_k/\gamma_j}
+ -D_k e^{\gamma_k t_k}.
+ \label{eq:pair-cost}
+\end{equation}
+If \(\gamma_k<\gamma_j\), this is strictly concave on the open variation
+interval. At least one sufficiently small one-sided variation strictly
+decreases its value. If \(\gamma_k\geq\gamma_j\), differentiation gives
+\begin{equation}
+ c'(x)=\gamma_j-
+ \frac{b_k\gamma_k}{D_j}
+ e^{\gamma_k L}e^{(\gamma_k-\gamma_j)t_j(x)}<0.
+ \label{eq:pair-derivative}
+\end{equation}
+Here \(b_k\geq b_j>D_j\), the times are nonnegative, and
+\(\gamma_k\geq\gamma_j>0\). A small increase of \(x\) again strictly lowers
+upkeep while \eqref{eq:pair-compensation} keeps \(y\) interior.
+Either case contradicts minimality. This proves the assertion for every
+minimum, without an iterative exchange or an unproved endpoint limit.
+\end{proof}
+
+\begin{corollary}[A restriction on an optimizer's cold prefix]
+\label{cor:prefix}
+Suppose a minimizing state has a partial module \(k\). In any serial order
+for that state that meets deadline \(H\) and transfers its initially full
+modules at time zero, every cold module \(j\) before \(k\) satisfies
+\(\gamma_j>\gamma_k\).
+\end{corollary}
+\begin{proof}
+All modules between \(j\) and \(k\) are cold by
+Theorem~\ref{thm:concentration}. Apply the same variation at \(x=p_j=0\)
+and at the interior coordinate \(p_k\). If \(\gamma_j\leq\gamma_k\),
+\eqref{eq:pair-derivative} is strictly negative. A small positive \(x\)
+keeps \(y(x)\) interior and strictly reduces cost while preserving the
+deadline. This contradicts minimality.
+\end{proof}
+
+This is a restriction on schedules witnessing an upkeep minimum, not an
+ordering rule for arbitrary partially prepared states. In particular, equal
+coefficients force an optimizing partial coordinate to precede all cold
+modules; unequal coefficients do not. Strict positivity is also substantive:
+a zero coefficient would permit cost-free partial coordinates and invalidate
+the assertion about every minimum.
+
+\section{An explicit finite readiness frontier}
+\label{sec:frontier}
+
+We now eliminate continuous optimization over the initial preparation vector.
+All statements in this section allow \(s=0\), zero releases, and inaccessible
+initial stages. For a full set \(S\), write \(d(S)=\sum_{j\in S}d_j\).
+Define the cold-stage duration
+\begin{equation}
+ c_i(b)=
+ \begin{cases}
+ \gamma_i^{-1}\log\!\bigl(b/(b-d_i)\bigr),&b>d_i,\\
+ +\infty,&b\leq d_i.
+ \end{cases}
+ \label{eq:cold-stage}
+\end{equation}
+Let \(G(S)\) be the exact exit time after immediately transferring full
+modules \(S\), with all others cold. The serial theorem gives
+\begin{equation}
+ G(N)=0,\qquad
+ G(S)=\min_{\substack{i\notin S\\b(S)>d_i}}
+ \{c_i(b(S))+G(S\cup\{i\})\}.
+ \label{eq:cold-tail-dp}
+\end{equation}
+An empty minimum is infinity. An initially full module transfers without
+using \eqref{eq:cold-stage}, even if its putative preparation rate would be
+inaccessible.
+
+Fix the initially full set \(S\). For \(T\subseteq N\setminus S\), let
+\(L_S(T)\) be the earliest completion time for a cold prefix consisting
+precisely of \(T\). Its recurrence is
+\begin{equation}
+ \begin{split}
+ L_S(\varnothing)&=0,\\
+ L_S(T)&=\min_{\substack{j\in T\\b(S\cup(T\setminus\{j\}))>d_j}}
+ \left\{L_S(T\setminus\{j\})
+       +c_j\bigl(b(S\cup(T\setminus\{j\}))\bigr)\right\}.
+ \end{split}
+ \label{eq:cold-prefix-dp}
+\end{equation}
+Unreachable prefix states have value infinity. A waiting partial module does
+not affect these durations.
+
+Choose disjoint \(S,T\) and \(i\notin S\cup T\). Set
+\[
+ t=L_S(T),\qquad b=b(S\cup T),\qquad R=G(S\cup T\cup\{i\}).
+\]
+Consider the candidate only if \(t,R<\infty\) and \(b>d_i\).
+If module \(i\) has initial preparation \(q\), its completion after that
+prefix occurs at
+\begin{equation}
+ \Phi_i(t;q,b)=\frac1{\gamma_i}
+ \log\frac{b e^{\gamma_i t}-\gamma_i q}{b-d_i}.
+ \label{eq:partial-completion}
+\end{equation}
+For \(0\leq q\leq M_i\), this time is at least \(t\), and
+\begin{equation}
+ \frac{\partial\Phi_i}{\partial t}
+ =\frac{b e^{\gamma_i t}}{b e^{\gamma_i t}-\gamma_i q}>0.
+ \label{eq:prefix-monotonicity}
+\end{equation}
+Thus the earliest prefix is optimal even though the waiting partial
+preparation decays. The remaining cold suffix is autonomous, so its best
+duration is \(R\).
+
+Writing \([z]_+=\max\{0,z\}\), the least initial preparation for this
+displayed strategy to meet \(H\) is
+\begin{equation}
+ q_{S,T,i}(H)=
+ \frac{\left[b e^{\gamma_i t}
+       -(b-d_i)e^{\gamma_i(H-R)}\right]_+}{\gamma_i}.
+ \label{eq:frontier-candidate}
+\end{equation}
+Discard candidates with \(q_{S,T,i}(H)>M_i\); the others have cost
+\(K_{S,T,i}(H)=d(S)+\gamma_i q_{S,T,i}(H)\).
+The endpoint \(q=0\) is cold. The endpoint \(q=M_i\), when the formula is
+defined, is a feasible schedule that voluntarily delays a full module.
+A full state at \(b\leq d_i\) is represented by adding \(i\) to the initial
+full set, never by interpreting a singular partial-stage formula.
+
+\begin{theorem}[Unequal-rate frontier]
+\label{thm:frontier}
+For every finite \(H\geq0\),
+\begin{equation}
+ C(H)=\min\left(
+ \{d(S):G(S)\leq H\}
+ \ \cup\
+ \{K_{S,T,i}(H):(S,T,i)\text{ is an eligible candidate}\}
+ \right).
+ \label{eq:explicit-frontier}
+\end{equation}
+Eligibility is exactly the finite-prefix, finite-suffix, strict-stage, and
+preparation-box conditions above. The formula supplies an attaining initial
+state and request schedule. It can be evaluated with
+\(O(n3^n)\) real scalar evaluations and comparisons and \(O(2^n)\) working
+storage, besides output certificates.
+\end{theorem}
+\begin{proof}
+Every candidate is feasible by its displayed serial construction. Pure
+full/cold candidates are feasible by \eqref{eq:cold-tail-dp}; the all-full
+set is always one of them. Their costs therefore cannot be below \(C(H)\).
+
+Conversely choose an attained minimum. By
+Theorem~\ref{thm:concentration}, it has a full set \(S\) and at most one
+partial coordinate. A state without a partial coordinate is already in the
+first family. Otherwise let \(i\) be its partial coordinate and choose an
+attaining serial order after immediately transferring \(S\). Its other
+modules form a cold prefix \(T\) and a cold suffix. Every actual stage is
+accessible. Replace the prefix by \eqref{eq:cold-prefix-dp} and the suffix
+by \eqref{eq:cold-tail-dp}. Equation \eqref{eq:prefix-monotonicity} shows that
+the earlier prefix cannot hurt; the shorter cold suffix cannot hurt either.
+Finally reduce initial preparation of \(i\) to
+\eqref{eq:frontier-candidate} if necessary. This gives a listed feasible
+candidate with no greater cost. Equality follows.
+
+The cold-tail table has \(O(n2^n)\) transitions. Across all full sets \(S\),
+there are \(3^n\) disjoint pairs \((S,T)\). The total number of prefix
+transitions is \(n3^{n-1}\), and the number of distinguished partial positions
+has the same bound. Evaluate one full set's prefix table at a time and retain
+only the best candidate, together with the global cold-tail table.
+This uses \(O(2^n)\) working storage; an attaining order can be reconstructed
+by storing or recomputing the selected prefix certificate.
+\end{proof}
+
+The bound counts evaluations and comparisons of real logarithmic and
+exponential expressions. It is not a polynomial-time result, a rational-field
+bound, or a certified bit-complexity claim. Floating implementations need
+explicit comparison tolerances or interval certificates at eligibility
+boundaries. Corollary~\ref{cor:prefix} permits pruning prefixes containing
+\(\gamma_j\leq\gamma_i\), but the unpruned formula is already exact.
+Equation \eqref{eq:explicit-frontier} also gives
+\(C(0)=\sum_i d_i\), and \(C(H)=0\) exactly when \(G(\varnothing)\leq H\).
+
+\begin{corollary}[Common coefficient]
+\label{cor:common-rate}
+If all coefficients equal \(\gamma>0\), only empty cold prefixes are needed
+in \eqref{eq:explicit-frontier}. The evaluation count reduces to
+\(O(n2^n)\). For rational model parameters and rational
+\(X=e^{\gamma H}\), all operations can be performed exactly in the rational
+field.
+\end{corollary}
+\begin{proof}
+Corollary~\ref{cor:prefix} excludes a cold predecessor of an optimizing
+partial module. Put \(P(S)=e^{\gamma G(S)}\), with infinite values retained.
+Then \(P(N)=1\), and accessible transitions obey
+\[
+ P(S)=\min_{\substack{i\notin S\\b(S)>d_i}}
+       \frac{b(S)}{b(S)-d_i}P(S\cup\{i\}).
+\]
+For an empty-prefix candidate the required preparation becomes
+\[
+ \frac1\gamma
+ \left[b(S)-(b(S)-d_i)\frac{X}{P(S\cup\{i\})}\right]_+.
+\]
+Keep the same accessibility and box tests and the full/cold candidates
+\(P(S)\leq X\). These are rational expressions and comparisons under the
+stated arithmetic assumptions. Rational \(H\) alone does not make \(X\)
+rational.
+\end{proof}
+
+\begin{proposition}[A cold prefix can improve the global optimum]
+\label{prop:cold-prefix}
+With unequal coefficients, restricting an optimizing partial module to the
+first nonfull position can strictly increase the minimum upkeep, already for
+two modules with every initial cold stage accessible.
+\end{proposition}
+\begin{proof}
+Take \(s=1\), \(H=\log3\), and
+\[
+ (M_A,a_A,\gamma_A)=(1/2,3/10,1),\qquad
+ (M_B,a_B,\gamma_B)=(1/2,1/10,1/2).
+\]
+For a state with only the indicated coordinate partial, the four
+order/coordinate choices require upkeep
+\[
+\begin{array}{c|c|c}
+ \text{partial coordinate}&\text{order}&\text{required upkeep}\\ \hline
+ A&AB&29/1352\\
+ B&AB&(26\sqrt2-21\sqrt3)/20\\
+ B&BA&1-\tfrac34\sqrt{18/11}\\
+ A&BA&7/45.
+\end{array}
+\]
+These follow directly from \eqref{eq:frontier-candidate}. For example,
+cold A takes \(\log2\), after which B has capacity \(13/10\);
+cold B takes \(2\log(4/3)\), after which A has capacity \(11/10\).
+The second cost is positive and rationalizes to
+\[
+ C_*=\frac{29}{20(26\sqrt2+21\sqrt3)}<\frac{29}{1352}.
+\]
+For the strict inequality use \(\sqrt2>7/5\), \(\sqrt3>17/10\).
+Also \(\sqrt{18/11}<13/10\), so the third cost exceeds
+\(1/40>29/1352\); the fourth is larger as well. Every initially full
+module costs at least \(1/4\). The all-cold orders miss the deadline because
+their exponentiated durations are \(1352/441>3\) and \(88/27>3\).
+
+Concentration and seriality make these comparisons exhaustive. Hence the
+global minimum is \(C_*\), attained with
+\(p_A=0\), \(p_B=(26\sqrt2-21\sqrt3)/10\), and cold A before partial B.
+The best partial-first candidate costs \(29/1352>C_*\).
+\end{proof}
+

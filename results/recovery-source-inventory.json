@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "purpose": "Emergency source preservation following environment_offline; not an execution-tested snapshot",
+  "base_commit": "bb1e34f41338745c88ae486d493a053c658fb3d1",
+  "base_tree": "4e207d02e421e98f3ffebe34647b6104c37a1ad6",
+  "preserved_license_blob": "e17a781bf47c4aadf18b68fc593846a1193b86c1",
+  "source_entries_excluding_this_inventory": [
+    {
+      "path": "paper/main.tex",
+      "sha": "8005fe3374b382a427b4e13a31cc98b19533eb83",
+      "bytes": 8826,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "paper/build.py",
+      "sha": "e0213987a6d4d9bb572ee743fd44abdf22f708f9",
+      "bytes": 1197,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "README.md",
+      "sha": "ea3cfcf91e1ddc2d025edf19a5c592b5806a4f25",
+      "bytes": 17745,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "STATUS.md",
+      "sha": "1c044808771c98c54e4cb2f2a0f19a6db66653d0",
+      "bytes": 15976,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "paper/README.md",
+      "sha": "e6b6e09db086da27e531154adfda5726d3335377",
+      "bytes": 2628,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "work_orders/archive/015-critical-viability.md",
+      "sha": "339f29b61dca62b0712b5cc08efbf035eebfbc0b",
+      "bytes": 6289,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "work_orders/archive/016-focused-manuscript.md",
+      "sha": "4e1dde91b1ca2b8d85312c27cbd623929c5249c3",
+      "bytes": 2341,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "work_orders/CURRENT.md",
+      "sha": "f82b537d5295f9d117511a2b6fc4a7c442563e10",
+      "bytes": 5037,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "research/2026-09-22-continuation-pass15-16.md",
+      "sha": "9c73494bd4eeb0131e6f880cbee7c81cd2ad29a3",
+      "bytes": 7014,
+      "provenance": "Parent-authored recovery text or recovered source; canonical Git hash calculated"
+    },
+    {
+      "path": "analysis/verify_critical_viability.py",
+      "sha": "2acceb7eb212d88d6f7f88a0d84543705855189c",
+      "bytes": 11040,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "research/2026-09-22-pass15-critical-viability.md",
+      "sha": "0a8f695d6dea587894a2f0f2dbd09cb9ef28ab50",
+      "bytes": 14963,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "paper/boundaries.tex",
+      "sha": "db5dc5bdd467a56741101ce9c7e63f9a08de685e",
+      "bytes": 9887,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "research/2026-09-22-pass15-meaning.md",
+      "sha": "106344487a84e2e1c9fae18d616f6ae82d21a34d",
+      "bytes": 13805,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "research/2026-09-22-pass16-manuscript-review.md",
+      "sha": "89f6df3564f607315cb2272ec2e5eab215b4554c",
+      "bytes": 4696,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "research/2026-09-22-pass15-two-module-boundary.md",
+      "sha": "f774da20a6b74a9aae3a2ff427a7ba88b17fb05f",
+      "bytes": 9668,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "paper/math.tex",
+      "sha": "5278195b6bc00c30461c24e06f031f70e025c235",
+      "bytes": 26470,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "research/2026-09-22-pass15-assessment.md",
+      "sha": "e45eff19a554f5ee9f3181cbcdbfe73c0da10e11",
+      "bytes": 18899,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "paper/related-work.tex",
+      "sha": "08e0bc29b6d883b8420ba14c13d9bba082262216",
+      "bytes": 7329,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    },
+    {
+      "path": "paper/references.bib",
+      "sha": "1dce77bc2b556ad529ccce5ed2271271ec2d5c95",
+      "bytes": 4342,
+      "provenance": "Recovered authored content; read back and canonical Git hash verified"
+    }
+  ],
+  "static_manuscript_check": {
+    "labels": 41,
+    "duplicateLabels": [],
+    "missingReferences": [],
+    "bibliographyEntries": 10,
+    "missingCitations": []
+  },
+  "original_pre_interruption_checks": {
+    "verifier_suites_passed": 8,
+    "research_reports_byte_identical": 7,
+    "first_completed_pdf_pages": 16,
+    "first_completed_pdf_bytes": 375116,
+    "visual_pdf_inspection_completed": false,
+    "committed_snapshot_execution_completed": false
+  },
+  "unavailable_original_artifacts": [
+    "paper/manuscript.pdf",
+    "results/critical-viability-verification.json"
+  ],
+  "required_after_recovery": [
+    "Reconcile original workspace without overwriting uncommitted work",
+    "Run all suites from actual published sources",
+    "Regenerate and review new report",
+    "Compile final sources and inspect rendered pages",
+    "Commit artifacts and run verification from that exact commit"
+  ],
+  "outside_actions": {
+    "submission": false,
+    "outreach": false,
+    "spending": false,
+    "formal_release": false
+  }
+}

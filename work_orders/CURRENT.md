@@ -1,18 +1,48 @@
-# Pass 15: critical ready-region viability and the focused paper claim
+# Continue pass 16: verify the recovered research checkpoint, then assess contribution
 
-22 September 2026. Passes 11–14 are recorded in
-`research/2026-09-22-continuation-pass11-14.md`; their original orders are
-preserved in `archive/011...014`. This order starts after a coherent research
-checkpoint, not after a declaration of novelty or submission readiness.
+22 September 2026. Start from the actual current branch. Never reset to a
+historical provenance commit or overwrite uncommitted work.
+
+## What happened
+
+Pass 15 proved critical convergence, found a three-module counterexample to
+fixed-target startup necessity, and proved the two-module boundary. A complete
+working paper was authored, internally audited and compiled to 16 pages.
+All eight local verifier suites passed; all seven research reports matched.
+
+The execution environment disconnected during PDF inspection, before a local
+commit. The sources were preserved through GitHub from recorded authored
+content. The compiled PDF and new critical-viability JSON could not be retrieved.
+This recovery commit is not claimed to be an execution-tested snapshot.
+Read research/2026-09-22-continuation-pass15-16.md before resuming.
 
 ## Exact restart
 
-Use the actual current branch. Never reset to a provenance SHA.
+Read WORKSPACE.md from the actual current branch first, then AGENTS.md,
+README.md, STATUS.md, the pass-15 full proofs, assessment, meaning note,
+pass-16 manuscript review, and paper/README.md. Preserve all old local files:
+they may contain the original PDF and report when the runtime reconnects.
 
 ```sh
 git status --short --branch
 git fetch origin
 git rev-parse HEAD origin/main
+```
+
+If the original checkout contains unreconciled work, create a fresh detached
+worktree at the current fetched head, using an unused directory:
+
+```sh
+git worktree add --detach ../SDL-recovery-verify origin/main
+cd ../SDL-recovery-verify
+```
+
+Do not delete, reset, or blindly replace the original working tree. Compare
+its authored content with the preserved source files when it becomes available.
+
+## Complete the artifact and verification gate
+
+```sh
 python verify.py
 python -B analysis/verify_heterogeneous.py
 cmp build/heterogeneous-verification.json results/heterogeneous-verification.json
@@ -26,85 +56,46 @@ python -B analysis/verify_proportional.py
 cmp build/proportional-frontier-verification.json results/proportional-frontier-verification.json
 python -B analysis/verify_unequal_proportional.py
 cmp build/unequal-proportional-verification.json results/unequal-proportional-verification.json
+python -B analysis/verify_critical_viability.py
+python paper/build.py
+pdftoppm -r 100 -png paper/manuscript.pdf build/paper/page
+pdftotext -layout paper/manuscript.pdf build/paper/manuscript.txt
 ```
 
-Read WORKSPACE.md first, then AGENTS.md, README.md, STATUS.md, the latest
-continuation record, complete pass-11 concentration and source-audit notes,
-pass-12 frontier, pass-13 barriers, and pass-14 critical startup. Revisit the
-full pass-9 smooth proof when using all-policy seriality or compactness.
-Read pass-6 interface/drain and pass-8 pipeline notes before asserting any
-operational interpretation. Historical checkpoints remain immutable.
+Review the new viability report, exact/floating scope and source reconstruction.
+If the old local report is recovered, compare the full bytes. Preserve any
+difference instead of changing expected output to conceal it. Once checked,
+track results/critical-viability-verification.json and add its byte comparison.
+Inspect every rendered PDF page and cite/link the actual resulting artifact.
 
-## Surviving mathematical package
+Verify the final source wording: measurable loss histories; transfers normalized
+to first hit; prefix corollary applies to orders meeting H; optional-rate
+guarantee uses each history's liminf time average; startup impossibility is
+robust, not a claim about benign histories. The all-budget common-gamma rational
+corollary is analytic; do not imply the old reference solver implements it.
 
-Every upkeep minimizer under positive proportional loss has at most one
-partial module, even with unequal coefficients and inaccessible initial rates.
-An optimal cold prefix before a partial module uses only larger decay
-coefficients. The explicit general frontier requires O(n*3^n) real scalar
-evaluations, while common decay retains its exact rational transformed-deadline
-specialization. A quadratic-loss counterexample marks a genuine boundary.
+Keep original LICENSE blob e17a781bf47c4aadf18b68fc593846a1193b86c1 and checkpoint
+trees unchanged. Commit, rerun from an archive of that exact commit, reconcile
+the current remote, publish non-forced, and verify the resulting tree.
 
-Threshold closure decides whether finite exit is possible and yields an exact
-upkeep floor attained at a finite deadline. A blocked cold system cannot reach
-any ready state through finite normal warmup. With C(H)<s, a finite warmup is
-constructive. At C(H)=s, a specified concentrated target with one partial
-coordinate is reachable exactly when some full coordinate has a larger gamma;
-a nonzero pure-full critical target is unreachable. Exact positive-deadline
-models show both possible answers for sustainable critical startup.
+## Next scientific task after recovery
 
-## First task: do fixed-target tests settle full-region startup?
+Continue without treating artifact recovery as completion of the mandate.
+Use the actual paper to address its strongest concrete referee objection:
 
-Work within the same model, with cold exit finite and C(H)=s>0. A guarantee
-begins after a finite normal-budget warmup; no module transfers during normal
-operation. Determine whether indefinite robust H-readiness can be entered
-from cold only if some minimizing concentrated target passes the pass-14 test.
-The test is sufficient. Its necessity for the entire ready region is not proved.
+- Conduct one bounded theorem-level comparison with an accessible nonlinear
+  controllable-work / initial-investment fixed-deadline result. Use the source
+  leads in the pass-15 assessment, avoid repeating blocked endpoints, and
+  record exact feasible-set, objective, policy and quantifier mappings.
+  A reduction supersedes the novelty claim; incomplete access establishes
+  neither equivalence nor absence.
+- Refine the ideal standby-service interpretation against the free independent
+  premaintenance and early-activation alternatives identified in the meaning
+  note. Produce an assumption-to-conclusion map for the paper. Do not exclude
+  an admissible alternative merely to preserve a positive lower bound.
+- Reassess the focused claim. If prior work absorbs it or its ideal meaning is
+  too weak, record that finding and choose a justified S1 revision. Do not add
+  parameters merely to defer the decision.
 
-1. Start with two modules. Enumerate the exact serial deadline regions and
-   distinguish reaching one ready state from entering a forward viable region.
-   Preserve any counterexample in exact or analytically certified form.
-2. A useful intermediate proof target: on the maximal-loss history, an
-   indefinitely ready critical trajectory has Q nonincreasing and finite
-   integral of the excess upkeep sum(gamma_i*p_i)-s. Uniform Lipschitz bounds
-   may force upkeep to s. Concentration makes the minimizing set finite
-   (each full set and partial identity determine its amount at fixed cost).
-   Check whether the trajectory must converge to one minimum. Convergence
-   alone does not prove finite domination or reachability of that target.
-3. If all minimizing targets fail the fixed-target test, either prove an
-   invariant separating every cold-reachable viable trajectory from the ready
-   region, or find a trajectory approaching an unreachable target while
-   remaining ready. Do not assume stationary policies exhaust this question.
-4. Stop extending startup if it contributes only technical volume. Record the
-   exact remaining obstruction and return to the main concentration claim.
-
-## Parallel contribution and source decision
-
-The focused candidate is the unequal-rate concentration exchange plus its
-explicit frontier and nonlinear failure. The common-rate fixed-order problem
-is standard box-constrained linear allocation after the proven transform.
-The latest audit has actual full-section comparisons with Shioura et al.,
-Wei et al., and Gehlot et al. Their precise limitations are recorded; they do
-not certify absence of an earlier unequal-rate theorem.
-
-Compare the candidate with initial-investment/controllable-work results under
-nonlinear deterioration, with maintenance weights tied to decay. Avoid
-repeating inaccessible Glazebrook endpoints indefinitely. An accessible
-predecessor would narrow the claim; an abstract alone cannot settle it.
-Do not claim a new nonpreemption principle, subset method, or averaging law.
-
-Make an explicit referee-style decision about a working manuscript around one
-surviving claim. Explain the mathematical information gained, its ideal-model
-meaning, and the exact unresolved attribution risk. Do not assemble a paper
-merely to collect pass notes, nor defer all conceptual assessment by adding
-more parameters. Submission readiness still requires the mandate's full
-correctness, meaning, attribution, manuscript/PDF, and assessment criteria.
-
-## Continuity and authority
-
-Run every suite and byte comparison from a committed archive, not only the
-working tree. Confirm original LICENSE/checkpoint contents and the actual
-remote parent before a non-forced update. Verify the published tree equals the
-tested tree and preserve concurrent work. The unequal-rate reference code uses
-floating deadline comparisons and must not be described as a certified exact
-solver. Ordinary research commits/pushes are authorized; outside contact,
-spending, submission, and formal release require separate approval.
+Archive each completed order and update status and continuity before the next
+pass. No outreach, submission, spending, or formal release is authorized.

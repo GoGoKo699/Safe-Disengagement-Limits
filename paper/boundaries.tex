@@ -1,0 +1,235 @@
+\section{Boundaries of concentration and initialization}
+\label{sec:boundaries}
+
+The concentration theorem identifies the shape of a minimum-cost ready
+state. Two separations delimit that statement. Nonlinear loss can make
+distributed initial preparation strictly cheaper than every concentrated
+state. Even under proportional loss, entering a sustainable ready regime
+need not entail reaching any minimum-cost state in finite time.
+
+\subsection{Smooth nonlinear loss can defeat concentration}
+\label{sec:nonlinear-boundary}
+
+Replace the proportional envelope by
+$0\leq\rho_i(t)\leq g_i(p_i(t))$, keeping the other service, capacity,
+and transfer assumptions unchanged. The next example uses identical
+nonnegative, nondecreasing Lipschitz functions with $g_i(0)=0$.
+
+\begin{proposition}[Nonlinear separation]
+\label{prop:quadratic-failure}
+For two identical modules with
+\[
+ M_1=M_2=1,\qquad a_1=a_2=\frac1{100},\qquad s=10,
+ \qquad g_i(p)=p^2,\qquad H=\frac{23}{500},
+\]
+the ready state $(4/5,4/5)$ has maintenance cost $32/25$, while every
+concentrated ready state has strictly larger cost.
+\end{proposition}
+
+\begin{proof}
+Prepare module 1 at rate ten. Its loss is at most one, so its preparation
+time is at most $1/45$. During that interval module 2 loses at most
+$(16/25)/45$ and retains at least $884/1125$. After the first transfer,
+capacity is $1001/100$ and the second module's net growth is at least
+$901/100$. Its remaining deficit is at most $241/1125$. Hence the serial
+policy's total time is at most
+\[
+ \frac1{45}+\frac{964}{40545}
+ =\frac{373}{8109}<\frac{23}{500},
+ \qquad
+ \frac{23}{500}-\frac{373}{8109}=\frac7{4054500}>0.
+\]
+These are robust upper bounds, not exact quadratic traversal times.
+Maintenance allocations $16/25$ to each coordinate preserve this target
+under every allowed loss history.
+
+For the converse, a concentrated state with no full module has total
+initial preparation at most one. Transfers preserve the sum of completed
+work and unfinished preparation, and nonnegative loss cannot increase it.
+At least one additional unit of useful work is therefore necessary. Before
+the last transfer, capacity is at most $1001/100$, whereas the deadline
+permits at most
+\[
+ \frac{1001}{100}\frac{23}{500}
+ =\frac{23023}{50000}<1
+\]
+units of allocated work. Such a state cannot be ready, under any schedule.
+
+If one module is full and the other has preparation $r$, the same work
+bound requires
+\[
+ r\geq 1-\frac{23023}{50000}=\frac{26977}{50000}.
+\]
+Its maintenance consequently satisfies
+\[
+ 1+r^2-\frac{32}{25}
+ \geq \frac{27758529}{2500000000}>0.
+\]
+Both modules full cost two. These cases exhaust concentrated states and
+prove the claim.
+\end{proof}
+
+Thus smoothness, monotonicity, positive releases, and ample initial
+capacity do not suffice for concentration. The proportional assumption is
+substantive; equality of the proportional coefficients is not. The example
+does not compute the nonlinear minimum itself.
+
+\subsection{Critical readiness converges without necessarily becoming stationary}
+\label{sec:startup-boundary}
+
+We return to positive proportional coefficients. A normal warmup starts
+from $p=0$, uses the same spare capacity $s$, and makes no transfers. A
+removal deadline need only hold after the warmup. Write
+$L(p)=\sum_i\gamma_i p_i$ and $Q(p)=\sum_i p_i$.
+
+\begin{proposition}[Critical convergence]
+\label{prop:critical-convergence}
+Suppose $C(H)=s>0$. On the simultaneous maximal-loss history, every normal
+trajectory that remains ready after a finite time $T_0$ converges to one
+minimum-cost ready state $p^*$. Moreover,
+\begin{equation}
+ \int_{T_0}^{\infty}\bigl(L(p(t))-s+u(t)\bigr)\,dt
+ \leq Q(T_0)-\lim_{t\to\infty}Q(t)<\infty.
+ \label{eq:critical-dissipation}
+\end{equation}
+Finite-time arrival at $p^*$ is not asserted.
+\end{proposition}
+
+\begin{proof}
+Reflection and the capacity constraint give
+$Q'\leq s-u-L(p)$. Readiness implies $L(p)\geq C(H)=s$, so $Q$ is
+nonincreasing and bounded below; integration proves
+\eqref{eq:critical-dissipation}. Each coordinate is uniformly Lipschitz,
+with derivative bounded in absolute value by
+$\max\{s,\gamma_iM_i\}$. The nonnegative function $L(p(t))-s$ is therefore
+uniformly Lipschitz and integrable, which forces it to tend to zero. A
+positive lower bound along infinitely many times would otherwise produce
+disjoint intervals of fixed positive area.
+
+Compactness of the ready set implies that the distance to its minimizing
+set tends to zero. That set is finite by Theorem~\ref{thm:concentration}:
+the full set and partial identity leave the partial amount uniquely
+determined by $L(p)=s$. A continuous trajectory eventually close to a
+finite set cannot switch between disjoint neighborhoods of its members.
+It therefore converges to one member.
+\end{proof}
+
+Convergence is not a reduction of startup to reaching a stationary
+minimum. The following exact construction distinguishes those tasks.
+
+\begin{theorem}[Startup without a reachable minimizing state]
+\label{thm:startup-separation}
+There is a three-module instance with positive sizes, coefficients,
+releases, and spare capacity, and with finite cold exit, such that
+$C(H)=s>0$ and its unique minimizing state cannot be robustly reached or
+dominated after any finite normal warmup from cold. Nevertheless a finite normal
+warmup enters a policy that is robustly $H$-ready at every later time.
+\end{theorem}
+
+\begin{proof}
+Take $s=1$ and
+\[
+\begin{array}{c|ccc}
+ \text{module}&M_i&\gamma_i&a_i\\ \hline
+ A&1/2&1&2\\
+ B&1&2&33\\
+ C&3&1/2&1
+\end{array}
+\qquad
+ p^*=(1/2,1/4,0),\qquad
+ H=\tfrac12\log(5/2)+2\log(24/23).
+\]
+The target costs one. Transferring A immediately supplies rate three;
+B then takes $\tfrac12\log(5/2)$. Its release supplies rate 36, so cold C
+takes $2\log(24/23)$. Hence $p^*$ is ready.
+
+We first certify that it is the unique minimum. The exact comparison
+\begin{equation}
+ H<\tfrac12\log3<\log2
+ \label{eq:startup-deadline-comparison}
+\end{equation}
+follows from $5\cdot24^4=1658880<1679046=6\cdot23^4$.
+Every minimizing state costs at most one and is concentrated by
+Theorem~\ref{thm:concentration}. Neither B nor C can be full at that cost.
+The remaining cases are exhaustive:
+\begin{enumerate}
+\item If A is subfull, it must complete first: subfull B and C cannot
+complete at initial rate one, below their full loss rates two and $3/2$.
+Cold A itself takes $\log2>H$. If A is partial, concentration makes B and C
+cold; after A, their possible next stages take respectively
+$\tfrac12\log3$ and $2\log2$, each exceeding $H$.
+\item If A is full and B is the possible partial coordinate, cold C first
+takes $2\log2>H$. B must precede C, giving total time
+$\tfrac12\log(3-2p_B)+2\log(24/23)$. Readiness requires $p_B\geq1/4$,
+while the cost bound $1/2+2p_B\leq1$ requires $p_B\leq1/4$.
+\item If A is full and C is the possible partial coordinate, cost at most
+one requires $p_C\leq1$. Cold B first already exceeds $H$. C first takes
+at least $2\log(5/3)>\tfrac12\log3>H$, using $625>243$.
+\end{enumerate}
+Thus $C(H)=1$ and $p^*$ is its sole minimizer. The pure full/cold cases are
+included by zero partial preparation. Seriality makes this an all-policy
+certificate. Cold exit is finite in order A, B, C, with time
+$\log2+\tfrac12\log3+2\log(24/23)$.
+
+Next, no finite normal warmup can reach or dominate $p^*$ robustly.
+On maximal loss, define $Z=p_A+p_B-3/4$. Every normal policy satisfies
+\[
+ Z'\leq1-p_A-2p_B=-2Z+(p_A-1/2)\leq-2Z.
+\]
+Starting cold gives $Z(t)\leq-(3/4)e^{-2t}<0$. Domination of $p^*$ would
+instead require $Z\geq0$. Allocating to C cannot evade this support-budget
+bound.
+
+Finally, construct a different normal policy. Allocate $(0,0,1)$ for
+$2\log2$, reaching the virtual maximal-loss state $(0,0,1)$. Thereafter
+allocate $(1/2,1/2,0)$ forever. At elapsed time $t$ after the first phase,
+put $x=e^{-t/2}$. The virtual state is
+\begin{equation}
+ p_A=\tfrac12(1-x^2),\qquad
+ p_B=\tfrac14(1-x^4),\qquad p_C=x.
+ \label{eq:startup-trajectory}
+\end{equation}
+For a request from this state, use order A, B, C. Its first two completion
+times obey
+\[
+ e^{t_A}=1+x^2,\qquad
+ e^{2t_{AB}}=Y(x):=\tfrac52+6x^2+\tfrac72x^4.
+\]
+The final completion time $T$ satisfies
+\[
+ e^{T/2}=\frac{72Y(x)^{1/4}-x}{69},\qquad
+ e^{H/2}=\frac{72(5/2)^{1/4}}{69}.
+\]
+Concavity of the fourth root yields, for $0<x\leq1/128$,
+\begin{align*}
+ 72\bigl(Y(x)^{1/4}-(5/2)^{1/4}\bigr)
+ &\leq \frac{18}{(5/2)^{3/4}}\left(6x^2+\tfrac72x^4\right)\\
+ &<108x^2+63x^4\\
+ &\leq x\left(\frac{108}{128}+\frac{63}{128^3}\right)<x.
+\end{align*}
+Consequently $T<H$ for every finite request time after a total warmup of
+$2\log2+14\log2=16\log2$. Every allocation uses the original normal
+budget, and no module transfers before a request.
+
+Under smaller allowed losses, scalar comparison keeps actual preparation
+at least the virtual state. Readiness is upward closed, and the request
+schedule can only improve. Thus the construction gives the claimed robust
+guarantee, not only a maximal-loss trajectory calculation.
+\end{proof}
+
+Along \eqref{eq:startup-trajectory}, after readiness begins,
+\[
+ L(p)=1+\tfrac12x-\tfrac12x^2-\tfrac12x^4>1,\qquad
+ Q(p)=\tfrac34+x-\tfrac12x^2-\tfrac14x^4\downarrow\tfrac34.
+\]
+All three coordinates remain partial at every finite time. The positive
+preparation in C decays more slowly than the deficits in A and B, and its
+request-time benefit offsets those deficits. Its total excess maintenance
+is finite, consistent with Proposition~\ref{prop:critical-convergence}.
+Concentration classifies minimizing states; it does not prohibit these
+nonstationary ready states of strictly higher instantaneous maintenance.
+
+The separation preserves the initialization distinction in the model. A
+paid minimum is sufficient for the recurring frontier, while a finite
+normal warmup may enter readiness through a different trajectory. Neither
+construction supplies the removal guarantee before its stated entry time.

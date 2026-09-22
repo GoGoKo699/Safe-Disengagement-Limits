@@ -1,8 +1,8 @@
 # Research status
 
-**22 September 2026 — lead workspace research, passes 1–14.**
+**22 September 2026 — lead workspace research, passes 1–15; working manuscript pass 16.**
 Latest continuation started from `main` at
-`6400737695eba9091389859724f783e03d8c1e8f`.
+`bb1e34f41338745c88ae486d493a053c658fb3d1`.
 
 ## Decision
 
@@ -37,8 +37,23 @@ finite-update upkeep calculation reduces exactly to a standard sporadic task,
 and the frozen-copy allowance is established migration practice. These are
 useful corrections and benchmarks, not replacement novelty claims.
 
-No submission readiness, complete manuscript, formal release, external review,
-or engineering validation is asserted.
+A complete working manuscript was authored and compiled locally to 16 pages.
+Its [editable sources](paper/README.md) are preserved in this recovery checkpoint.
+The execution environment disconnected during final PDF inspection, before
+a local commit. The PDF and new verification report could not be retrieved.
+Source files were recovered from recorded authored content through the
+repository connection; a committed-snapshot rerun and a fresh PDF build/visual
+check remain mandatory. No submission readiness, formal release, external
+review, or engineering validation is asserted.
+
+Pass 15 resolves critical ready-region startup. Every indefinitely ready
+maximal-loss trajectory at C(H)=s converges to one minimum, but three modules
+can sustain readiness after finite cold warmup even when that unique minimum
+cannot be robustly reached or dominated. The proposed fixed-target necessity
+is false. The companion proof establishes its validity for at most two modules
+in the finite-cold-exit domain. A conditional standby-resource interpretation
+is explicit; its early-activation and independent-resource restrictions still
+need a justified application class.
 
 ## Claim ledger
 
@@ -72,6 +87,10 @@ or engineering validation is asserted.
 | I5 | A sufficiently loose deadline always removes upkeep | False; minimum successful-seed cost is the exact eventual floor, attained at a finite deadline |
 | I6 | C(H)=s settles finite cold-start feasibility | False; exact reachable and unreachable positive-deadline examples, with cold exit finite in both |
 | I7 | Nonzero critical concentrated target can be reached from cold | Exact fixed-target criterion: with one partial coordinate, some full coordinate must decay faster; pure-full critical targets are unreachable |
+| I8 | Critical viable trajectories converge to one upkeep minimum | Proved by dissipation, Lipschitz continuity, compactness, and finiteness of the minimizing set |
+| I9 | Indefinite critical readiness after cold warmup requires a reachable optimum | False with three modules: unique unreachable optimum, finite warmup and uniform deadline certificate; true with at most two modules in the stated domain |
+| M1 | Focused working manuscript exists | Complete editable sources and internal proof audit; pre-interruption compile succeeded, recovered-source build and visual check pending |
+| V3 | Recovery checkpoint is execution-verified | No: original working-tree suites passed before disconnect; preserved text must be rerun from the published tree |
 | L1 | Adding drain time to the old serial recurrence remains optimal | False; exact two-module optimum `3` versus `10/3` |
 | L2 | Overlapping drains restore uninterrupted-preparation optimality | False; exact three-module optimum `37/9` versus best uninterrupted `38/9` |
 | L3 | Fixed-loss upkeep reduction survives independent residual drains | Proved using actually deadline-feasible subsets; the new oracle is not solved; no feasible state below `max ell_i` |
@@ -115,8 +134,16 @@ or engineering validation is asserted.
 11. [Rate barriers and initialization](research/2026-09-22-pass13-barriers-startup.md),
     then [critical-budget startup](research/2026-09-22-pass14-critical-startup.md).
 
-[The latest continuation record](research/2026-09-22-continuation-pass11-14.md)
-records this session; the [earlier record](research/2026-09-22-continuation-record.md)
+12. [Critical viability](research/2026-09-22-pass15-critical-viability.md),
+    [two-module boundary](research/2026-09-22-pass15-two-module-boundary.md),
+    [focused assessment](research/2026-09-22-pass15-assessment.md), and
+    [operational meaning](research/2026-09-22-pass15-meaning.md).
+13. [Working manuscript sources](paper/README.md) and
+    [internal manuscript audit](research/2026-09-22-pass16-manuscript-review.md).
+
+[The latest continuation record](research/2026-09-22-continuation-pass15-16.md)
+records passes 15–16 and the execution interruption;
+[passes 11–14](research/2026-09-22-continuation-pass11-14.md) remain recorded; the [earlier record](research/2026-09-22-continuation-record.md)
 preserves passes 6–10 and their decisions.
 
 The original license and both dated checkpoints remain unchanged. Current
@@ -138,6 +165,8 @@ python -B analysis/verify_proportional.py
 cmp build/proportional-frontier-verification.json results/proportional-frontier-verification.json
 python -B analysis/verify_unequal_proportional.py
 cmp build/unequal-proportional-verification.json results/unequal-proportional-verification.json
+python -B analysis/verify_critical_viability.py
+python paper/build.py
 ```
 
 Exact fixed-rate checks include 640 heterogeneous models, 3,592 DP/permutation
@@ -148,12 +177,17 @@ floating evaluations of logarithms/exponentials and reports tolerances.
 Counts are not independent experiments. The continuous-time theorems rest on
 the written proofs; no verification run establishes novelty or an application.
 
+The original new viability suite also passed and its report reproduced before
+interruption. That report is not included here because its bytes were
+inaccessible. Regenerate and review it, then track it and add its byte
+comparison. Do not call the recovered tree already execution-tested.
+
 ## Next decisive work
 
-Assess the unequal-decay concentration theorem against the closest investment
-and deterioration results. Resolve the gap between reaching one critical target
-and entering an indefinitely viable deadline-ready trajectory from cold. The
-finite-state interface is now explicit enough to expose consequential control
-restrictions; it still does not validate instantaneous safe handoff. Do not begin
-a manuscript merely to package accumulated lemmas. [CURRENT.md](work_orders/CURRENT.md)
-contains exact restart commands, source gates, and the next concrete decision.
+Complete pass 16 from the preserved sources: rerun all suites from the actual
+published tree, regenerate the missing viability report, build and visually
+inspect the PDF, and verify the committed artifact. Then assess the focused
+manuscript against a concrete prior-art or ideal-interface objection.
+Critical full-region startup is now a preserved counterexample, not an open
+equivalence. Do not expand parameters merely to accumulate results.
+[CURRENT.md](work_orders/CURRENT.md) gives exact restart commands.

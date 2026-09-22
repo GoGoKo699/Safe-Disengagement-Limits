@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\allowdisplaybreaks[1]
+\title{Concentrating perishable preparation for deadline readiness}
+\author{Ruge Lin}
+\date{22 September 2026\\[4pt]\small Working research draft}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Preparation for a future handoff can deteriorate before it is used. We study
+how to distribute such preparation across independent modules when a shared
+source must be removable within a fixed deadline after any request. Module
+$i$ has bounded preparation $p_i$, proportional deterioration $\gamma_i p_i$,
+and releases a nonnegative source reservation after an instantaneous
+independent transfer. We prove that every deadline-feasible state minimizing
+total maintenance $\sum_i\gamma_i p_i$ has at most one partially prepared
+module. The coefficients may differ, and some modules may initially be
+inaccessible at the available preparation rate. A supporting serial reduction
+covers arbitrary measurable, parallel, and preemptive allocations. The
+concentration theorem yields an explicit finite frontier using
+$O(n3^n)$ real scalar evaluations; unequal coefficients can require cold
+modules before the partial module. Exact counterexamples delimit the result:
+quadratic deterioration can require multiple partial modules, and finite
+cold startup can sustain critical readiness without reaching its unique
+minimum-maintenance state. The results concern an ideal transfer interface;
+they do not by themselves validate a replication protocol or establish
+publication priority over all controllable-work scheduling results.
+\end{abstract}
+
+\noindent\textbf{Development status.}
+This is a working draft for mathematical and contribution review.
+Its proofs have received internal adversarial checks and its exact examples
+have small local verification scripts. External review, a validated service
+implementation, and a settled novelty assessment are outstanding. No
+submission or formal release is represented by this draft. The execution
+environment disconnected after a successful 16-page compilation; the
+recovered source checkpoint requires a fresh build and visual inspection.
+
+\section{Introduction}
+
+A system that must relinquish control on request can spend resources in
+advance to make that request easier to satisfy. If preparation loses value
+while waiting, this creates a recurring cost even when the request never
+arrives. The allocation question is concrete: should the system maintain
+many partly prepared modules, or concentrate preparation into a few complete
+modules? A deadline on the eventual exit couples that choice to the order
+and timing of work performed after the request.
+
+We formulate this question for independent modules under a deliberately
+explicit interface. A module transfers when its preparation reaches a fixed
+threshold; transfer is instantaneous, removes dependence on the source, and
+releases a prescribed nonnegative source reservation. Receiver resources are
+provided independently. Before a request, a fixed spare budget is shared by
+preparation and optional work, and no transfer occurs. After a request,
+optional work stops and released reservations can accelerate the remaining
+preparation. Loss may follow any path within a specified state-dependent
+envelope, including simultaneous maximum loss. The source cooperates during
+the allowed exit interval: sudden source failure is a different problem.
+
+The main result concerns positive proportional loss, with a possibly
+different coefficient for each module. Every state minimizing the
+maintenance needed to meet a given deadline has all but at most one of its
+coordinates at an endpoint. This conclusion is stronger than existence of a
+concentrated optimizer. It holds without assuming that the initial source
+budget exceeds each module's full-maintenance rate. The proof varies two
+partial coordinates while keeping an attaining exit schedule's later
+completion time fixed. A strict concavity or strict monotonicity alternative
+rules out both coordinates being interior. The argument uses the particular
+maintenance prices supplied by deterioration; it does not extend without
+proof to arbitrary investment prices.
+
+This structure reduces a continuous initial-state optimization to a finite
+description: a full subset, a cold prefix, at most one partial module, and a
+cold suffix. The corresponding subset recurrences give the exact mathematical
+frontier with an exponential real-evaluation bound. A cold prefix is
+substantive when coefficients differ: an explicit example has a smaller
+global maintenance optimum than any partial-first policy. The reference
+floating implementation is an aid to inspection, not a certified oracle
+for transcendental comparisons.
+
+Two boundaries clarify what the theorem says. First, monotone smooth
+deterioration still permits serial exit schedules but need not concentrate
+the minimizing initial state. A rational quadratic-loss example separates a
+two-partial feasible state from every concentrated state. Second, a minimum
+maintenance value characterizes initialized long-run performance, but does
+not by itself decide cold startup. At exact budget equality, a three-module
+trajectory can remain ready indefinitely after finite warmup while converging
+to a unique stationary optimum that no finite cold warmup can robustly reach or
+dominate. Its finite reserve pays an integrable excess maintenance cost.
+
+These questions connect to established deteriorating-work scheduling,
+controllable processing times, linear resource allocation, and storage
+inequalities. In particular, common-rate fixed-order concentration has a
+standard linear-allocation interpretation, and nonpreemption under
+deterioration is an established research topic. Section~\ref{sec:related}
+states the inspected correspondences. The contribution being assessed is the
+unequal-rate minimum-maintenance structure and its precise limits in this
+model, rather than a general new law of controller removal.
+
+\input{math}
+\input{boundaries}
+\input{related-work}
+
+\section{Verification and remaining questions}
+
+The analytical proofs carry the claims over continuous time and arbitrary
+admissible policies. The accompanying repository preserves small
+standard-library verification scripts for exact inequalities, finite
+subset-versus-permutation comparisons, and explicitly labeled floating
+identity checks. The quadratic and critical-startup certificates use rational
+inequalities and closed-form expressions; no large simulation or empirical
+fit enters their proofs. Verification counts are not independent experiments,
+and successful runs do not establish model applicability or novelty.
+
+Several questions remain separate from the proved structural result. The
+closest older stochastic-deterioration results have not all been inspected
+at theorem-and-proof level, so the present comparisons do not establish
+literature-wide absence of an equivalent concentration theorem. A practical
+service interpretation must justify the entire admissible interface, including
+why normal operation cannot use receiver resources for earlier independent
+maintenance, what preparation certifies, and when source reservations can
+actually be released. A one-sided conservative loss envelope can justify a
+safe policy without making the envelope's optimum a necessary physical cost.
+
+The endpoint distinction also matters mathematically. An initially full
+module may transfer at once, whereas any strict deficit can face a finite-time
+rate barrier. Consequently small state perturbations need not produce small
+changes in the exit time at every boundary. The general cold-entry viability
+problem and certified numerical frontier evaluation are not solved here.
+These are concrete limitations of the present formulation and algorithms,
+not conclusions supplied by finite verification.
+
+\paragraph{Reproducibility.}
+Editable sources, full research derivations, inspection scopes for cited
+papers, failed conjectures, and verification commands are available in
+\url{https://github.com/GoGoKo699/Safe-Disengagement-Limits}.
+The accompanying \texttt{paper/README.md} identifies the build and review
+procedure. Historical research checkpoints are preserved unchanged.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
