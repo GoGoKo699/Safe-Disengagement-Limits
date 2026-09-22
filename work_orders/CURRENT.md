@@ -1,17 +1,17 @@
-# Pass 11: test the sharp concentration boundary and settle attribution
+# Pass 15: critical ready-region viability and the focused paper claim
 
-22 September 2026. Passes 6–10 are recorded in the continuation note; their
-original work orders are preserved in `archive/006...010`. This is the next
-research pass, not a submission-readiness declaration.
+22 September 2026. Passes 11–14 are recorded in
+`research/2026-09-22-continuation-pass11-14.md`; their original orders are
+preserved in `archive/011...014`. This order starts after a coherent research
+checkpoint, not after a declaration of novelty or submission readiness.
 
 ## Exact restart
 
-Use the actual current branch. Do not reset to any historical provenance SHA.
+Use the actual current branch. Never reset to a provenance SHA.
 
 ```sh
-git status --short
+git status --short --branch
 git fetch origin
-git log -5 --oneline
 git rev-parse HEAD origin/main
 python verify.py
 python -B analysis/verify_heterogeneous.py
@@ -24,78 +24,87 @@ python -B analysis/verify_partial_states.py
 cmp build/partial-state-verification.json results/partial-state-verification.json
 python -B analysis/verify_proportional.py
 cmp build/proportional-frontier-verification.json results/proportional-frontier-verification.json
+python -B analysis/verify_unequal_proportional.py
+cmp build/unequal-proportional-verification.json results/unequal-proportional-verification.json
 ```
 
-Read WORKSPACE.md, AGENTS.md, README.md, STATUS.md,
-`research/2026-09-22-continuation-record.md`, the full pass-9 fixed/smooth
-proofs and assessment, and the full pass-10 frontier including its nonlinear
-counterexample. Read pass-6 interface/drain and pass-8 pipeline/freeze notes
-before attaching an operational interpretation. Earlier archived proofs are
-still valid in their stated domains; current scope is given by later notes.
+Read WORKSPACE.md first, then AGENTS.md, README.md, STATUS.md, the latest
+continuation record, complete pass-11 concentration and source-audit notes,
+pass-12 frontier, pass-13 barriers, and pass-14 critical startup. Revisit the
+full pass-9 smooth proof when using all-policy seriality or compactness.
+Read pass-6 interface/drain and pass-8 pipeline notes before asserting any
+operational interpretation. Historical checkpoints remain immutable.
 
-## Central candidate and remaining gates
+## Surviving mathematical package
 
-The strongest mathematical package is now arbitrary-partial serial dominance,
-an exact forward exit algorithm, and the heterogeneous common-proportional
-concentration/frontier theorem. The storage averaging, subset DP, and
-fractional-knapsack method alone are established tools. The one-record reset
-and final-freeze benchmarks have explicit prior-art reductions and should not
-replace the central claim.
+Every upkeep minimizer under positive proportional loss has at most one
+partial module, even with unequal coefficients and inaccessible initial rates.
+An optimal cold prefix before a partial module uses only larger decay
+coefficients. The explicit general frontier requires O(n*3^n) real scalar
+evaluations, while common decay retains its exact rational transformed-deadline
+specialization. A quadratic-loss counterexample marks a genuine boundary.
 
-Two gates remain before a defensible paper can be selected: the exact relation
-to earlier deteriorating-progress permutation theorems, and whether the
-ideal instantaneous handoff captures a consequential service class. Do not
-assert novelty because the closest proofs were inaccessible. Do not infer a
-robust proportional erosion envelope from uniform-random-update expectation.
+Threshold closure decides whether finite exit is possible and yields an exact
+upkeep floor attained at a finite deadline. A blocked cold system cannot reach
+any ready state through finite normal warmup. With C(H)<s, a finite warmup is
+constructive. At C(H)=s, a specified concentrated target with one partial
+coordinate is reachable exactly when some full coordinate has a larger gamma;
+a nonzero pure-full critical target is unreachable. Exact positive-deadline
+models show both possible answers for sustainable critical startup.
 
-## First mathematical task: is common proportional decay necessary?
+## First task: do fixed-target tests settle full-region startup?
 
-Pass 10 proves concentration with common gamma. Its exact quadratic-loss
-counterexample shows that concentration fails for general monotone smooth
-loss, even for two identical modules with positive releases and ample capacity.
-It does not answer the intermediate case `g_i(p)=gamma_i*p` with unequal
-positive coefficients.
+Work within the same model, with cold exit finite and C(H)=s>0. A guarantee
+begins after a finite normal-budget warmup; no module transfers during normal
+operation. Determine whether indefinite robust H-readiness can be entered
+from cold only if some minimizing concentrated target passes the pass-14 test.
+The test is sufficient. Its necessity for the entire ready region is not proved.
 
-1. Start with two modules, keeping `s>max_i gamma_i*M_i`. For each serial
-   order derive the exact deadline constraint from the pass-9 stage formula.
-   Eliminate one initial preparation and examine the resulting one-variable
-   maintenance objective, including clipping and all initially full cases.
-2. Prove concentration in this smallest case or produce an exact counterexample.
-   Only then test three modules with small rational instances and analytically
-   certified inequalities. Numerical optimization alone does not prove a
-   negative or global optimum.
-3. If concentration extends, identify the replacement for the common-gamma
-   affine-weight proof and state the resulting algorithm's actual strength.
-   If it fails, preserve the smallest useful witness. Do not add parameters
-   merely to advertise heterogeneity as novelty.
+1. Start with two modules. Enumerate the exact serial deadline regions and
+   distinguish reaching one ready state from entering a forward viable region.
+   Preserve any counterexample in exact or analytically certified form.
+2. A useful intermediate proof target: on the maximal-loss history, an
+   indefinitely ready critical trajectory has Q nonincreasing and finite
+   integral of the excess upkeep sum(gamma_i*p_i)-s. Uniform Lipschitz bounds
+   may force upkeep to s. Concentration makes the minimizing set finite
+   (each full set and partial identity determine its amount at fixed cost).
+   Check whether the trajectory must converge to one minimum. Convergence
+   alone does not prove finite domination or reachability of that target.
+3. If all minimizing targets fail the fixed-target test, either prove an
+   invariant separating every cold-reachable viable trajectory from the ready
+   region, or find a trajectory approaching an unreachable target while
+   remaining ready. Do not assume stationary policies exhaust this question.
+4. Stop extending startup if it contributes only technical volume. Record the
+   exact remaining obstruction and return to the main concentration claim.
 
-## Parallel attribution task, with bounded retrieval
+## Parallel contribution and source decision
 
-The closest outstanding full texts are Glazebrook (1992), NRL 39(5):613–633,
-and Glazebrook (1993), JAP 30(1):184–193, DOI `10.2307/3214631`.
-Previous legitimate publisher/author/repository searches reached abstracts
-and references, not their full proofs. Reuse the source records; do not repeat
-failed endpoints indefinitely or purchase/contact anyone without authorization.
+The focused candidate is the unequal-rate concentration exchange plus its
+explicit frontier and nonlinear failure. The common-rate fixed-order problem
+is standard box-constrained linear allocation after the proven transform.
+The latest audit has actual full-section comparisons with Shioura et al.,
+Wei et al., and Gehlot et al. Their precise limitations are recorded; they do
+not certify absence of an earlier unequal-rate theorem.
 
-If a legitimate accessible copy becomes available, compare its actual
-hypotheses and proof with: initial partial progress, arbitrary fractional
-service, input-postponement dominance, completion-induced capacity gains or
-remaining-work contractions, inaccessible stages, and pathwise deadline
-attainment. Determine whether S1 is a direct corollary, a modest extension, or
-has a substantive unmatched result. The concentration/frontier claim also
-needs its own model-level comparison; calling its final LP fractional knapsack
-neither establishes nor defeats that entire claim.
+Compare the candidate with initial-investment/controllable-work results under
+nonlinear deterioration, with maintenance weights tied to decay. Avoid
+repeating inaccessible Glazebrook endpoints indefinitely. An accessible
+predecessor would narrow the claim; an abstract alone cannot settle it.
+Do not claim a new nonpreemption principle, subset method, or averaging law.
 
-## Decision after this pass
+Make an explicit referee-style decision about a working manuscript around one
+surviving claim. Explain the mathematical information gained, its ideal-model
+meaning, and the exact unresolved attribution risk. Do not assemble a paper
+merely to collect pass notes, nor defer all conceptual assessment by adding
+more parameters. Submission readiness still requires the mandate's full
+correctness, meaning, attribution, manuscript/PDF, and assessment criteria.
 
-Choose one theorem-led claim and explicitly assess what it teaches beyond the
-closest inspected results. Preserve failed extensions and reductions. A working
-manuscript becomes justified only around a surviving, meaningful claim with
-honest attribution; a submission package additionally needs resolved material
-proof/novelty gaps, a checked manuscript/PDF, references, and referee assessment.
-No current record asserts that these gates have passed.
+## Continuity and authority
 
-Keep LICENSE and both checkpoint directories unchanged, preserve concurrent
-work, and verify an actual committed tree before reporting completion. Ordinary
-research commits/pushes remain authorized. Outreach, submission, spending, and
-formal release remain outside this authorization.
+Run every suite and byte comparison from a committed archive, not only the
+working tree. Confirm original LICENSE/checkpoint contents and the actual
+remote parent before a non-forced update. Verify the published tree equals the
+tested tree and preserve concurrent work. The unequal-rate reference code uses
+floating deadline comparisons and must not be described as a certified exact
+solver. Ordinary research commits/pushes are authorized; outside contact,
+spending, submission, and formal release require separate approval.

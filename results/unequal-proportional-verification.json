@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Finite numerical comparisons against independent permutation/bisection search and exact common-gamma rational LP references; exact pair/global-prefix fixtures, closure/seed comparisons, floating plateau identities and critical-startup fixture identities. Not a proof of concentration, all-policy optimization, certified floating endpoint decisions, or novelty.",
+  "domain": {
+    "numerical_models": "16 deterministic models with n=1..4, including a=0, s=0, initial rate barriers and unequal gamma; deadlines 0,1/4,1,3,10 plus the cold-prefix fixture at log(3)",
+    "common_gamma": "n=1..4, gamma in {1/2,1/3}, unequal M and a including zero release, s=max(gamma*M)+1; rational transformed deadline X in {1,5/4,2,4,10}",
+    "exact_fixtures": "Two-coordinate monotonic/concave exchanges, a cold-boundary exchange, and the two-module global cold-prefix example",
+    "closure_and_seeds": "Every subset of the 16 numerical models plus one two-module equality-seed example; all remaining permutations; three floating deadline probes at/above each computed minimum-seed plateau time",
+    "critical_startup": "The two specified pass14 two-module fixtures; exact warmup phase identities and one strict-slack predecessor"
+  },
+  "numerical_arithmetic": {
+    "method": "Python binary64 log/exp; 60-step independent bisections",
+    "comparison_tolerance": 2e-09,
+    "solver_admission_tolerance": 1e-10,
+    "maximum_independent_cost_scaled_error": 5.868952480350723e-16,
+    "maximum_common_gamma_cost_scaled_error": 2.220446049250313e-16,
+    "maximum_recounted_deadline_excess": 1.6653345369377348e-16,
+    "certified": false
+  },
+  "exact_arithmetic": "fractions.Fraction for eligibility, common-gamma LP references and stated algebraic comparison certificates",
+  "counts": {
+    "numerical_frontier_comparisons": 80,
+    "independent_complete_orders": 1165,
+    "independent_partial_position_minimizations": 814,
+    "exact_barrier_structure_checks": 3,
+    "exact_common_gamma_permutation_LPs": 332,
+    "common_gamma_exact_reference_comparisons": 40,
+    "exact_pair_endpoint_identities": 10,
+    "exact_global_cold_prefix_certificates": 1,
+    "invalid_input_rejections": 11,
+    "exact_accessible_permutation_checks": 237,
+    "exact_closure_subset_comparisons": 100,
+    "exact_seed_barrier_inequalities": 19,
+    "exact_seed_equality_singletons": 4,
+    "floating_seed_plateau_probes": 51,
+    "critical_startup_float_frontier_checks": 2,
+    "exact_critical_startup_fixtures": 2,
+    "exact_warmup_phase_identities": 6
+  },
+  "examples": {
+    "pair_algebra": {
+      "increasing_coefficient_pair": "Exact decreasing-cost equal-endpoint identities with gamma=(1,2)",
+      "decreasing_coefficient_pair": {
+        "gamma": [
+          "2",
+          "1"
+        ],
+        "strict_midpoint_concavity_gap": "12/10001"
+      }
+    },
+    "global_cold_prefix": {
+      "parameters": {
+        "s": "1",
+        "A": {
+          "M": "1/2",
+          "a": "3/10",
+          "gamma": "1"
+        },
+        "B": {
+          "M": "1/2",
+          "a": "1/10",
+          "gamma": "1/2"
+        },
+        "H": "log(3)"
+      },
+      "global_upkeep_algebraic": "29/[20*(26*sqrt(2)+21*sqrt(3))]",
+      "floating_upkeep": 0.01982428313770234,
+      "attaining_order": [
+        0,
+        1
+      ],
+      "partial_index": 1,
+      "strict_comparison": "Optimum < 29/1442 < 29/1352, while every partial-first candidate costs at least 29/1352; ready states cost >= 1/4 and the cold state misses H.",
+      "scope": "The rational inequalities certify the displayed algebraic comparisons; the numerical solver output itself is not a certified transcendental endpoint decision."
+    },
+    "accessibility_and_seed_plateau": {
+      "maximum_floating_plateau_scaled_error": 0.0,
+      "equality_fixture": {
+        "s": "1",
+        "modules": [
+          {
+            "M": "1",
+            "a": "2",
+            "gamma": "1"
+          },
+          {
+            "M": "1",
+            "a": "0",
+            "gamma": "2"
+          }
+        ],
+        "minimum_seed_cost": "1",
+        "plateau_start": "log(3)/2",
+        "cold_start_obstruction": "Normal full-rate equilibria are M_A and M_B/2; the first is approached only asymptotically and the second is below target."
+      },
+      "scope": "Closure, accessibility and seed comparisons use exact rational arithmetic. Plateau endpoint values are floating consistency checks, not certified transcendental comparisons."
+    },
+    "critical_startup": {
+      "reachable_critical_case": {
+        "s": "1",
+        "modules": [
+          {
+            "M": "2/5",
+            "a": "1",
+            "gamma": "2"
+          },
+          {
+            "M": "1",
+            "a": "1/10",
+            "gamma": "1"
+          }
+        ],
+        "H": "log(9/5)",
+        "exact_upkeep": "1",
+        "target": [
+          "2/5",
+          "1/5"
+        ],
+        "warmup": [
+          {
+            "allocation": [
+              "3/5",
+              "2/5"
+            ],
+            "duration": "log(10)",
+            "end_state": [
+              "297/1000",
+              "9/25"
+            ]
+          },
+          {
+            "allocation": [
+              "1",
+              "0"
+            ],
+            "duration": "log(203/100)/2",
+            "end_state": [
+              "2/5",
+              "18/(5*sqrt(203))"
+            ]
+          }
+        ],
+        "predecessor_alternative": {
+          "state": [
+            "89/250",
+            "6/25"
+          ],
+          "upkeep": "119/125",
+          "full_A_interval": "log(6/5)",
+          "end_state": [
+            "2/5",
+            "1/5"
+          ]
+        }
+      },
+      "unreachable_critical_case": {
+        "s": "1",
+        "M": [
+          "3/4",
+          "3/4"
+        ],
+        "gamma": [
+          "1",
+          "1"
+        ],
+        "a": [
+          "1",
+          "1"
+        ],
+        "H": "log(7/5)",
+        "exact_upkeep": "1",
+        "analytic_obstruction": "Every ready state's total preparation is at least1, while cold normal Q(t)<=1-exp(-t)<1 for every finite t."
+      },
+      "scope": "Checks displayed rational/exponential identities and numerical frontier values. Global optimality and finite-time impossibility rely on the written proofs; no readiness guarantee is asserted during warmup."
+    }
+  }
+}

@@ -4,14 +4,22 @@
 
 Theory-first research on cooperative, bounded-time handover to an independent fallback. The controller obeys the removal request; the difficulty is keeping essential service running after it leaves. This project studies resource accounting, not an agent's incentive to resist shutdown.
 
-**Research status:** serial optimality is now proved from arbitrary partial preparation for fixed and monotone smooth loss. A heterogeneous proportional-loss subclass has an explicit upkeep frontier and an exact rational algorithm in transformed deadline coordinates. Interface counterexamples and primary-source reductions constrain these claims; publication novelty remains **unestablished**. There is no validated implementation, external proof review, or submission-ready paper. See [STATUS.md](STATUS.md).
+**Research status:** every upkeep-minimizing state has at most one partial
+module under unequal positive proportional loss, even with inaccessible initial
+rates. An explicit frontier accounts for cold modules before that partial module.
+Rate barriers and critical-budget startup have separate exact results. These
+are theorems in an idealized instantaneous-handoff model; publication novelty
+remains **unestablished**. There is no validated implementation, external proof
+review, or submission-ready paper. See [STATUS.md](STATUS.md).
 
 ## Start here
 
 | Reading goal | Entry point |
 |---|---|
-| Read the strongest current result | [Full-state fixed-loss seriality and algorithm](research/2026-09-22-pass9-partial-states.md), [smooth extension and attained upkeep](research/2026-09-22-pass9-smooth-partial.md) |
-| Compute heterogeneous proportional upkeep | [Concentration theorem and exact transformed-deadline frontier](research/2026-09-22-pass10-proportional-frontier.md) |
+| Read the strongest current result | [Unequal-decay concentration](research/2026-09-22-pass11-unequal-decay.md) and [explicit frontier](research/2026-09-22-pass12-unequal-frontier.md) |
+| Check the all-state scheduling foundation | [Fixed-loss seriality](research/2026-09-22-pass9-partial-states.md), [smooth extension and attained upkeep](research/2026-09-22-pass9-smooth-partial.md) |
+| Separate paid initialization and cold startup | [Rate barriers and upkeep floor](research/2026-09-22-pass13-barriers-startup.md), [critical-budget criterion and counterexamples](research/2026-09-22-pass14-critical-startup.md) |
+| Compute the common-decay rational specialization | [Concentration theorem and exact transformed-deadline frontier](research/2026-09-22-pass10-proportional-frontier.md) |
 | Understand the latest interface findings | [Acknowledged obligations and positive delay](research/2026-09-22-pass6-interface.md), [pipeline policy limits](research/2026-09-22-pass8-pipeline-policy.md) |
 | See what delayed capacity release changes | [Exact overlap/preemption counterexamples and surviving upkeep reduction](research/2026-09-22-pass6-latency.md) |
 | Account for finite updates and service slack | [Atomic-update theorem](research/2026-09-22-pass7-finite-updates.md), [bounded final freeze](research/2026-09-22-pass8-bounded-freeze.md), [sporadic-task reduction](research/2026-09-22-pass7-prior-art.md) |
@@ -22,7 +30,7 @@ Theory-first research on cooperative, bounded-time handover to an independent fa
 | Change the invalidation law | [State-dependent erosion and serial dominance](research/2026-09-22-state-dependent-loss.md) |
 | Read the explicit continuous upkeep frontier | [Homogeneous proportional readiness](research/2026-09-22-proportional-readiness.md) |
 | See the assumption that changes the conclusion | [Proportional-invalidation countermodel, section 8](checkpoints/active-2026-09-22/NOTE.md#8-assumption-stress-test-a-smooth-alternative-removes-the-staircase) |
-| Check overlap with established research | [Full-state contribution assessment](research/2026-09-22-pass9-assessment.md), [earlier coupled-scheduling audit](research/2026-09-22-pass6-prior-art.md), [source reductions](research/2026-09-22-literature-audit.md), and [dissipativity reduction](research/2026-09-22-dissipativity.md) |
+| Check overlap with established research | [Latest concentration audit](research/2026-09-22-pass11-prior-art.md), [full-state contribution assessment](research/2026-09-22-pass9-assessment.md), [earlier coupled-scheduling audit](research/2026-09-22-pass6-prior-art.md), [source reductions](research/2026-09-22-literature-audit.md), and [dissipativity reduction](research/2026-09-22-dissipativity.md) |
 | Audit the proof boundaries | [Internal proof audit](research/2026-09-22-proof-audit.md) and [referee-style assessment](research/2026-09-22-referee-assessment.md) |
 | Understand the earlier benchmark | [Passive commitments](checkpoints/passive-2026-09-22/NOTE.md) |
 | Reproduce the finite checks | Run `python verify.py` from the repository root |
@@ -42,18 +50,38 @@ suffers no greater terminal deterioration. A forward subset algorithm tracks
 elapsed time and passive decay, so partial states are included explicitly.
 
 For smooth loss, the deadline-ready set is compact. Minimum total loss over
-that set is attained and gives exact initialized recurring upkeep. With common
-proportional coefficient `gamma`, unequal sizes and releases, and
-`s>max_i gamma*M_i`, some upkeep optimizer has full modules, at most one partial
-module, and a cold remainder. The [explicit frontier](research/2026-09-22-pass10-proportional-frontier.md)
-can be queried in `O(n*2^n)` arithmetic operations; rational parameters and
-`X=exp(gamma*H)` specified rationally give exact rational results. This is an
-exponential arithmetic bound, not a polynomial-time or bit-complexity claim.
+that set is attained and gives exact initialized recurring upkeep. With
+proportional loss `gamma_i*p_i`, **every** upkeep minimizer has a full subset,
+at most one partial module, and a cold remainder. The coefficients may differ;
+the theorem permits all nonnegative source budgets and capacity releases.
+The proof varies two partial coordinates while preserving an exit schedule's
+completion time. General smooth loss does not share this property: an exact
+quadratic-loss counterexample requires multiple partial coordinates.
 
-These results retain independent instantaneous handoffs and paid initialization.
-The postponement principle is close to classical deterioration scheduling;
-the nearest full proofs remain a material novelty gate. Concentration does not
-mean that every concentrated state's best exit processes its partial module first.
+Unequal coefficients can make a cold prefix optimal before the partial module.
+The [general frontier](research/2026-09-22-pass12-unequal-frontier.md) handles
+that prefix in `O(n*3^n)` logarithmic/exponential scalar evaluations, with
+`O(2^n)` working storage. These are exponential real-evaluation counts;
+the reference implementation uses floating arithmetic with stated limitations.
+For common `gamma` and `s>max_i gamma*M_i`, the earlier
+[transformed-deadline algorithm](research/2026-09-22-pass10-proportional-frontier.md)
+uses `O(n*2^n)` arithmetic operations and exact rationals when its parameters
+and `X=exp(gamma*H)` are rational.
+
+A [rate-barrier closure](research/2026-09-22-pass13-barriers-startup.md)
+determines whether any finite exit is possible from the initially full set.
+The cheapest successful full set gives an upkeep floor reached at a finite
+deadline. If the cold state cannot exit at all, normal cold warmup cannot
+reach any deadline-ready state. Even when cold exit is finite, the equality
+`C(H)=s` does not decide startup: [exact contrasting examples](research/2026-09-22-pass14-critical-startup.md)
+and a fixed-target criterion show why the decay rates matter.
+
+These results retain independent instantaneous handoffs and paid initialization
+unless a separate warmup construction is supplied. Classical deterioration and
+controllable-processing scheduling account for several proof ingredients and
+special cases. The [current comparison](research/2026-09-22-pass11-prior-art.md)
+identifies the unequal-decay exchange as the residual candidate, without
+claiming publication priority or a demonstrated engineering implementation.
 
 ## Ready/cold fixed-loss specialization
 
@@ -157,6 +185,7 @@ python -B analysis/verify_state_dependent.py
 python -B analysis/verify_handoff.py
 python -B analysis/verify_partial_states.py
 python -B analysis/verify_proportional.py
+python -B analysis/verify_unequal_proportional.py
 ```
 
 The root runner checks checkpoint hashes, runs both original verifiers in temporary directories, and compares their complete reports with the archived reports. It writes `build/verification.json` without modifying the checkpoints. It refuses optimized Python because the original verifiers use assertions.
@@ -186,7 +215,11 @@ The [partial-state report](results/partial-state-verification.json) checks the
 forward algorithm against independent serial permutations, while separating
 rational checks from floating smooth-flow identities. The [proportional report](results/proportional-frontier-verification.json)
 checks exact transformed-deadline queries against independent per-order linear
-optimization and reconstructs the returned preparation and exit witnesses.
+optimization and reconstructs the returned preparation and exit witnesses. The
+[unequal-decay report](results/unequal-proportional-verification.json) separates
+exact algebraic and rate-barrier certificates from floating DP/permutation
+comparisons. Those numerical comparisons are a reference check, not certified
+transcendental deadline decisions.
 
 ## Provenance and license
 

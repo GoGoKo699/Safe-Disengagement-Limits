@@ -1,22 +1,33 @@
 # Research status
 
-**22 September 2026 — lead workspace research, passes 1–10.**
+**22 September 2026 — lead workspace research, passes 1–14.**
 Latest continuation started from `main` at
-`a1583cda84eddb9d1b0552358f48b5c8ccdd08b8`.
+`6400737695eba9091389859724f783e03d8c1e8f`.
 
 ## Decision
 
-Continue theorem-led research. The exit oracle now covers arbitrary partial
-preparation for fixed and monotone smooth loss. Compactness gives an attained
-heterogeneous smooth upkeep optimization, and the common proportional-coefficient
-subclass has an explicit concentration theorem and computable frontier. Cold
-startup remains distinct from paid initialized upkeep. Meaningful publication novelty
-and a validated fallback interface remain unresolved. The homogeneous clearing
-formula reduces to prior scheduling; bounded-storage averaging is established;
-even the heterogeneous serial objective belongs to an existing scheduling
-lineage. Fixed-capacity decay also reduces to ordinary workload conservation.
-These reductions narrow the possible contribution to the coupled capacity-release
-theorem, whose novelty remains unresolved against close inaccessible sources.
+The strongest current candidate is concentration of initial readiness under
+unequal positive proportional loss. Every upkeep minimizer has at most one
+partial module, for all nonnegative source budgets. A matching cold-prefix
+algorithm computes the frontier using O(n*3^n) real scalar evaluations. An exact
+counterexample proves that a cold prefix can improve the global optimum.
+The common-coefficient O(n*2^n) rational transformed-deadline algorithm remains
+a useful specialization. General nonlinear smooth loss can require multiple
+partial modules; its quadratic counterexample remains visible.
+
+Rate barriers now have an exact closure characterization and a minimum upkeep
+floor reached at a finite deadline. A blocked cold exit precludes finite normal
+warmup to any ready state; paid initialization can still support a zero-optional
+critical case. Strict maintenance slack permits finite warmup. At budget
+equality, the new fixed-target criterion and two exact examples distinguish
+reachable unequal-rate readiness from an unreachable common-rate frontier.
+
+Meaningful publication novelty and a justified operational interface remain
+unresolved. The latest source audit explicitly embeds common-decay fixed-order
+optimization into established linear resource allocation, and adds an accessible
+deteriorating-repair nonpreemption proof. The unequal-decay concentration exchange
+is the focused residual candidate. A correct new derivation is not a priority
+claim, and the closest older deterioration proofs remain partly inaccessible.
 
 The finite-record audit now separates source departure, independent
 recoverability, exact receiver freshness, and response deadlines. Delayed
@@ -53,6 +64,14 @@ or engineering validation is asserted.
 | G4 | Heterogeneous common-gamma proportional frontier | Complete concentration proof under `s>max gamma*M_i`; some optimum has at most one partial module; exact rational transformed-deadline algorithm |
 | G5 | Every concentrated state should process its partial module first | False; exact two-module multiplier counterexample retained |
 | G6 | At most one partial module suffices for all monotone smooth losses | False; exact quadratic-loss counterexample separates a two-partial state from every concentrated state |
+| G7 | Unequal proportional coefficients destroy concentration | False; every upkeep minimizer has at most one partial coordinate, including inaccessible initial rates |
+| G8 | Unequal-rate upkeep has a finite explicit frontier | Proved via full set, cold prefix, one partial module and cold tail; O(n*3^n) real evaluations, not exact rational or polynomial complexity |
+| G9 | A partial-first restriction preserves the global upkeep optimum | False for unequal rates; exact two-module log(3) separation |
+| G10 | Cold modules preceding an optimal partial module can have any decay rate | False; every such predecessor must have strictly larger gamma |
+| I4 | Partial preparation can bypass proportional finite-time rate barriers | False; finite exit is equivalent to closure of the initially full set |
+| I5 | A sufficiently loose deadline always removes upkeep | False; minimum successful-seed cost is the exact eventual floor, attained at a finite deadline |
+| I6 | C(H)=s settles finite cold-start feasibility | False; exact reachable and unreachable positive-deadline examples, with cold exit finite in both |
+| I7 | Nonzero critical concentrated target can be reached from cold | Exact fixed-target criterion: with one partial coordinate, some full coordinate must decay faster; pure-full critical targets are unreachable |
 | L1 | Adding drain time to the old serial recurrence remains optimal | False; exact two-module optimum `3` versus `10/3` |
 | L2 | Overlapping drains restore uninterrupted-preparation optimality | False; exact three-module optimum `37/9` versus best uninterrupted `38/9` |
 | L3 | Fixed-loss upkeep reduction survives independent residual drains | Proved using actually deadline-feasible subsets; the new oracle is not solved; no feasible state below `max ell_i` |
@@ -62,7 +81,7 @@ or engineering validation is asserted.
 | B1 | Permitted final freeze changes the exit/upkeep frontier | Complete restricted-protocol proof; `B=0` recovers J2, `B=L` permits zero upkeep at `H=L` |
 | B2 | B1 is optimal over all service-preserving handover protocols | Not claimed; early routing, source responses, logs, replay, and alternate information paths can change the class |
 | V1 | Both archived reports reproduce unchanged | Executed before and after new work |
-| V2 | New finite checks reproduce | Fixed-rate/startup, handoff, partial-state, and proportional-frontier reports; exact arithmetic and floating analytic checks explicitly separated |
+| V2 | New finite checks reproduce | All research reports, including unequal proportional loss and barriers; exact certificates and floating reference checks explicitly separated |
 | E1 | Copying sufficient state establishes independent essential service | Not demonstrated for an implementation; acknowledgment, independent-pipe, queue, and fence assumptions explicit |
 | E2 | Positive receiver information delay forces equal source survival time | False without accounting for independent in-flight resources and permitted response delay |
 | N1 | Current package is a meaningfully novel paper | Unresolved; current source reductions exclude several tempting claims |
@@ -90,9 +109,15 @@ or engineering validation is asserted.
    [smooth full-state theorem and compactness](research/2026-09-22-pass9-smooth-partial.md),
    and [updated contribution assessment](research/2026-09-22-pass9-assessment.md).
 9. [Heterogeneous proportional concentration and frontier](research/2026-09-22-pass10-proportional-frontier.md).
+10. [Unequal-decay concentration](research/2026-09-22-pass11-unequal-decay.md),
+    [explicit frontier and global cold-prefix separation](research/2026-09-22-pass12-unequal-frontier.md),
+    and [current primary-source audit](research/2026-09-22-pass11-prior-art.md).
+11. [Rate barriers and initialization](research/2026-09-22-pass13-barriers-startup.md),
+    then [critical-budget startup](research/2026-09-22-pass14-critical-startup.md).
 
-[The continuation record](research/2026-09-22-continuation-record.md) records
-the decisions between passes and the remaining submission-readiness gates.
+[The latest continuation record](research/2026-09-22-continuation-pass11-14.md)
+records this session; the [earlier record](research/2026-09-22-continuation-record.md)
+preserves passes 6–10 and their decisions.
 
 The original license and both dated checkpoints remain unchanged. Current
 assessments supersede candidate novelty wording in historical records.
@@ -111,6 +136,8 @@ python -B analysis/verify_partial_states.py
 cmp build/partial-state-verification.json results/partial-state-verification.json
 python -B analysis/verify_proportional.py
 cmp build/proportional-frontier-verification.json results/proportional-frontier-verification.json
+python -B analysis/verify_unequal_proportional.py
+cmp build/unequal-proportional-verification.json results/unequal-proportional-verification.json
 ```
 
 Exact fixed-rate checks include 640 heterogeneous models, 3,592 DP/permutation
@@ -123,9 +150,9 @@ the written proofs; no verification run establishes novelty or an application.
 
 ## Next decisive work
 
-Assess the full-state serial reduction and explicit proportional frontier against
-the closest scheduling theorems, and test the scope of concentration without
-claiming a new method merely from the subset or knapsack calculations. The
+Assess the unequal-decay concentration theorem against the closest investment
+and deterioration results. Resolve the gap between reaching one critical target
+and entering an indefinitely viable deadline-ready trajectory from cold. The
 finite-state interface is now explicit enough to expose consequential control
 restrictions; it still does not validate instantaneous safe handoff. Do not begin
 a manuscript merely to package accumulated lemmas. [CURRENT.md](work_orders/CURRENT.md)
