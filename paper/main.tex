@@ -1,4 +1,6 @@
 \documentclass[11pt]{article}
+% Omit pdfTeX's path-dependent identifier for reproducible archive builds.
+\pdftrailerid{}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[margin=1in]{geometry}
@@ -7,6 +9,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Concentrating perishable preparation for deadline readiness},pdfauthor={Ruge Lin}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -37,9 +40,14 @@ $O(n3^n)$ real scalar evaluations; unequal coefficients can require cold
 modules before the partial module. Exact counterexamples delimit the result:
 quadratic deterioration can require multiple partial modules, and finite
 cold startup can sustain critical readiness without reaching its unique
-minimum-maintenance state. The results concern an ideal transfer interface;
-they do not by themselves validate a replication protocol or establish
-publication priority over all controllable-work scheduling results.
+minimum-maintenance state. A request-time precision analysis proves stability
+of minimum upkeep below the available budget in the vanishing-deficit limit,
+but exhibits a nonvanishing cost jump at a critical full endpoint.
+An exchange using concave completion-time maps proves that concentration
+itself survives every feasible positive preparation tolerance.
+The results concern an ideal transfer interface;
+the structural claims concern preparation inventories and their charged
+maintenance resources, rather than a particular replication protocol.
 \end{abstract}
 
 \noindent\textbf{Development status.}
@@ -47,9 +55,7 @@ This is a working draft for mathematical and contribution review.
 Its proofs have received internal adversarial checks and its exact examples
 have small local verification scripts. External review, a validated service
 implementation, and a settled novelty assessment are outstanding. No
-submission or formal release is represented by this draft. The execution
-environment disconnected after a successful 16-page compilation; the
-recovered source checkpoint requires a fresh build and visual inspection.
+submission or formal release is represented by this draft.
 
 \section{Introduction}
 
@@ -93,7 +99,7 @@ global maintenance optimum than any partial-first policy. The reference
 floating implementation is an aid to inspection, not a certified oracle
 for transcendental comparisons.
 
-Two boundaries clarify what the theorem says. First, monotone smooth
+Several boundaries clarify what the theorem says. First, monotone smooth
 deterioration still permits serial exit schedules but need not concentrate
 the minimizing initial state. A rational quadratic-loss example separates a
 two-partial feasible state from every concentrated state. Second, a minimum
@@ -102,6 +108,20 @@ not by itself decide cold startup. At exact budget equality, a three-module
 trajectory can remain ready indefinitely after finite warmup while converging
 to a unique stationary optimum that no finite cold warmup can robustly reach or
 dominate. Its finite reserve pays an integrable excess maintenance cost.
+
+Third, exact threshold attainment can matter even when cold exit is finite.
+We require readiness after a bounded preparation shortfall revealed at the
+request and characterize the one-sided exit-time envelope. If minimum upkeep
+is strictly below the normal budget, its limiting value is unchanged and
+sufficiently small positive tolerances remain affordable. At a critical
+endpoint, however, an exact two-module example raises limiting upkeep from
+$1$ to $7/6$. This jump persists as tolerance tends to zero; it is stronger
+than the ordinary positive cost of maintaining any safety margin.
+The nominal optimizer nevertheless remains concentrated at every feasible
+positive tolerance, even with unequal decay rates. A stronger exchange proves
+this by allowing prepared modules between the two coordinates being varied.
+Thus robustness of the optimizer's structure and continuity of its cost are
+different properties.
 
 These questions connect to established deteriorating-work scheduling,
 controllable processing times, linear resource allocation, and storage
@@ -114,6 +134,7 @@ model, rather than a general new law of controller removal.
 
 \input{math}
 \input{boundaries}
+\input{precision}
 \input{related-work}
 
 \section{Verification and remaining questions}
@@ -137,11 +158,11 @@ maintenance, what preparation certifies, and when source reservations can
 actually be released. A one-sided conservative loss envelope can justify a
 safe policy without making the envelope's optimum a necessary physical cost.
 
-The endpoint distinction also matters mathematically. An initially full
-module may transfer at once, whereas any strict deficit can face a finite-time
-rate barrier. Consequently small state perturbations need not produce small
-changes in the exit time at every boundary. The general cold-entry viability
-problem and certified numerical frontier evaluation are not solved here.
+The precision results cover a one-time request deficit, rather than recurring
+normal-operation disturbances. Their concentration theorem does not supply
+an unchanged frontier algorithm: nominally full modules now require processing
+after the request. The general cold-entry viability problem and certified
+numerical frontier evaluation are also not solved here.
 These are concrete limitations of the present formulation and algorithms,
 not conclusions supplied by finite verification.
 

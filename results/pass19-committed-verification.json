@@ -1,0 +1,35 @@
+{
+  "commit": "56487a4ec63e3a0541ee30b2da30939678307d8c",
+  "tree": "45d96945fe33baf0abba77c8aae2180115cb4bec",
+  "suites": {
+    "verify.py": "PASS",
+    "analysis/verify_heterogeneous.py": "PASS",
+    "analysis/verify_state_dependent.py": "PASS",
+    "analysis/verify_handoff.py": "PASS",
+    "analysis/verify_partial_states.py": "PASS",
+    "analysis/verify_proportional.py": "PASS",
+    "analysis/verify_unequal_proportional.py": "PASS",
+    "analysis/verify_critical_viability.py": "PASS",
+    "analysis/verify_precision.py": "PASS"
+  },
+  "reports": {
+    "heterogeneous-verification.json": "e8f6202dd55e59666310414ed85b09459b6cbe7a71d04fc0cb930c9607723bdc",
+    "state-dependent-verification.json": "8fb975808c8c2363e3931dec0da9151102ac553e6e145071ac64dd0e73b5d7ad",
+    "handoff-verification.json": "9c63f8f2ff3d110cb110ce4bbf6f89d894ec499d827d544f1e0f5bd574b57db7",
+    "partial-state-verification.json": "7d4ca77e3278597884cb5fc1e13dd775215bf18d21a03b1b0a9d897c1ccdf5bc",
+    "proportional-frontier-verification.json": "ce9c0106d1542868835eb3c6df6243b46d43b59ef9341ec900ffbb1776735953",
+    "unequal-proportional-verification.json": "57df8c479aa7a12263298b31eef56bf0b09d1aab0d5abf7489072013166e133d",
+    "critical-viability-verification.json": "2963d70fc8259cd07208363b5fc82892325f30b22b3393acbc584ec102cd2cef",
+    "precision-verification.json": "26e15a97200d47f66544ba6c42ff01d9a189a4e23455286a701ce5a772dd041c"
+  },
+  "preserved_license_and_checkpoints": true,
+  "pdf": {
+    "committed_sha256": "5f6965ed0f35e49a00306d3577bd51f004d65a7aabcb38d8660aca4154e52d17",
+    "rebuilt_sha256": "5f6965ed0f35e49a00306d3577bd51f004d65a7aabcb38d8660aca4154e52d17",
+    "byte_identical": true,
+    "bytes": 407474,
+    "pages": 20,
+    "rendered_pages_pixel_identical_after_metadata_fix": true
+  },
+  "scope": "Actual execution from a fresh archive of the named locally created commit. A later recording commit adds this evidence and navigation only; publication must preserve the tested content and be verified separately."
+}

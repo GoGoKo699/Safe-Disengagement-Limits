@@ -75,6 +75,18 @@ uniform-readiness guarantee begins unless a separate warmup construction is
 given. Positive handoff latency, delayed capacity release, and interdependent
 transfers are outside these assumptions.
 
+All normal preparation input is charged to \eqref{eq:normal-budget}.
+Accordingly, $C(H)$ measures maintenance through this specified source
+bottleneck, excluding receiver provisioning and independent continuing
+operation. The prohibition on normal-mode transfer is an additional service
+requirement, not a consequence of preserving essential service alone.
+Setting every $a_i=0$ gives an exact alternative interpretation: independent
+perishable jobs must remain uncompleted until a command permits absorbing
+completion. States, controls, losses and deadlines are unchanged. Thus
+positive resource release and controller removal are not necessary for the
+concentration property; its minimal interpretation is preparation for a
+future completion command.
+
 \section{Serial exit from arbitrary preparation}
 \label{sec:seriality}
 
@@ -599,4 +611,3 @@ global minimum is \(C_*\), attained with
 \(p_A=0\), \(p_B=(26\sqrt2-21\sqrt3)/10\), and cold A before partial B.
 The best partial-first candidate costs \(29/1352>C_*\).
 \end{proof}
-

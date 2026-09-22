@@ -1,8 +1,8 @@
 # Research status
 
-**22 September 2026 — lead workspace research, passes 1–15; working manuscript pass 16.**
+**22 September 2026 — lead workspace research, passes 1–19 complete; strengthened contribution under prior-art assessment.**
 Latest continuation started from `main` at
-`bb1e34f41338745c88ae486d493a053c658fb3d1`.
+`16dca7e14950e13e4a292600ee39b2a3aeca9ec1`.
 
 ## Decision
 
@@ -37,14 +37,39 @@ finite-update upkeep calculation reduces exactly to a standard sporadic task,
 and the frozen-copy allowance is established migration practice. These are
 useful corrections and benchmarks, not replacement novelty claims.
 
-A complete working manuscript was authored and compiled locally to 16 pages.
-Its [editable sources](paper/README.md) are preserved in this recovery checkpoint.
-The execution environment disconnected during final PDF inspection, before
-a local commit. The PDF and new verification report could not be retrieved.
-Source files were recovered from recorded authored content through the
-repository connection; a committed-snapshot rerun and a fresh PDF build/visual
-check remain mandatory. No submission readiness, formal release, external
-review, or engineering validation is asserted.
+A complete [working manuscript and checked PDF](paper/README.md) now exist.
+Recovery-source verification has completed; all nine current suites pass. The six
+prior reports match, and the missing critical-viability report has been
+regenerated reproducibly. Original lost artifacts are not claimed recovered.
+The historical interruption remains recorded in its unchanged continuation
+note. No submission readiness, formal release, external review or engineering
+validation is asserted.
+
+Pass 17 inspected a complete nonlinear fixed-deadline allocation proof and
+excluded two precisely stated identifications with S1. This supports a concrete
+model distinction without proving literature-wide novelty. The assumption
+audit gives exact independent-maintenance and early-transfer counterpolicies:
+the value is conditional source-bottleneck upkeep, not a universal total-system
+cost of controller removal. Positive capacity release is not needed for
+concentration.
+
+Pass 18 resolves the vanishing request-time shortfall boundary. The strict-order
+exit envelope is continuous when cold exit is finite. If C(H)<s, its minimum
+upkeep equals C(H); if its minimum is at most s, every limiting minimizer
+concentrates. For H>0 the fixed-tolerance costs converge to this limiting value.
+An exact cold-finite two-module instance has C=1=s but limiting cost 7/6,
+and C_epsilon=7/6+5*epsilon for 0<epsilon<=1/15. The persistent jump is stronger
+than the elementary margin cost, which already rules out critical readiness
+at any positive tolerance. These are one-time request deficits, not recurring
+normal disturbances.
+
+Pass 19 resolves the remaining concentration questions: every nominal minimum
+at fixed positive tolerance and every limiting minimum concentrates, with
+unequal positive coefficients and at every feasible budget. The new exchange
+uses increasing concave completion-time maps for prepared intermediate stages;
+a stationary two-interior exchange can only be a strict local maximum.
+The common-rate route remains ordinary linear allocation. No unchanged
+positive-tolerance frontier algorithm or complexity bound is inferred.
 
 Pass 15 resolves critical ready-region startup. Every indefinitely ready
 maximal-loss trajectory at C(H)=s converges to one minimum, but three modules
@@ -89,8 +114,13 @@ need a justified application class.
 | I7 | Nonzero critical concentrated target can be reached from cold | Exact fixed-target criterion: with one partial coordinate, some full coordinate must decay faster; pure-full critical targets are unreachable |
 | I8 | Critical viable trajectories converge to one upkeep minimum | Proved by dissipation, Lipschitz continuity, compactness, and finiteness of the minimizing set |
 | I9 | Indefinite critical readiness after cold warmup requires a reachable optimum | False with three modules: unique unreachable optimum, finite warmup and uniform deadline certificate; true with at most two modules in the stated domain |
-| M1 | Focused working manuscript exists | Complete editable sources and internal proof audit; pre-interruption compile succeeded, recovered-source build and visual check pending |
-| V3 | Recovery checkpoint is execution-verified | No: original working-tree suites passed before disconnect; preserved text must be rerun from the published tree |
+| Q1 | Vanishing one-sided request deficits preserve minimum upkeep | True for C(H)<s; false at equality, with exact finite-cold-exit jump 1 to 7/6 |
+| Q2 | The limiting precision frontier concentrates | Every minimizer does at every feasible budget; pass-19 prepared-stage exchange removes the pass-18 restriction |
+| Q5 | Fixed positive tolerance destroys unequal-rate concentration | False: every nominal upkeep minimum still has at most one partial coordinate; exact capped-support exchange proof |
+| Q3 | Positive-tolerance costs approach C_-(H) | Proved for finite cold exit and H>0; H=0 is an explicit exception |
+| Q4 | Critical exact readiness tolerates a positive safety margin | False whenever C(H)=s>0: C_epsilon>=C+gamma_min*epsilon; the jump example gives a stronger nonvanishing gap |
+| M1 | Focused working manuscript exists | Editable sources, compiled/visually inspected PDF and internal proof audit; novelty and meaning remain under assessment |
+| V3 | Recovery checkpoint sources execute | All eight recovered suites passed, plus the new precision suite; six old reports match and new reports reproduce; original lost bytes unavailable |
 | L1 | Adding drain time to the old serial recurrence remains optimal | False; exact two-module optimum `3` versus `10/3` |
 | L2 | Overlapping drains restore uninterrupted-preparation optimality | False; exact three-module optimum `37/9` versus best uninterrupted `38/9` |
 | L3 | Fixed-loss upkeep reduction survives independent residual drains | Proved using actually deadline-feasible subsets; the new oracle is not solved; no feasible state below `max ell_i` |
@@ -103,6 +133,8 @@ need a justified application class.
 | V2 | New finite checks reproduce | All research reports, including unequal proportional loss and barriers; exact certificates and floating reference checks explicitly separated |
 | E1 | Copying sufficient state establishes independent essential service | Not demonstrated for an implementation; acknowledgment, independent-pipe, queue, and fence assumptions explicit |
 | E2 | Positive receiver information delay forces equal source survival time | False without accounting for independent in-flight resources and permitted response delay |
+| E3 | C(H) is an unavoidable total-system cost of removability | Not claimed; independent premaintenance can move upkeep outside the source objective, and early permanent activation can remove the standby problem |
+| N2 | Inspected nonlinear fixed-deadline investment theorem directly gives concentration | Specified affine feasible-set and durable-duration clock reductions excluded; arbitrary reductions and priority remain unresolved |
 | N1 | Current package is a meaningfully novel paper | Unresolved; current source reductions exclude several tempting claims |
 | R1 | External peer review or machine-verified proofs | No; internal adversarial audits and finite code checks only |
 
@@ -141,8 +173,21 @@ need a justified application class.
 13. [Working manuscript sources](paper/README.md) and
     [internal manuscript audit](research/2026-09-22-pass16-manuscript-review.md).
 
-[The latest continuation record](research/2026-09-22-continuation-pass15-16.md)
-records passes 15–16 and the execution interruption;
+14. [Recovery verification](research/2026-09-22-pass16-recovery-verification.md),
+    [fixed-deadline source comparison](research/2026-09-22-pass17-prior-art.md),
+    and [source-budget assumption audit](research/2026-09-22-pass17-assumptions.md).
+15. [Precision boundary](research/2026-09-22-pass18-precision.md) and
+    [independent internal review](research/2026-09-22-pass18-review.md).
+16. [Finite-tolerance concentration](research/2026-09-22-pass19-tolerance-concentration.md),
+    [independent internal review](research/2026-09-22-pass19-review.md), and
+    [updated contribution assessment](research/2026-09-22-pass19-assessment.md).
+
+[The latest continuation](research/2026-09-22-continuation-pass18-19.md) records
+the new results and exact restart instructions.
+
+[The recovery and source-audit continuation](research/2026-09-22-continuation-pass16-17.md)
+records passes 16–17. The [previous continuation](research/2026-09-22-continuation-pass15-16.md)
+records passes 15–16 and the original execution interruption;
 [passes 11–14](research/2026-09-22-continuation-pass11-14.md) remain recorded; the [earlier record](research/2026-09-22-continuation-record.md)
 preserves passes 6–10 and their decisions.
 
@@ -166,6 +211,9 @@ cmp build/proportional-frontier-verification.json results/proportional-frontier-
 python -B analysis/verify_unequal_proportional.py
 cmp build/unequal-proportional-verification.json results/unequal-proportional-verification.json
 python -B analysis/verify_critical_viability.py
+cmp build/critical-viability-verification.json results/critical-viability-verification.json
+python -B analysis/verify_precision.py
+cmp build/precision-verification.json results/precision-verification.json
 python paper/build.py
 ```
 
@@ -177,17 +225,18 @@ floating evaluations of logarithms/exponentials and reports tolerances.
 Counts are not independent experiments. The continuous-time theorems rest on
 the written proofs; no verification run establishes novelty or an application.
 
-The original new viability suite also passed and its report reproduced before
-interruption. That report is not included here because its bytes were
-inaccessible. Regenerate and review it, then track it and add its byte
-comparison. Do not call the recovered tree already execution-tested.
+The recovered-source verification note records actual execution and the new
+report's reproducibility; it does not invent a comparison with lost original
+bytes. [Committed-snapshot verification](research/2026-09-22-committed-checkpoint-verification.md)
+records actual fresh-archive execution and the byte-identical PDF rebuild.
 
 ## Next decisive work
 
-Complete pass 16 from the preserved sources: rerun all suites from the actual
-published tree, regenerate the missing viability report, build and visually
-inspect the PDF, and verify the committed artifact. Then assess the focused
-manuscript against a concrete prior-art or ideal-interface objection.
-Critical full-region startup is now a preserved counterexample, not an open
-equivalence. Do not expand parameters merely to accumulate results.
-[CURRENT.md](work_orders/CURRENT.md) gives exact restart commands.
+Test the strengthened unequal-rate exchange against primary-source nonlinear
+investment and nested-allocation theorems. In particular, a coupled change to
+completion-time variables has not been excluded by the earlier common-clock
+comparison. Preserve exact overlaps, distinguish a new derivation from priority,
+and keep the ideal service contract and independent-resource counterpolicies
+explicit. Avoid adding a general tolerance solver before this contribution
+test is settled.
+[CURRENT.md](work_orders/CURRENT.md) specifies the active task.

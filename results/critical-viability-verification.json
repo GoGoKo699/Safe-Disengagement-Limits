@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Rational support checks for the displayed three-module example and its all-time interval certificate, plus separately labeled floating consistency checks. Not an exhaustion of normal policies, proof of global optimality, or certified floating deadline decision.",
+  "parameters": {
+    "s": "1",
+    "modules": [
+      {
+        "M": "1/2",
+        "gamma": "1",
+        "a": "2"
+      },
+      {
+        "M": "1",
+        "gamma": "2",
+        "a": "33"
+      },
+      {
+        "M": "3",
+        "gamma": "1/2",
+        "a": "1"
+      }
+    ],
+    "H": "log(5/2)/2+2*log(24/23)",
+    "unique_minimum_cost_target": [
+      "1/2",
+      "1/4",
+      "0"
+    ],
+    "exact_minimum_upkeep": "1"
+  },
+  "exact_arithmetic": "fractions.Fraction; integer/rational transformed-time comparisons",
+  "counts": {
+    "exact_global_cost_case_groups": 4,
+    "exact_target_obstruction_states": 300,
+    "exact_phase_identity_groups": 2,
+    "exact_interval_certificates": 1,
+    "exact_rational_path_samples": 18,
+    "floating_path_schedule_checks": 18,
+    "floating_frontier_checks": 1
+  },
+  "domains": {
+    "target_obstruction": "p_A=0,1/8,...,1/2; p_B in {0,1/4,1/2,1}; quarter-capacity allocation simplex",
+    "path_samples": "x=j/2048 for j=1..16, plus 1/129 and 1/4096",
+    "uniform_interval_certificate": "0<x<=1/128; endpoint 108/128+63/128^3<1 with nonnegative polynomial coefficients",
+    "global_cost_cases": "Four exact case groups supporting the written concentration-based exhaustion"
+  },
+  "warmup": {
+    "phase1": {
+      "allocation": [
+        "0",
+        "0",
+        "1"
+      ],
+      "duration": "2*log(2)",
+      "end_state": [
+        "0",
+        "0",
+        "1"
+      ]
+    },
+    "phase2": {
+      "allocation": [
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "duration_before_guarantee": "14*log(2)",
+      "continued_allocation_after_guarantee": true
+    },
+    "total_finite_warmup": "16*log(2)",
+    "guarantee_starts_after_warmup": true
+  },
+  "uniform_path": {
+    "x": "exp(-t/2), where t is elapsed phase-two time",
+    "state": [
+      "(1-x^2)/2",
+      "(1-x^4)/4",
+      "x"
+    ],
+    "upkeep": "1+(x-x^2-x^4)/2 > 1 for 0<x<=1/128",
+    "total_preparation": "3/4+x-x^2/2-x^4/4, decreasing to 3/4 after warmup",
+    "finite_excess_upkeep_integral": "8355839/1073741824",
+    "interval_endpoint_coefficient": "1769535/2097152"
+  },
+  "floating_checks": {
+    "tolerance": 2e-09,
+    "frontier_upkeep": 1.0000000000000004,
+    "maximum_schedule_formula_error": 3.3306690738754696e-16,
+    "maximum_recounted_deadline_excess": -5.321756306853054e-06,
+    "certified": false
+  },
+  "interpretation": "The minimum-cost target is unreachable from cold, but a finite warmup reaches a trajectory that stays ready forever and approaches that target. The written proof supplies the universal policy/time claims; no readiness guarantee is assumed during warmup."
+}

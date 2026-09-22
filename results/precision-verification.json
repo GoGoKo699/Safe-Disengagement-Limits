@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction only",
+  "scope": "Exact finite checks of the precision fixture using an independent serial recurrence and 2D polyhedral vertex enumeration, plus fixed-order nonconvexity and prepared-middle local-exchange certificates; no numerical optimization or floating decisions. Written proofs supply continuum, policy, limit and optimality claims beyond these finite instances.",
+  "counts": {
+    "strict_oracle_grid_states": 91,
+    "original_oracle_grid_states": 91,
+    "endpoint_identities": 4,
+    "tolerance_LP_instances": 10,
+    "nonconvex_certificate_points": 3,
+    "prepared_middle_exchange_states": 3
+  },
+  "critical_fixture": {
+    "s": "1",
+    "gamma": "1",
+    "modules": [
+      {
+        "M": "1/2",
+        "a": "1"
+      },
+      {
+        "M": "1",
+        "a": "1"
+      }
+    ],
+    "exp_H": "4/3",
+    "strict_exp_F": "4-4*p_A-p_B",
+    "cold_exp_F": "4",
+    "full_B_original_exp_F": "4/3",
+    "full_B_strict_exp_F": "3",
+    "original_cost": "1",
+    "original_minimizer": [
+      "0",
+      "1"
+    ],
+    "limiting_cost": "7/6",
+    "limiting_minimizer": [
+      "1/2",
+      "2/3"
+    ],
+    "nonvanishing_cost_gap": "1/6"
+  },
+  "fixed_tolerance_samples": [
+    {
+      "epsilon": "1/1000",
+      "cost": "703/600",
+      "minimizing_vertices": [
+        [
+          "1/2",
+          "403/600"
+        ]
+      ]
+    },
+    {
+      "epsilon": "1/120",
+      "cost": "29/24",
+      "minimizing_vertices": [
+        [
+          "1/2",
+          "17/24"
+        ]
+      ]
+    },
+    {
+      "epsilon": "1/60",
+      "cost": "5/4",
+      "minimizing_vertices": [
+        [
+          "1/2",
+          "3/4"
+        ]
+      ]
+    },
+    {
+      "epsilon": "1/30",
+      "cost": "4/3",
+      "minimizing_vertices": [
+        [
+          "1/2",
+          "5/6"
+        ]
+      ]
+    },
+    {
+      "epsilon": "1/15",
+      "cost": "3/2",
+      "minimizing_vertices": [
+        [
+          "1/2",
+          "1"
+        ]
+      ]
+    },
+    {
+      "epsilon": "1/14",
+      "cost": null,
+      "minimizing_vertices": []
+    },
+    {
+      "epsilon": "1/2",
+      "cost": null,
+      "minimizing_vertices": []
+    },
+    {
+      "epsilon": "1",
+      "cost": null,
+      "minimizing_vertices": []
+    },
+    {
+      "epsilon": "2",
+      "cost": null,
+      "minimizing_vertices": []
+    }
+  ],
+  "tolerance_method": "For each epsilon, enumerate all pairwise boundary intersections in each of the four affine regions of max(p-epsilon,0), discard infeasible points, and minimize p_A+p_B over retained vertices. Null cost denotes an empty feasible set.",
+  "nonconvex_fixed_order_certificate": {
+    "endpoints": [
+      [
+        "13/25",
+        "1/5"
+      ],
+      [
+        "3/8",
+        "1/2"
+      ]
+    ],
+    "midpoint": [
+      "179/400",
+      "7/20"
+    ],
+    "positive_squared_gap": "9/400",
+    "scope": "Prescribed order 1 then 2 only; no claim about the union over orders or general nonlinear reductions."
+  },
+  "prepared_middle_exchange": {
+    "s": "10",
+    "gamma": [
+      "2",
+      "1",
+      "1"
+    ],
+    "M": [
+      "3",
+      "2",
+      "2"
+    ],
+    "a": [
+      "0",
+      "0",
+      "0"
+    ],
+    "epsilon": "1/10",
+    "exp_H": "533/256",
+    "z_star": "25/16",
+    "center_nominal_cost": "971/320",
+    "local_cost_formula": "971/320-4*(z-25/16)^2",
+    "samples": [
+      {
+        "z": "621/400",
+        "worst_corner": [
+          "14359/80000",
+          "19/10",
+          "3/8"
+        ],
+        "nominal": [
+          "22359/80000",
+          "2",
+          "19/40"
+        ],
+        "exp_middle_completion": "109/64",
+        "nominal_cost": "121359/40000",
+        "cost_decrease_from_center": "1/2500"
+      },
+      {
+        "z": "25/16",
+        "worst_corner": [
+          "15/128",
+          "19/10",
+          "1/2"
+        ],
+        "nominal": [
+          "139/640",
+          "2",
+          "3/5"
+        ],
+        "exp_middle_completion": "549/320",
+        "nominal_cost": "971/320",
+        "cost_decrease_from_center": "0"
+      },
+      {
+        "z": "629/400",
+        "worst_corner": [
+          "4359/80000",
+          "19/10",
+          "5/8"
+        ],
+        "nominal": [
+          "12359/80000",
+          "2",
+          "29/40"
+        ],
+        "exp_middle_completion": "553/320",
+        "nominal_cost": "121359/40000",
+        "cost_decrease_from_center": "1/2500"
+      }
+    ],
+    "scope": "Three exact states on one fixed-deadline exchange with a nominally full prepared middle module. Both neighboring states lower upkeep by 1/2500. This is a local stationary maximum certificate, not a global optimizer check or a proof of the general exchange theorem."
+  }
+}

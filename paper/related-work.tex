@@ -75,6 +75,24 @@ their duration is additively separable in start time and investment. Directly
 identifying their resource variable with initial preparation therefore does
 not give this model.
 
+A directly inspectable fixed-deadline nonlinear allocation appears in
+Choi and Park \cite{ChoiPark2023}, Section~3, Lemma~3. Its proof minimizes
+$\sum_j c_j u_j$ subject to $\sum_j(w_j/u_j)^k\leq\delta$, with positive
+variables and coefficients. Convexity and the KKT conditions give
+$u_j=(\lambda k w_j^k/c_j)^{1/(k+1)}$; the investments can all be interior.
+Our fixed-order deadline geometry need not be convex. For example, with
+$s=3$, zero releases, $M_1=M_2=1$, $(\gamma_1,\gamma_2)=(2,1)$ and
+$H=\log2$, order $1,2$ requires
+\[
+ y\geq3\sqrt{3-2x}-4.
+\]
+The boundary points $(13/25,1/5)$ and $(3/8,1/2)$ are feasible, while their
+midpoint $(179/400,7/20)$ is not: squaring the required positive-side
+inequality would give $7578\leq7569$. An affine identification with that
+convex investment subproblem is therefore impossible. This comparison
+excludes that specified reduction; it does not exclude arbitrary coupled
+transformations or establish priority over all investment scheduling results.
+
 The unequal-rate concentration theorem is the structural question beyond
 these fixed-order correspondences. Its deadline-preserving pair exchange
 excludes two interior coordinates even without a common affine clock. The
@@ -125,3 +143,26 @@ trajectory from finite arrival at a stationary optimum: the former can be
 possible when the unique optimum is unreachable. No readiness guarantee is
 asserted during an unprepared warmup. This distinction is part of the service
 contract, not an adjustment to the long-run objective.
+
+\subsection{Why the charged resource and normal-mode restriction matter}
+
+The source-only upkeep bound need not survive additional independent input.
+For one module with $M=\gamma=1$, $s=2$, $a=0$ and $H=\log(3/2)$,
+scalar comparison gives $F(p)=\log(2-p)$ and hence $C(H)=1/2$.
+The declared model has optional optimum $3/2$. If an independently paid input
+of rate $1/2$ can maintain the same preparation, initialize at $p=1/2$ and
+use that input while assigning the entire source budget to optional work.
+Every request still meets $H$ under the original rate-two exit strategy, and
+normal optional throughput is two. Total maintenance has not vanished; its
+cost has moved outside the source objective.
+
+Likewise, if permanent transfers are allowed before the request, preserve
+the same required service, and have no separately charged objective cost,
+the initialized problem admits an immediate counterpolicy: initialize every
+module fully and transfer them all. Every later request then has zero exit
+time and needs no source preparation. A positive source-upkeep lower bound
+therefore requires the stated normal-mode restriction or an objective that
+accounts for the admissible alternatives. Neither restriction follows merely
+from calling the eventual receiver independent. These counterpolicies delimit
+the ideal service class; they do not assert that every physical receiver can
+supply either additional control.

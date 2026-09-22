@@ -1,0 +1,214 @@
+\section{Preparation precision at full endpoints}
+\label{sec:precision}
+
+An exactly full coordinate can transfer immediately, whereas a strict
+deficit may expose a rate barrier. We quantify this distinction for
+$n\geq1$ modules with positive proportional coefficients. For a maintained
+state $p$, suppose a request may reveal any state $z$ satisfying
+$(p_i-\epsilon)_+\leq z_i\leq p_i$. Here $\epsilon>0$ is an absolute
+preparation deficit in the common work units. This is a bounded perturbation
+at the request, not a stream of additional normal-operation disturbances.
+Monotonicity makes $p^\epsilon=((p_i-\epsilon)_+)_i$ its worst corner.
+Define
+\begin{equation}
+ F_-(p)=\lim_{\epsilon\downarrow0}F(p^\epsilon),\quad
+ C_-(H)=\inf_{F_-(p)\leq H}L(p),\quad
+ C_\epsilon(H)=\inf_{F(p^\epsilon)\leq H}L(p),
+ \label{eq:precision-costs}
+\end{equation}
+where $L(p)=\sum_i\gamma_i p_i$ and empty infima are infinite. The limit
+exists by monotonicity. Maintenance is charged to the nominal state $p$.
+
+\begin{proposition}[One-sided exit envelope]
+\label{prop:precision-oracle}
+Let $\mathcal P$ contain the permutations satisfying
+$b(S_{k-1})>d_{\pi_k}$ at every stage, where
+$S_{k-1}=\{\pi_1,\ldots,\pi_{k-1}\}$ and $d_i=\gamma_iM_i$.
+For each such order, define $G_\pi(p)=t_n$ by
+\begin{equation}
+ t_0=0,\qquad
+ t_k=\frac1{\gamma_{\pi_k}}
+ \log\frac{b(S_{k-1})e^{\gamma_{\pi_k}t_{k-1}}
+                  -\gamma_{\pi_k}p_{\pi_k}}
+                 {b(S_{k-1})-d_{\pi_k}}.
+ \label{eq:precision-recurrence}
+\end{equation}
+Then $F_-(p)=\min_{\pi\in\mathcal P}G_\pi(p)$.
+If cold exit is finite, $F_-$ is finite and continuous on the closed
+preparation box. Otherwise it is identically infinite.
+Always $F\leq F_-$, with equality at every subfull state.
+\end{proposition}
+
+\begin{proof}
+Every $p^\epsilon$ is subfull. Theorem~\ref{thm:seriality} and the
+strict finite-time rate barrier therefore allow exactly the orders in
+$\mathcal P$, independently of $\epsilon$. Equation~\eqref{eq:proportional-stage}
+gives \eqref{eq:precision-recurrence}. Each recurrence is continuous on the
+closed box, with positive denominators and nonnegative stage durations.
+Consequently its finite minimum commutes with the limit. The same orders
+are feasible from cold, so the family is nonempty exactly when cold exit
+is finite. Monotonicity gives $F\leq F_-$, and the identical order formula
+applies directly to $F$ at subfull states.
+\end{proof}
+
+The strict inequalities include initially full coordinates. They can have
+zero-length stages at time zero when accessible; a full coordinate left
+waiting decays and requires preparation again. If the full coordinates
+admit a strictly accessible order from the empty set, placing them first
+at zero time and following an optimal original schedule proves
+$F_-(p)=F(p)$. In particular this holds when every full coordinate has
+$d_i<s$.
+
+\begin{proposition}[Maintenance below the normal budget]
+\label{prop:precision-slack}
+If $C(H)<s$, then $C_-(H)=C(H)$.
+\end{proposition}
+
+\begin{proof}
+At an original minimum with upkeep below $s$, each full coordinate has
+$d_i<s$. The preceding zero-length prefix construction makes that state
+feasible for $C_-$, giving equality since $F\leq F_-$ implies $C\leq C_-$.
+\end{proof}
+
+At $C(H)=s$, failure of equality can occur only when every original
+minimum is a full singleton of cost $d_i=s$. Any other minimum has all
+full losses strictly below $s$ and supplies the same zero-length prefix.
+The usual total-storage bound and maintenance construction apply to the
+upward closed limiting ready set, giving optional rate $s-C_-$ when
+$C_-\leq s$ and excluding indefinite readiness otherwise.
+
+\begin{proposition}[Concentration with preparation tolerance]
+\label{prop:precision-concentration}
+Whenever the respective finite-deadline problem is feasible, every
+minimizing state for $C_-(H)$ and every minimizing nominal state for
+$C_\epsilon(H)$ has at most one partial coordinate. This holds for unequal
+positive coefficients and at every source budget.
+\end{proposition}
+
+\begin{proof}
+For the limiting problem use $q=p$ with caps $U_i=M_i$. For fixed positive
+tolerance, an optimizer cannot have $0<p_i\leq\min(\epsilon,M_i)$:
+replacing it by zero preserves its worst corner and lowers upkeep. Hence
+use $q_i=(p_i-\epsilon)_+$ with caps $U_i=(M_i-\epsilon)_+$ and upkeep
+$\sum_i\gamma_iq_i+\sum_{i:q_i>0}\gamma_i\epsilon$.
+Zero q corresponds to zero p, while $q_i=U_i>0$ corresponds to $p_i=M_i$.
+Both problems therefore use the strict-order oracle with capped q; the
+additional positive-support charges stay constant under interior variations.
+Their minima exist when feasible: the limiting feasible set is compact
+by Proposition~\ref{prop:precision-oracle}, and the fixed-tolerance
+nominal constraint is continuous by applying that oracle to its subfull
+worst corner.
+
+For fixed preparation q, a stage map $\phi(t)$ from
+\eqref{eq:precision-recurrence} satisfies
+\[
+ \phi'\geq1,\qquad
+ \phi''=-\gamma\phi'(\phi'-1)\leq0,\qquad \phi(0)\geq0.
+\]
+The composition G of any intervening stages is increasing and concave,
+with $G(0)\geq0$. Its tangent inequality gives $G(t)\geq tG'(t)$.
+
+Suppose two coordinates j,k are interior to their positive caps in an
+attaining strict order. Keep the start of j fixed, vary its completion t,
+and keep the completion of k fixed. All intervening preparations remain
+fixed, with G mapping t to the start of k. Writing
+$\alpha=\gamma_j$, $\beta=\gamma_k$, $D_j=b_j-d_j>0$, the pair upkeep
+up to constant terms is
+\[
+ c(t)=-D_j e^{\alpha t}+b_k e^{\beta G(t)}.
+\]
+An open interval preserves both interior caps and positive stage durations;
+the same completion of k reproduces the full suffix and its deadline.
+At a stationary point,
+$\alpha D_j e^{\alpha t}=\beta b_k G'e^{\beta G}$.
+If $\beta G'\geq\alpha$, then $\beta G\geq\alpha t$, contradicting
+this equality because $b_k\geq b_j>D_j$. Thus $\beta G'<\alpha$, and
+\[
+ c''(t)=\alpha D_j e^{\alpha t}
+       \left(\beta G'+\frac{G''}{G'}-\alpha\right)<0.
+\]
+Every stationary point is a strict local maximum. The proposed minimum
+cannot have two interior coordinates. Under the nominal conversion above,
+this is exactly the asserted concentration.
+\end{proof}
+
+The worst-corner state can itself have several physically partial
+coordinates: nominally full modules have preparation $M_i-\epsilon$ at
+the request. The result concerns the nominal design, and does not remove
+their post-request preparation or justify treating them as free transfers.
+
+\begin{proposition}[Positive tolerance and its limit]
+\label{prop:precision-limit}
+If cold exit is finite and $H>0$, then
+$\lim_{\epsilon\downarrow0}C_\epsilon(H)=C_-(H)$.
+For every positive $\epsilon$, whenever $C(H)>0$,
+\begin{equation}
+ C_\epsilon(H)\geq C(H)+\gamma_{\min}\epsilon,
+ \qquad \gamma_{\min}=\min_i\gamma_i>0.
+ \label{eq:precision-margin}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Monotonicity gives $F_-(p)\leq F(p^\epsilon)$, hence $C_\epsilon\geq C_-$.
+Choose a minimizing state for $C_-$. If its time is strictly below $H$,
+it is feasible at sufficiently small positive tolerance. Otherwise its
+time equals $H>0$, so it is not all-full. Moving it an arbitrarily small
+distance toward the all-full vector strictly lowers an attaining order's
+time: increasing a coordinate strictly advances its own stage, and every
+later recurrence is strictly increasing in its preceding time. The new
+state has time slack and arbitrarily close upkeep. It is feasible for all
+sufficiently small tolerances, proving the opposite limit inequality.
+
+For \eqref{eq:precision-margin}, any feasible nominal state has
+$q=p^\epsilon$ with $L(q)\geq C(H)>0$. Some $q_i>0$, so
+$p_i=q_i+\epsilon$, while every other $p_j\geq q_j$. Thus
+$L(p)\geq L(q)+\gamma_{\min}\epsilon$; take the infimum.
+\end{proof}
+
+The condition $H>0$ is essential: positive deficits make a zero deadline
+infeasible even though the all-full state has $F_-=0$ when cold exit is
+finite. For positive deadlines, strict optional slack survives sufficiently
+small positive tolerance, although its exact optimal rate can decrease.
+Every originally critical instance $C=s>0$ loses indefinite readiness at
+any positive tolerance by \eqref{eq:precision-margin} and the storage
+bound. That elementary margin obstruction is general; the next example's
+distinctive feature is a nonvanishing limiting cost jump.
+
+\begin{example}[A critical endpoint jump with finite cold exit]
+\label{ex:precision-jump}
+Take
+\[
+ s=\gamma_A=\gamma_B=1,\quad
+ M_A=\tfrac12,\quad M_B=1,\quad a_A=a_B=1,
+ \qquad H=\log(4/3).
+\]
+Only the order A,B is strictly accessible. Its recurrence is
+$\exp F_-(p)=4-4p_A-p_B$, so cold exit takes $\log4$.
+The original state $(0,1)$ transfers B immediately and finishes A at
+capacity two in time $\log(4/3)$, whereas $F_-(0,1)=\log3$.
+The limiting deadline requires $4p_A+p_B\geq8/3$, implying
+$p_A+p_B\geq8/3-3p_A\geq7/6$. Equality holds only at
+$(1/2,2/3)$. Every original ready state with $p_B<1$ obeys this same
+constraint, while B-full states cost at least one. Consequently
+\[
+ C(H)=1=s,\qquad C_-(H)=\tfrac76>s.
+\]
+For fixed tolerance, both coordinates of $q=p^\epsilon$ must be positive
+to satisfy $4q_A+q_B\geq8/3$. Nominal upkeep is then
+$q_A+q_B+2\epsilon$, minimized by
+$q_A=1/2-\epsilon$, $q_B=2/3+4\epsilon$. The latter obeys
+$q_B\leq1-\epsilon$ exactly when $\epsilon\leq1/15$. Hence
+\[
+ C_\epsilon(H)=
+ \begin{cases}
+  7/6+5\epsilon,&0<\epsilon\leq1/15,\\
+  +\infty,&\epsilon>1/15.
+ \end{cases}
+\]
+For larger tolerance even the all-full nominal state is infeasible.
+The limiting increase $1/6$ therefore persists as precision improves.
+Two modules are necessary under finite cold exit: a single module requires
+$s>d$ and has the continuous formula
+$F(p)=\gamma^{-1}\log[(s-\gamma p)/(s-d)]$ through its full endpoint.
+\end{example}

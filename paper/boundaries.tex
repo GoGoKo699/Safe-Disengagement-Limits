@@ -82,6 +82,20 @@ from $p=0$, uses the same spare capacity $s$, and makes no transfers. A
 removal deadline need only hold after the warmup. Write
 $L(p)=\sum_i\gamma_i p_i$ and $Q(p)=\sum_i p_i$.
 
+Strict maintenance slack has a simple finite warmup construction. For a
+nonzero ready target $z$ with $K=L(z)<s$ and $Q_z=\sum_i z_i$, put
+$p_i(t)=\theta(t)z_i$ on maximum loss and choose
+\[
+ \theta'=\frac{s-K\theta}{Q_z},\quad \theta(0)=0,
+ \qquad v_i=z_i(\theta'+\gamma_i\theta).
+\]
+Until $\theta$ reaches one, these nonnegative allocations sum to $s$.
+The hitting time is $(Q_z/K)\log(s/(s-K))<\infty$; positive coefficients
+give $K>0$ for a nonzero target. Maintain $z$ thereafter. Scalar comparison
+preserves domination under smaller losses. The zero target requires no
+warmup. This construction provides no readiness promise before the target
+is reached, and it does not cover the critical equality examined next.
+
 \begin{proposition}[Critical convergence]
 \label{prop:critical-convergence}
 Suppose $C(H)=s>0$. On the simultaneous maximal-loss history, every normal

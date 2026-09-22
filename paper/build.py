@@ -12,7 +12,7 @@ OUT = HERE.parent / "build" / "paper"
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     env = dict(os.environ)
-    # Fixed draft date; PDF metadata and trailer identifiers are reproducible.
+    # Fixed draft date; main.tex also omits pdfTeX's path-dependent trailer ID.
     env["SOURCE_DATE_EPOCH"] = "1790035200"
     env["FORCE_SOURCE_DATE"] = "1"
     subprocess.run(
