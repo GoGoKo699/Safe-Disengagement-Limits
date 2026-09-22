@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "scope": "Finite algebraic and local-certificate checks only; continuous theorem proved in NOTE.md.",
+  "nominal_local_inequality_cases": 65100,
+  "transition_local_inequality_cases": 27992,
+  "curve_and_construction_checks": {
+    "parameter_curves": 3360,
+    "finite_serial_stages": 13221,
+    "deadline_thresholds": 56286,
+    "feasible_matching_policies": 32550
+  },
+  "proportional_countermodel_float_checks": 162,
+  "example": {
+    "parameters": {
+      "n": 3,
+      "a": "3",
+      "s": "1",
+      "d": "3/5",
+      "M": "3"
+    },
+    "exit_times": [
+      {
+        "exact": "4815/544",
+        "decimal": 8.851102941176471
+      },
+      {
+        "exact": "735/544",
+        "decimal": 1.3511029411764706
+      },
+      {
+        "exact": "15/32",
+        "decimal": 0.46875
+      },
+      {
+        "exact": "0",
+        "decimal": 0.0
+      }
+    ],
+    "deadlines": [
+      {
+        "H": "9",
+        "k": 0,
+        "required_upkeep": "0",
+        "indefinitely_feasible": true,
+        "optimal_optional_rate": "1"
+      },
+      {
+        "H": "2",
+        "k": 1,
+        "required_upkeep": "3/5",
+        "indefinitely_feasible": true,
+        "optimal_optional_rate": "2/5"
+      },
+      {
+        "H": "1",
+        "k": 2,
+        "required_upkeep": "6/5",
+        "indefinitely_feasible": false,
+        "optimal_optional_rate": null
+      },
+      {
+        "H": "0",
+        "k": 3,
+        "required_upkeep": "9/5",
+        "indefinitely_feasible": false,
+        "optimal_optional_rate": null
+      }
+    ]
+  }
+}

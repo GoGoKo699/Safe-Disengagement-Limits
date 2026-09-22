@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction (exact rational)",
+  "counts": {
+    "periodic_schedules": 120,
+    "kernels": 6,
+    "phase_average_identities": 2520,
+    "resource_frontier_cases": 9720,
+    "inventory_exactness_cases": 34506,
+    "constant_attainment_cases": 9720,
+    "continuous_triangle_cases": 2850
+  },
+  "prefix_only_counterexample": {
+    "demand": [
+      0,
+      2
+    ],
+    "independent_rate": 1,
+    "prefix_deficit_bound": 0,
+    "true_stock_requirement": 1
+  },
+  "scope": "Finite discrete analogues and rational triangle identities; not a proof of the continuous theorem, empirical validation, or a novelty certification."
+}

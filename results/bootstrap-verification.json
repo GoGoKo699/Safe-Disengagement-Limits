@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "Checkpoint integrity and exact finite-report reproduction only; not a theorem proof, empirical validation, or novelty audit.",
+  "checkpoints": {
+    "passive-2026-09-22": {
+      "status": "PASS",
+      "manifest_verified_files": 5,
+      "historical_files_unchanged": true,
+      "report_byte_identical": true,
+      "report_sha256": "fe27a984324d6f1e2dd39333d5001a6705863682314a2b55359fe491d42287d0",
+      "original_report": {
+        "status": "PASS",
+        "arithmetic": "fractions.Fraction (exact rational)",
+        "counts": {
+          "periodic_schedules": 120,
+          "kernels": 6,
+          "phase_average_identities": 2520,
+          "resource_frontier_cases": 9720,
+          "inventory_exactness_cases": 34506,
+          "constant_attainment_cases": 9720,
+          "continuous_triangle_cases": 2850
+        },
+        "prefix_only_counterexample": {
+          "demand": [
+            0,
+            2
+          ],
+          "independent_rate": 1,
+          "prefix_deficit_bound": 0,
+          "true_stock_requirement": 1
+        },
+        "scope": "Finite discrete analogues and rational triangle identities; not a proof of the continuous theorem, empirical validation, or a novelty certification."
+      }
+    },
+    "active-2026-09-22": {
+      "status": "PASS",
+      "manifest_verified_files": 5,
+      "historical_files_unchanged": true,
+      "report_byte_identical": true,
+      "report_sha256": "fa294a7cc5533572ca4c95fcdf25855741b995578f8653f1759e0d0d046ea047",
+      "original_report": {
+        "status": "PASS",
+        "scope": "Finite algebraic and local-certificate checks only; continuous theorem proved in NOTE.md.",
+        "nominal_local_inequality_cases": 65100,
+        "transition_local_inequality_cases": 27992,
+        "curve_and_construction_checks": {
+          "parameter_curves": 3360,
+          "finite_serial_stages": 13221,
+          "deadline_thresholds": 56286,
+          "feasible_matching_policies": 32550
+        },
+        "proportional_countermodel_float_checks": 162,
+        "example": {
+          "parameters": {
+            "n": 3,
+            "a": "3",
+            "s": "1",
+            "d": "3/5",
+            "M": "3"
+          },
+          "exit_times": [
+            {
+              "exact": "4815/544",
+              "decimal": 8.851102941176471
+            },
+            {
+              "exact": "735/544",
+              "decimal": 1.3511029411764706
+            },
+            {
+              "exact": "15/32",
+              "decimal": 0.46875
+            },
+            {
+              "exact": "0",
+              "decimal": 0.0
+            }
+          ],
+          "deadlines": [
+            {
+              "H": "9",
+              "k": 0,
+              "required_upkeep": "0",
+              "indefinitely_feasible": true,
+              "optimal_optional_rate": "1"
+            },
+            {
+              "H": "2",
+              "k": 1,
+              "required_upkeep": "3/5",
+              "indefinitely_feasible": true,
+              "optimal_optional_rate": "2/5"
+            },
+            {
+              "H": "1",
+              "k": 2,
+              "required_upkeep": "6/5",
+              "indefinitely_feasible": false,
+              "optimal_optional_rate": null
+            },
+            {
+              "H": "0",
+              "k": 3,
+              "required_upkeep": "9/5",
+              "indefinitely_feasible": false,
+              "optimal_optional_rate": null
+            }
+          ]
+        }
+      }
+    }
+  }
+}
