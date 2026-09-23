@@ -1,15 +1,17 @@
 # Research status
 
-**23 September 2026 — repository research; passes 20–22 refine the allocation
-comparison and narrow the contribution claim. Manuscript work is deferred.**
+**23 September 2026 — repository research; passes 23–25 audit critical viability
+and disprove concentration under heterogeneous residual drains. Manuscript work
+is deferred.**
 This continuation started from actual `main` at
-`b1bbd00f986efa5b935302fb175737174a7f89af`.
+`8882d1959f62b2e8c54c68eef24848b20347583b`.
 
 ## Decision
 
 The strongest current candidate is concentration of initial readiness under
-unequal positive proportional loss. Every upkeep minimizer has at most one
-partial module, for all nonnegative source budgets. A matching cold-prefix
+unequal positive proportional loss with instantaneous handoff/release. Every
+upkeep minimizer in that model has at most one partial module, for all
+nonnegative source budgets. A matching cold-prefix
 algorithm computes the frontier using O(n*3^n) real scalar evaluations. An exact
 counterexample proves that a cold prefix can improve the global optimum.
 The common-coefficient O(n*2^n) rational transformed-deadline algorithm remains
@@ -43,8 +45,8 @@ useful corrections and benchmarks, not replacement novelty claims.
 
 The earlier [working manuscript and checked PDF](paper/README.md) are
 preserved unchanged. Under the user's current direction, writing, editing and
-rebuilding the manuscript are deferred to the final step. All ten current
-verification suites pass; all nine analytical reports reproduce exactly.
+rebuilding the manuscript are deferred to the final step. All eleven current
+verification suites pass; all ten analytical reports reproduce exactly.
 Original lost artifacts are not claimed recovered. The historical interruption
 remains in its unchanged continuation note. No submission readiness, formal
 release, external review or engineering validation is asserted.
@@ -106,6 +108,33 @@ needed to exclude every interior minimum. This is a positive prior-art
 reduction of the scalar mechanism. It preserves the S1 theorem while narrowing
 where a meaningful contribution could lie.
 
+Pass 23 reduces normal operation to box-constrained positive linear control
+and cold readiness to standard capture/viability membership. The specific S1
+dimension boundary is not implied by the inspected generic results; a
+two-module non-S1 upward region violates it under the same normal dynamics.
+An uncapped endpoint support formula has a direct primary-source reduction,
+but an exact counterexample prevents replacing box path constraints with a
+terminal intersection. The existing critical proofs passed an internal audit.
+
+Pass 24 extends the critical three-module example to an explicit open family
+of model parameters with the deadline calibrated to retain `C(H)=s`. Its
+uniform tail bound is analytical. This is not openness in an independently
+varied deadline, and fixed positive tolerance still precludes even dynamic
+indefinite readiness at the unchanged budget. The critical result remains a
+secondary ideal-model boundary, with priority unresolved.
+
+Pass 25 disproves extension of concentration to the accounted heterogeneous
+residual-drain interface. The unique minimum has two partial coordinates,
+`p=(37/200,7/5)`, with upkeep `177/100<4`, finite cold normal startup, and
+positive optional throughput. The exact precision frontier is
+`177/100+3*epsilon` for `0<=epsilon<=63/200`; the nominal optimum remains
+two-partial below the upper endpoint. An all-policy discounted-work bound
+and matching robust schedule prove optimality. Here unequal drain durations
+impose unequal handoff deadlines before any release can help. Common drains
+with `ell<=H<=2*ell` reduce exactly to zero-release instantaneous S1 and preserve
+concentration. This is an assumption boundary, not a new general allocation
+method or a solved delayed-release oracle.
+
 ## Claim ledger
 
 | ID | Claim | Current status |
@@ -140,6 +169,7 @@ where a meaningful contribution could lie.
 | I7 | Nonzero critical concentrated target can be reached from cold | Exact fixed-target criterion: with one partial coordinate, some full coordinate must decay faster; pure-full critical targets are unreachable |
 | I8 | Critical viable trajectories converge to one upkeep minimum | Proved by dissipation, Lipschitz continuity, compactness, and finiteness of the minimizing set |
 | I9 | Indefinite critical readiness after cold warmup requires a reachable optimum | False with three modules: unique unreachable optimum, finite warmup and uniform deadline certificate; true with at most two modules in the stated domain |
+| I10 | The three-module critical separation depends on one numerical fixture | False: an explicit open parameter family with calibrated critical deadline has the separation; no robustness to fixed positive shortfall |
 | Q1 | Vanishing one-sided request deficits preserve minimum upkeep | True for C(H)<s; false at equality, with exact finite-cold-exit jump 1 to 7/6 |
 | Q2 | The limiting precision frontier concentrates | Every minimizer does at every feasible budget; pass-19 prepared-stage exchange removes the pass-18 restriction |
 | Q5 | Fixed positive tolerance destroys unequal-rate concentration | False: every nominal upkeep minimum still has at most one partial coordinate; exact capped-support exchange proof |
@@ -150,6 +180,8 @@ where a meaningful contribution could lie.
 | L1 | Adding drain time to the old serial recurrence remains optimal | False; exact two-module optimum `3` versus `10/3` |
 | L2 | Overlapping drains restore uninterrupted-preparation optimality | False; exact three-module optimum `37/9` versus best uninterrupted `38/9` |
 | L3 | Fixed-loss upkeep reduction survives independent residual drains | Proved using actually deadline-feasible subsets; the new oracle is not solved; no feasible state below `max ell_i` |
+| L4 | Proportional loss forces concentration under heterogeneous residual drains | False: unique two-partial optimum, all-policy proof, finite cold startup and positive precision tolerance |
+| L5 | Any positive residual drain destroys concentration | False: common drains with `ell<=H<=2*ell` reduce to the preserving zero-release instantaneous model; useful intermediate releases remain unresolved |
 | J1 | A copied-work amount suffices to characterize spaced-update readiness | False; identical cold preparation has exit bounds `L` or `2L` depending on update age |
 | J2 | One-version spaced-update recurring frontier | Proved with specified event priority and cold-at-update initialization; exact reduction to sporadic-task scheduling |
 | J3 | A mean dirty-rate substitution recovers atomic-reset readiness | False in both directions; distinct uncertainty sets explicitly compared |
@@ -165,6 +197,8 @@ where a meaningful contribution could lie.
 | N4 | Standard extreme-point existence implies the preparation pattern | Insufficient in the tested clock: an exact extreme point has two interior preparations; it is not an optimum |
 | N5 | The inspected generalized exchange theorem applies directly in preparation-plus-slack variables | False for the displayed fixed-order set: its required optimality condition fails, including for a shared quadratic objective |
 | N6 | The scalar curved-exchange lemma is a new optimization principle | Not claimed: pass 22 gives an explicit derivation from standard log-concavity composition plus elementary strictness |
+| N7 | Critical startup is a new general viability/capture distinction | Not claimed: exact reduction to standard framework; S1 cold-membership dimension boundary needs its schedule geometry |
+| N8 | Capped normal reachable endpoints equal uncapped endpoints intersected with the box | False: exact two-dimensional path-cap obstruction; uncapped support formula has a primary-source reduction |
 | Q6 | Only exactly decay-linked prices allow concentration | False: an explicit sufficient open price region preserves every-minimizer concentration; sharpness unproved |
 | Q7 | Arbitrary positive independent prices preserve concentration | False: a unique two-partial nominal optimum at positive tolerance is physically maintainable under the original source budget |
 | N1 | Current package is a meaningfully novel paper | Unresolved; current source reductions exclude several tempting claims |
@@ -221,11 +255,19 @@ where a meaningful contribution could lie.
     and [independent internal review](research/2026-09-23-pass20-review.md).
 18. [Price stability and failure](research/2026-09-23-pass21-price-boundary.md),
     then [scalar log-concavity attribution](research/2026-09-23-pass22-curved-exchange-attribution.md).
+19. [Viability prior-art comparison](research/2026-09-23-pass23-viability-prior-art.md),
+    [positive reachability reduction and cap obstruction](research/2026-09-23-pass23-positive-reachability.md),
+    [internal proof/precision review](research/2026-09-23-pass23-proof-review.md),
+    and [calibrated critical family](research/2026-09-23-pass24-critical-family.md).
+20. [Proportional residual-drain counterexample](research/2026-09-23-pass25-proportional-drain.md),
+    [internal review](research/2026-09-23-pass25-review.md), and
+    [revised contribution decision](research/2026-09-23-pass23-25-assessment.md).
 
-[The latest continuation](research/2026-09-23-continuation-pass20-22.md) records
+[The latest continuation](research/2026-09-23-continuation-pass23-25.md) records
 these results and exact restart instructions. The
+[allocation continuation](research/2026-09-23-continuation-pass20-22.md) and
 [passes 18–19 continuation](research/2026-09-22-continuation-pass18-19.md)
-remains the prior precision/concentration record.
+preserve the prior allocation and precision/concentration records.
 
 [The recovery and source-audit continuation](research/2026-09-22-continuation-pass16-17.md)
 records passes 16–17. The [previous continuation](research/2026-09-22-continuation-pass15-16.md)
@@ -258,6 +300,8 @@ python -B analysis/verify_precision.py
 cmp build/precision-verification.json results/precision-verification.json
 python -B analysis/verify_allocation.py
 cmp build/allocation-verification.json results/allocation-verification.json
+python -B analysis/verify_proportional_drain.py
+cmp build/proportional-drain-verification.json results/proportional-drain-verification.json
 ```
 
 Exact fixed-rate checks include 640 heterogeneous models, 3,592 DP/permutation
@@ -278,10 +322,11 @@ immutable-checkpoint output guards; its exact certificates do not replace proofs
 
 ## Next decisive work
 
-Assess the residual contribution after the positive scalar reduction. Preserve
-all exact overlaps and counterexamples; do not turn the unsuccessful direct
-allocation substitutions into novelty evidence. The current work order sets a
-bounded test of the existing critical-viability separation against primary
-viability/reachability results before adding more parameter variants or algorithms.
+Separate unequal handoff deadlines from delayed capacity release. Test the
+smallest common-drain case with `H>2*ell`, where released capacity can help
+later preparation. Require an all-policy proof or counterexample; a serial
+branch calculation cannot settle this question. Keep the source comparison
+bounded and preserve the direct allocation/viability reductions. Do not start
+a general scheduling solver or promote either boundary finding to novelty.
 Manuscript writing remains the final step.
 [CURRENT.md](work_orders/CURRENT.md) specifies the active task.

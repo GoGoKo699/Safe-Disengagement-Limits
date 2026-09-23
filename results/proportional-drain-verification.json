@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction only",
+  "scope": "Exact identities and polynomial sign factors for the displayed two-module counterexample. The research note supplies the all-policy integration, robust comparison, uniqueness and precision proofs; no continuous-policy numerical search, independent formal proof or novelty certification.",
+  "fixture": {
+    "s": "4",
+    "gamma": [
+      "2",
+      "1"
+    ],
+    "M": [
+      "1/2",
+      "3"
+    ],
+    "released_rates": "arbitrary positive; none releases before either handoff deadline",
+    "exp_H": "10",
+    "exp_handoff_deadlines": [
+      "11/10",
+      "3"
+    ],
+    "exp_drain_durations": [
+      "100/11",
+      "10/3"
+    ],
+    "no_early_release_sign_certificate": "9<10",
+    "preparation": [
+      "37/200",
+      "7/5"
+    ],
+    "upkeep": "177/100",
+    "both_strictly_partial": true
+  },
+  "witness": {
+    "B_preparation_at_A_handoff": "14/11",
+    "exp_B_active_duration": "30/11",
+    "handoff_preparations": [
+      "1/2",
+      "3"
+    ],
+    "full_rate_equilibria": [
+      "2",
+      "4"
+    ],
+    "discounted_weighted_inputs": [
+      "21/25",
+      "38/5"
+    ],
+    "exp_drain_completion_times": [
+      "10",
+      "10"
+    ]
+  },
+  "lower_bound": {
+    "W_coefficients_constant_X_Xsquared_Y": [
+      "4",
+      "4",
+      "-3",
+      "-1"
+    ],
+    "W_at_deadlines": "177/100",
+    "dW_dtA": "-2*X*(3*X-2), X=exp(t_A)>=1",
+    "dW_dtA_positive_factor_lower_bound": "1",
+    "dW_dtB": "-Y, Y=exp(t_B)>=1",
+    "before_A_weight_advantage": "X*(2*X-1)>0 for X>=1",
+    "B_first_upkeep_lower_bound": "29/10",
+    "B_first_gap_above_optimum": "113/100",
+    "scalar_initial_lower_bounds": [
+      "37/200",
+      "1"
+    ]
+  },
+  "normal_warmup": {
+    "input": [
+      "1",
+      "3"
+    ],
+    "exp_duration": "2",
+    "preparation_after_warmup": [
+      "3/8",
+      "3/2"
+    ],
+    "target_domination_gaps": [
+      "19/100",
+      "1/10"
+    ],
+    "maintenance_input": [
+      "37/100",
+      "7/5"
+    ],
+    "optional_rate": "223/100"
+  },
+  "positive_precision": {
+    "feasible_epsilon_interval": "0<=epsilon<=63/200",
+    "nominal_optimizer": "(37/200+epsilon, 7/5+epsilon)",
+    "optimal_upkeep": "177/100+3*epsilon",
+    "two_partial_interval": "0<=epsilon<63/200",
+    "nominal_at_maximum_epsilon": [
+      "1/2",
+      "343/200"
+    ],
+    "upkeep_at_maximum_epsilon": "543/200",
+    "optional_rate_at_maximum_epsilon": "257/200",
+    "infeasibility_above_cap": "q_A<37/200 violates the scalar handoff deadline bound"
+  }
+}

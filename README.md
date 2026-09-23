@@ -13,7 +13,12 @@ request-time tolerance. The comparison also identifies standard restricted
 reductions and a log-concavity derivation of the scalar exchange argument;
 that argument is not claimed as new optimization theory. Concentration is
 stable within an explicit region of independent prices and can fail outside
-it. Publication novelty and an operationally justified application remain
+it. The follow-on viability audit identifies standard control reductions;
+the exact critical separation persists on a calibrated parameter family but
+fails under fixed positive tolerance. A new all-policy counterexample shows
+that heterogeneous residual drains can require two partial modules even with
+proportional loss, positive tolerance and spare operating capacity. Publication
+novelty and an operationally justified application remain
 **unestablished**. No submission readiness or external certification is claimed.
 See [STATUS.md](STATUS.md).
 
@@ -21,6 +26,9 @@ See [STATUS.md](STATUS.md).
 
 | Reading goal | Entry point |
 |---|---|
+| Read the latest contribution decision | [Passes 23–25 assessment](research/2026-09-23-pass23-25-assessment.md) |
+| Test concentration under accounted drain times | [Exact two-partial optimum and precision frontier](research/2026-09-23-pass25-proportional-drain.md), [internal review](research/2026-09-23-pass25-review.md) |
+| Check the viability attribution and its limits | [Primary-source comparison](research/2026-09-23-pass23-viability-prior-art.md), [positive reachability](research/2026-09-23-pass23-positive-reachability.md), [proof review](research/2026-09-23-pass23-proof-review.md), and [calibrated critical family](research/2026-09-23-pass24-critical-family.md) |
 | Read the latest allocation comparison | [Pass-20 assessment](research/2026-09-23-pass20-assessment.md), [geometry and positive reductions](research/2026-09-23-pass20-geometry.md), and [source exchange-condition test](research/2026-09-23-pass20-nested-allocation.md) |
 | Understand the price boundary | [Sufficient stability region and exact failure](research/2026-09-23-pass21-price-boundary.md) |
 | Check the scalar argument's attribution | [Log-concavity reduction](research/2026-09-23-pass22-curved-exchange-attribution.md) |
@@ -172,6 +180,14 @@ When capacity is released only after an immutable residual drain, overlapping
 handoffs and even interrupted preparation can be strictly necessary. The old
 serial recurrence cannot just acquire an extra drain-time term. Its support
 upkeep argument survives only with a new, unresolved deadline-feasibility oracle.
+For proportional loss, [heterogeneous residual drains](research/2026-09-23-pass25-proportional-drain.md)
+also break one-partial upkeep concentration: a unique two-partial optimum is
+robustly maintainable after finite cold warmup, including at fixed positive
+request-time tolerance. In that example the drains induce different handoff
+deadlines before any capacity release can help. Common drain durations with
+`ell<=H<=2*ell` instead reduce to the zero-release instantaneous model and
+preserve concentration. The regime with useful intermediate releases remains
+unresolved; the new counterexample is not a general scheduling algorithm.
 
 For a single version with atomic updates separated by `Delta>M/s`, preparation
 age matters. If a declared protocol permits at most `B` time units of final
@@ -202,6 +218,7 @@ python -B analysis/verify_unequal_proportional.py
 python -B analysis/verify_critical_viability.py
 python -B analysis/verify_precision.py
 python -B analysis/verify_allocation.py
+python -B analysis/verify_proportional_drain.py
 ```
 
 The root runner checks checkpoint hashes, runs both original verifiers in temporary directories, and compares their complete reports with the archived reports. It writes `build/verification.json` without modifying the checkpoints. It refuses optimized Python because the original verifiers use assertions.
@@ -239,7 +256,7 @@ transcendental deadline decisions.
 
 The [critical-viability report](results/critical-viability-verification.json)
 checks the exact startup construction and its interval certificate, with
-floating checks separately labeled. All ten current suites execute; the
+floating checks separately labeled. All eleven current suites execute; the
 new reports reproduce across runs. The prior lost report remains
 unavailable, so equality with its bytes is not claimed. The
 [recovery verification](research/2026-09-22-pass16-recovery-verification.md)
@@ -253,8 +270,13 @@ not these finite samples.
 The [allocation report](results/allocation-verification.json) checks the exact
 geometric counterexamples, source-hypothesis failure and independent-price
 fixture using rational arithmetic. Its scope does not include proving
-convexity, concentration, or source attribution. All nine analytical reports
+convexity, concentration, or source attribution. All ten analytical reports
 must reproduce byte-for-byte. No manuscript build is part of this phase.
+
+The [proportional-drain report](results/proportional-drain-verification.json)
+checks the exact trajectory, discounted-work certificate and precision
+constants of the two-partial counterexample. Its all-policy optimality and
+common-drain reduction are written proofs, not numerical searches.
 
 The theorem concerns maintenance through a specified source budget and forbids
 permanent completion before a command. Independent premaintenance or free
