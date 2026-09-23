@@ -4,25 +4,27 @@
 
 Theory-first research on cooperative, bounded-time handover to an independent fallback. The controller obeys the removal request; the difficulty is keeping essential service running after it leaves. This project studies resource accounting, not an agent's incentive to resist shutdown.
 
-**Research status:** every upkeep-minimizing state has at most one partial
-module under unequal positive proportional loss, even with inaccessible initial
-rates. An explicit frontier accounts for cold modules before that partial module.
-An exact three-module construction now sustains critical readiness after cold
-warmup without robustly reaching its unique minimizing state; two modules
-cannot show this separation in the stated domain. A complete working manuscript and checked PDF are available. The recovered
-sources execute successfully. A request-time precision theorem now separates
-stable minimum upkeep under strict budget slack from a nonvanishing critical
-cost jump. A stronger exchange proves concentration also survives every
-feasible positive tolerance under unequal decay. These
-are theorems in an idealized instantaneous-handoff model; publication novelty
-remains **unestablished**. There is no validated implementation, external proof
-review, or submission-ready paper. See [STATUS.md](STATUS.md).
+**Current phase:** repository research first; manuscript writing is the final
+step. The existing manuscript is preserved as an earlier artifact.
+
+**Research status:** the strengthened unequal-rate concentration theorem
+survives the tested direct allocation reductions, including fixed positive
+request-time tolerance. The comparison also identifies standard restricted
+reductions and a log-concavity derivation of the scalar exchange argument;
+that argument is not claimed as new optimization theory. Concentration is
+stable within an explicit region of independent prices and can fail outside
+it. Publication novelty and an operationally justified application remain
+**unestablished**. No submission readiness or external certification is claimed.
+See [STATUS.md](STATUS.md).
 
 ## Start here
 
 | Reading goal | Entry point |
 |---|---|
-| Read the working paper | [Checked PDF](paper/manuscript.pdf) and [editable sources](paper/README.md) |
+| Read the latest allocation comparison | [Pass-20 assessment](research/2026-09-23-pass20-assessment.md), [geometry and positive reductions](research/2026-09-23-pass20-geometry.md), and [source exchange-condition test](research/2026-09-23-pass20-nested-allocation.md) |
+| Understand the price boundary | [Sufficient stability region and exact failure](research/2026-09-23-pass21-price-boundary.md) |
+| Check the scalar argument's attribution | [Log-concavity reduction](research/2026-09-23-pass22-curved-exchange-attribution.md) |
+| Inspect the earlier manuscript artifact | [Preserved PDF](paper/manuscript.pdf) and [editable sources](paper/README.md); writing remains deferred |
 | Understand the new startup separation | [Critical viability](research/2026-09-22-pass15-critical-viability.md) and [two-module boundary](research/2026-09-22-pass15-two-module-boundary.md) |
 | Understand preparation precision | [Envelope and critical jump](research/2026-09-22-pass18-precision.md), [concentration at positive tolerance](research/2026-09-22-pass19-tolerance-concentration.md), and [internal review](research/2026-09-22-pass19-review.md) |
 | Read the strongest current result | [Unequal-decay concentration](research/2026-09-22-pass11-unequal-decay.md) and [explicit frontier](research/2026-09-22-pass12-unequal-frontier.md) |
@@ -88,9 +90,11 @@ and a fixed-target criterion show why the decay rates matter.
 These results retain independent instantaneous handoffs and paid initialization
 unless a separate warmup construction is supplied. Classical deterioration and
 controllable-processing scheduling account for several proof ingredients and
-special cases. The [current comparison](research/2026-09-22-pass11-prior-art.md)
-identifies the unequal-decay exchange as the residual candidate, without
-claiming publication priority or a demonstrated engineering implementation.
+special cases. The [current comparison](research/2026-09-23-pass20-assessment.md) preserves
+standard restricted reductions; the [follow-on attribution](research/2026-09-23-pass22-curved-exchange-attribution.md)
+reduces the scalar exchange mechanism to log-concavity. The model-specific
+concentration theorem remains correct, with publication priority and a
+justified application still unresolved.
 
 ## Ready/cold fixed-loss specialization
 
@@ -197,6 +201,7 @@ python -B analysis/verify_proportional.py
 python -B analysis/verify_unequal_proportional.py
 python -B analysis/verify_critical_viability.py
 python -B analysis/verify_precision.py
+python -B analysis/verify_allocation.py
 ```
 
 The root runner checks checkpoint hashes, runs both original verifiers in temporary directories, and compares their complete reports with the archived reports. It writes `build/verification.json` without modifying the checkpoints. It refuses optimized Python because the original verifiers use assertions.
@@ -234,7 +239,7 @@ transcendental deadline decisions.
 
 The [critical-viability report](results/critical-viability-verification.json)
 checks the exact startup construction and its interval certificate, with
-floating checks separately labeled. All nine current suites execute; the
+floating checks separately labeled. All ten current suites execute; the
 new reports reproduce across runs. The prior lost report remains
 unavailable, so equality with its bytes is not claimed. The
 [recovery verification](research/2026-09-22-pass16-recovery-verification.md)
@@ -244,6 +249,12 @@ The [precision report](results/precision-verification.json) independently
 checks the endpoint fixture by rational serial recurrences and exhaustive
 two-dimensional LP vertex enumeration. The limiting theorems rest on proofs,
 not these finite samples.
+
+The [allocation report](results/allocation-verification.json) checks the exact
+geometric counterexamples, source-hypothesis failure and independent-price
+fixture using rational arithmetic. Its scope does not include proving
+convexity, concentration, or source attribution. All nine analytical reports
+must reproduce byte-for-byte. No manuscript build is part of this phase.
 
 The theorem concerns maintenance through a specified source budget and forbids
 permanent completion before a command. Independent premaintenance or free

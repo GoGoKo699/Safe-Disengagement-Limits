@@ -1,8 +1,9 @@
 # Research status
 
-**22 September 2026 — lead workspace research, passes 1–19 complete; strengthened contribution under prior-art assessment.**
-Latest continuation started from `main` at
-`16dca7e14950e13e4a292600ee39b2a3aeca9ec1`.
+**23 September 2026 — repository research; passes 20–22 refine the allocation
+comparison and narrow the contribution claim. Manuscript work is deferred.**
+This continuation started from actual `main` at
+`b1bbd00f986efa5b935302fb175737174a7f89af`.
 
 ## Decision
 
@@ -23,11 +24,14 @@ equality, the new fixed-target criterion and two exact examples distinguish
 reachable unequal-rate readiness from an unreachable common-rate frontier.
 
 Meaningful publication novelty and a justified operational interface remain
-unresolved. The latest source audit explicitly embeds common-decay fixed-order
-optimization into established linear resource allocation, and adds an accessible
-deteriorating-repair nonpreemption proof. The unequal-decay concentration exchange
-is the focused residual candidate. A correct new derivation is not a priority
-claim, and the closest older deterioration proofs remain partly inaccessible.
+unresolved. The direct nested and generalized-exchange allocation reductions
+tested in pass 20 do not imply the full theorem in their displayed variables.
+However, common rates retain the earlier linear-allocation reduction, ordered
+rates admit a standard reverse-convex existence argument, and pass 22 derives
+the scalar exchange mechanism from ordinary log-concavity composition. The
+scalar lemma is therefore not presented as new optimization theory. The S1
+chain construction and resulting concentration theorem need a model-specific
+contribution assessment; failed direct substitutions are not novelty evidence.
 
 The finite-record audit now separates source departure, independent
 recoverability, exact receiver freshness, and response deadlines. Delayed
@@ -37,13 +41,13 @@ finite-update upkeep calculation reduces exactly to a standard sporadic task,
 and the frozen-copy allowance is established migration practice. These are
 useful corrections and benchmarks, not replacement novelty claims.
 
-A complete [working manuscript and checked PDF](paper/README.md) now exist.
-Recovery-source verification has completed; all nine current suites pass. The six
-prior reports match, and the missing critical-viability report has been
-regenerated reproducibly. Original lost artifacts are not claimed recovered.
-The historical interruption remains recorded in its unchanged continuation
-note. No submission readiness, formal release, external review or engineering
-validation is asserted.
+The earlier [working manuscript and checked PDF](paper/README.md) are
+preserved unchanged. Under the user's current direction, writing, editing and
+rebuilding the manuscript are deferred to the final step. All ten current
+verification suites pass; all nine analytical reports reproduce exactly.
+Original lost artifacts are not claimed recovered. The historical interruption
+remains in its unchanged continuation note. No submission readiness, formal
+release, external review or engineering validation is asserted.
 
 Pass 17 inspected a complete nonlinear fixed-deadline allocation proof and
 excluded two precisely stated identifications with S1. This supports a concrete
@@ -79,6 +83,28 @@ is false. The companion proof establishes its validity for at most two modules
 in the finite-cold-exit domain. A conditional standby-resource interpretation
 is explicit; its early-activation and independent-resource restrictions still
 need a justified application class.
+
+Pass 20 proves a common-exponential convex timing formulation for every fixed
+order. An exact extreme point can nevertheless have two interior preparations;
+extreme-point existence alone does not imply concentration. The direct
+preparation-plus-slack formulation fails the actual exchange optimality
+condition of the inspected generalized allocation theorem, even for its shared
+quadratic objective family. These are scoped comparisons, not impossibility
+claims about arbitrary nonlinear formulations.
+
+Pass 21 gives a sufficient open region of positive independent prices that
+preserves every-minimizer concentration. Arbitrary prices do not: an exact
+positive-tolerance instance has unique nominal optimum `(0.51,0.51)`, independent
+price `3.57`, and unchanged physical upkeep `1.53<2`. The sufficient theorem
+does not silently add another active physical-budget constraint and is not
+claimed sharp.
+
+Pass 22 identifies an explicit log-concavity composition for the positive
+part of the curved exchange cost; its nonpositive part decreases strictly.
+A no-flat argument or the explicit curvature identity supplies the strictness
+needed to exclude every interior minimum. This is a positive prior-art
+reduction of the scalar mechanism. It preserves the S1 theorem while narrowing
+where a meaningful contribution could lie.
 
 ## Claim ledger
 
@@ -119,7 +145,7 @@ need a justified application class.
 | Q5 | Fixed positive tolerance destroys unequal-rate concentration | False: every nominal upkeep minimum still has at most one partial coordinate; exact capped-support exchange proof |
 | Q3 | Positive-tolerance costs approach C_-(H) | Proved for finite cold exit and H>0; H=0 is an explicit exception |
 | Q4 | Critical exact readiness tolerates a positive safety margin | False whenever C(H)=s>0: C_epsilon>=C+gamma_min*epsilon; the jump example gives a stronger nonvanishing gap |
-| M1 | Focused working manuscript exists | Editable sources, compiled/visually inspected PDF and internal proof audit; novelty and meaning remain under assessment |
+| M1 | Earlier working manuscript exists | Preserved artifact; manuscript writing, editing and builds deferred under the current user direction |
 | V3 | Recovery checkpoint sources execute | All eight recovered suites passed, plus the new precision suite; six old reports match and new reports reproduce; original lost bytes unavailable |
 | L1 | Adding drain time to the old serial recurrence remains optimal | False; exact two-module optimum `3` versus `10/3` |
 | L2 | Overlapping drains restore uninterrupted-preparation optimality | False; exact three-module optimum `37/9` versus best uninterrupted `38/9` |
@@ -135,6 +161,12 @@ need a justified application class.
 | E2 | Positive receiver information delay forces equal source survival time | False without accounting for independent in-flight resources and permitted response delay |
 | E3 | C(H) is an unavoidable total-system cost of removability | Not claimed; independent premaintenance can move upkeep outside the source objective, and early permanent activation can remove the standby problem |
 | N2 | Inspected nonlinear fixed-deadline investment theorem directly gives concentration | Specified affine feasible-set and durable-duration clock reductions excluded; arbitrary reductions and priority remain unresolved |
+| N3 | S1 fixed-order timing regions cannot be convexified | False: a common exponential clock gives an exact convex domain; objective and endpoint structure remain separate issues |
+| N4 | Standard extreme-point existence implies the preparation pattern | Insufficient in the tested clock: an exact extreme point has two interior preparations; it is not an optimum |
+| N5 | The inspected generalized exchange theorem applies directly in preparation-plus-slack variables | False for the displayed fixed-order set: its required optimality condition fails, including for a shared quadratic objective |
+| N6 | The scalar curved-exchange lemma is a new optimization principle | Not claimed: pass 22 gives an explicit derivation from standard log-concavity composition plus elementary strictness |
+| Q6 | Only exactly decay-linked prices allow concentration | False: an explicit sufficient open price region preserves every-minimizer concentration; sharpness unproved |
+| Q7 | Arbitrary positive independent prices preserve concentration | False: a unique two-partial nominal optimum at positive tolerance is physically maintainable under the original source budget |
 | N1 | Current package is a meaningfully novel paper | Unresolved; current source reductions exclude several tempting claims |
 | R1 | External peer review or machine-verified proofs | No; internal adversarial audits and finite code checks only |
 
@@ -182,8 +214,18 @@ need a justified application class.
     [independent internal review](research/2026-09-22-pass19-review.md), and
     [updated contribution assessment](research/2026-09-22-pass19-assessment.md).
 
-[The latest continuation](research/2026-09-22-continuation-pass18-19.md) records
-the new results and exact restart instructions.
+17. [Allocation assessment](research/2026-09-23-pass20-assessment.md),
+    [geometric reductions](research/2026-09-23-pass20-geometry.md),
+    [nested/exchange comparison](research/2026-09-23-pass20-nested-allocation.md),
+    [deterioration comparison](research/2026-09-23-pass20-deterioration-prior-art.md),
+    and [independent internal review](research/2026-09-23-pass20-review.md).
+18. [Price stability and failure](research/2026-09-23-pass21-price-boundary.md),
+    then [scalar log-concavity attribution](research/2026-09-23-pass22-curved-exchange-attribution.md).
+
+[The latest continuation](research/2026-09-23-continuation-pass20-22.md) records
+these results and exact restart instructions. The
+[passes 18–19 continuation](research/2026-09-22-continuation-pass18-19.md)
+remains the prior precision/concentration record.
 
 [The recovery and source-audit continuation](research/2026-09-22-continuation-pass16-17.md)
 records passes 16–17. The [previous continuation](research/2026-09-22-continuation-pass15-16.md)
@@ -214,7 +256,8 @@ python -B analysis/verify_critical_viability.py
 cmp build/critical-viability-verification.json results/critical-viability-verification.json
 python -B analysis/verify_precision.py
 cmp build/precision-verification.json results/precision-verification.json
-python paper/build.py
+python -B analysis/verify_allocation.py
+cmp build/allocation-verification.json results/allocation-verification.json
 ```
 
 Exact fixed-rate checks include 640 heterogeneous models, 3,592 DP/permutation
@@ -228,15 +271,17 @@ the written proofs; no verification run establishes novelty or an application.
 The recovered-source verification note records actual execution and the new
 report's reproducibility; it does not invent a comparison with lost original
 bytes. [Committed-snapshot verification](research/2026-09-22-committed-checkpoint-verification.md)
-records actual fresh-archive execution and the byte-identical PDF rebuild.
+records the earlier fresh-archive execution and PDF rebuild. Current research
+verification preserves `paper/` unchanged and does not rebuild it. The new
+allocation verifier has also passed repeatability, optimization rejection and
+immutable-checkpoint output guards; its exact certificates do not replace proofs.
 
 ## Next decisive work
 
-Test the strengthened unequal-rate exchange against primary-source nonlinear
-investment and nested-allocation theorems. In particular, a coupled change to
-completion-time variables has not been excluded by the earlier common-clock
-comparison. Preserve exact overlaps, distinguish a new derivation from priority,
-and keep the ideal service contract and independent-resource counterpolicies
-explicit. Avoid adding a general tolerance solver before this contribution
-test is settled.
+Assess the residual contribution after the positive scalar reduction. Preserve
+all exact overlaps and counterexamples; do not turn the unsuccessful direct
+allocation substitutions into novelty evidence. The current work order sets a
+bounded test of the existing critical-viability separation against primary
+viability/reachability results before adding more parameter variants or algorithms.
+Manuscript writing remains the final step.
 [CURRENT.md](work_orders/CURRENT.md) specifies the active task.

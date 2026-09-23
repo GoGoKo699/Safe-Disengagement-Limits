@@ -1,48 +1,51 @@
-# Pass 20: prior-art test of the strengthened concentration claim
+# Pass 23: assess the critical-viability separation against prior theory
 
-22 September 2026. Passes 18–19 resolve the precision boundary and the
-concentration question at fixed positive tolerance. Read their full proofs
-and reviews, not the earlier pass-18 open-question wording in isolation.
+23 September 2026. Repository research first; manuscript writing is the final
+step. Preserve `paper/` without edits or builds. Passes 20–22 are complete:
+the direct allocation tests are scoped, the independent-price boundary is
+proved, and the scalar exchange has a standard log-concavity derivation.
 
-## Scientific target
+## Exact question
 
-The candidate contribution is unequal-rate minimum-maintenance concentration
-under linked prices, including positive tolerance and prepared intermediate
-stages. Its exchange uses an increasing concave completion-time map G with
-G(0)>=0, hence G(t)>=t*G'(t). At a stationary pair exchange its second
-derivative is strictly negative. Does an existing nonlinear initial-investment
-or nested resource-allocation theorem give this result after an exact change
-of variables?
+Does existing viability/reachability theory already give the pass-15 S1
+separation, including its two-versus-three-module boundary, after an exact
+model reduction? Or is a meaningful model-specific result left once the
+elementary distinction between asymptotic and finite reachability is removed?
 
-1. Read WORKSPACE.md from the actual current branch, AGENTS.md, STATUS.md,
-   the latest continuation, the full pass-19 proof/review/assessment, and the
-   pass-11, pass-15 and pass-17 primary-source comparison records. Preserve
-   their exact common-rate and restricted-recurrence reductions.
-2. Read the opening algebra in
-   research/2026-09-22-pass20-completion-time-formulation.md, whose exact
-   bijection and linked objective received an independent internal check. Test whether the new exchange is an instance of a known
-   concave or nested allocation theorem. A common scalar clock was excluded;
-   a coupled change of variables was not. An algebraic reduction is a finding,
-   not a failure to conceal.
-3. Search a bounded set of close primary sources on deteriorating work,
-   controllable processing times and nonlinear/nested investment allocation.
-   Inspect full relevant definitions and theorem proofs. Do not repeatedly
-   retry previously inaccessible Glazebrook endpoints, infer a theorem from
-   an abstract, or spend money/contact authors. Mark inaccessible leads.
-4. Update the referee assessment: exact overlap, a precise residual claim,
-   or a justified pivot within S1. The command-gated perishable-job meaning
-   is an ideal theoretical class; do not invent implementation validation.
-   Keep independent-maintenance and early-transfer counterpolicies visible.
-5. If a numerical method is needed for one comparison, use a small exact
-   example. No large simulations or general solver project is required.
+1. Start from actual current WORKSPACE.md and branch; reconcile concurrent
+   work. Read AGENTS.md, STATUS.md, the latest continuation, full pass-20
+   assessment and pass-22 attribution note. Do not revive a novelty claim for
+   the scalar exchange or confuse failed direct substitutions with priority.
+2. Read the full pass-14 critical target criterion, pass-15 viability proof,
+   two-module companion, meaning/assessment notes, and pass-18 precision
+   theorem. The new pass-23 opening gives an elementary one-dimensional
+   generic separation; it is not an S1 counterexample or a source audit.
+3. Formulate the exact comparison table before searching: dynamics, admissible
+   controls/loss histories, closed deadline-ready region, cold initial state,
+   critical source budget, finite entry versus finite domination of a minimum,
+   and the dimension restriction. The generic distinction and dissipation
+   convergence alone cannot carry the contribution claim.
+4. Inspect a bounded set (at most three close primary results initially) on
+   controlled invariance/viability, asymptotic reachability or resource-limited
+   positive systems. Read relevant complete theorem proofs; record access
+   limits. Preserve exact reductions. Do not repeatedly retry inaccessible
+   old deterioration endpoints, contact authors or spend money.
+5. Carry the precision limitation throughout: fixed positive request-time
+   tolerance destroys critical upkeep feasibility at the same source budget.
+   Assess whether the exact S1 dimension boundary is still a useful structural
+   result; do not call it a robust engineering benefit.
+6. Produce a concise revised contribution decision: precise residual result,
+   prior-art reduction, or justified pivot within S1. Refrain from new solver
+   projects and parameter variants until this significance test is answered.
 
-## Reproduction and continuity
+## Verification and continuity
 
-Run all nine suites and eight report comparisons in STATUS.md. Build the
-manuscript and inspect changed pages. The latest continuation records final
-PDF checks and committed-archive verification. Preserve the original LICENSE,
-WORKSPACE mandate and both historical checkpoints. Reconcile the actual remote
-branch, use a non-forced push, and verify committed contents. After this pass,
-record the finding, archive this order, and continue with the next scientifically
-justified question within the session. No submission, outreach, spending or
-formal release is authorized.
+Run the ten suites and nine report comparisons in STATUS.md. Preserve the
+original LICENSE, both historical checkpoint directories, all earlier reports
+and the manuscript tree. The proofs need no large simulations.
+
+Record the outcome, archive this order and select the next scientific task.
+Continue within the available session. Read the current remote before any
+commit/push, preserve concurrent changes, use a non-forced update and verify
+committed contents. Leave exact restart instructions at execution/context
+limits. No submission, outside contact, spending or formal release is authorized.

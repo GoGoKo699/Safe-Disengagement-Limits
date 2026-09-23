@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction only",
+  "scope": "Exact supporting arithmetic for displayed allocation comparison fixtures. Written proofs supply the universal geometry, concentration and source-hypothesis conclusions; no literature-wide novelty or general optimization certificate.",
+  "raw_time_midpoint": {
+    "exp_time_endpoints": [
+      [
+        "3/2",
+        "5/2"
+      ],
+      [
+        "2",
+        "7/2"
+      ]
+    ],
+    "preparations": [
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "0",
+        "1/2"
+      ]
+    ],
+    "exp_H": "7/2",
+    "midpoint_squared_gap": "7/2-2*sqrt(3)",
+    "positive_sign_certificate": "1/4",
+    "scope": "Exact midpoint exclusion in raw completion times. The same common-rate instance is linear after an exponential clock change."
+  },
+  "convex_clock": {
+    "curved_extreme_point_fixture": {
+      "lambda": "2",
+      "exp_times": [
+        "25/16",
+        "549/320",
+        "533/256"
+      ],
+      "z": [
+        "625/256",
+        "301401/102400",
+        "284089/65536"
+      ],
+      "preparation": [
+        "15/128",
+        "19/10",
+        "1/2"
+      ],
+      "caps": [
+        "29/10",
+        "19/10",
+        "19/10"
+      ],
+      "active_middle_lower_bound": true,
+      "active_terminal_deadline": true,
+      "middle_convexity_factor": "19/128",
+      "face_hessian_factors": [
+        "-5/2",
+        "-1/2"
+      ],
+      "scope": "Cap membership and positive curvature support the written extremality proof. This point is not an optimum; no general extreme-point or concentration claim is mechanically proved."
+    },
+    "indefinite_hessian_fixture": {
+      "lambda": "4",
+      "exp_times": [
+        "6/5",
+        "59/48",
+        "1451/1152"
+      ],
+      "preparation": [
+        "49/50",
+        "1/2",
+        "1/2"
+      ],
+      "caps": [
+        "4",
+        "3/4",
+        "3/4"
+      ],
+      "hessian_factors": [
+        "9/80",
+        "-3/16"
+      ],
+      "scope": "Opposite exact signs at a strictly cap-interior fixed-horizon point in the specified clock; other transformations are not excluded."
+    }
+  },
+  "equal_amount_exchange": {
+    "P": [
+      "13/25",
+      "1/5",
+      "32/25"
+    ],
+    "Q": [
+      "3/8",
+      "1/2",
+      "9/8"
+    ],
+    "cap": "9/10",
+    "gradient_at_Q": [
+      "2",
+      "1",
+      "0"
+    ],
+    "linear_cost_gap_P_minus_Q": "-1/100",
+    "quadratic_cost_gap_P_minus_Q": "-1299/400000",
+    "directions": [
+      {
+        "direction": "x to y",
+        "exchangeable": false,
+        "positive_step_upper_bound": "3/8",
+        "violation_polynomial_coefficients": [
+          "0",
+          "9",
+          "-1"
+        ],
+        "positive_factor_lower_bound": "69/8",
+        "scope": "Polynomial sign certificate on the displayed full box-allowed interval; the note explains the all-step implication.",
+        "objective_directional_derivative": "-1"
+      },
+      {
+        "direction": "x to slack",
+        "exchangeable": false,
+        "positive_step_upper_bound": "3/8",
+        "violation_polynomial_coefficients": [
+          "0",
+          "18",
+          "0"
+        ],
+        "positive_factor_lower_bound": "18",
+        "scope": "Polynomial sign certificate on the displayed full box-allowed interval; the note explains the all-step implication.",
+        "objective_directional_derivative": "-2"
+      },
+      {
+        "direction": "y to x",
+        "exchangeable": true,
+        "feasible_witness_step": "1/100",
+        "witness": [
+          "77/200",
+          "49/100",
+          "9/8"
+        ],
+        "objective_directional_derivative": "1"
+      },
+      {
+        "direction": "y to slack",
+        "exchangeable": false,
+        "positive_step_upper_bound": "1/2",
+        "violation_polynomial_coefficients": [
+          "0",
+          "9",
+          "-1"
+        ],
+        "positive_factor_lower_bound": "17/2",
+        "scope": "Polynomial sign certificate on the displayed full box-allowed interval; the note explains the all-step implication.",
+        "objective_directional_derivative": "-1"
+      },
+      {
+        "direction": "slack to x",
+        "exchangeable": true,
+        "feasible_witness_step": "1/100",
+        "witness": [
+          "77/200",
+          "1/2",
+          "223/200"
+        ],
+        "objective_directional_derivative": "2"
+      },
+      {
+        "direction": "slack to y",
+        "exchangeable": true,
+        "feasible_witness_step": "1/100",
+        "witness": [
+          "3/8",
+          "51/100",
+          "223/200"
+        ],
+        "objective_directional_derivative": "1"
+      }
+    ],
+    "scope": "Direct fixed-order preparation-plus-slack formulation only. Feasible equal-amount exchanges meet derivative tests at Q, yet P has lower linear and shared-quadratic cost. No statement about every encoding or the union over orders."
+  },
+  "independent_price_counterexample": {
+    "s": "2",
+    "gamma": [
+      1,
+      2
+    ],
+    "M": [
+      "1",
+      "1"
+    ],
+    "a": [
+      "2",
+      "0"
+    ],
+    "prices": [
+      "6",
+      "1"
+    ],
+    "epsilon": "1/100",
+    "caps": [
+      "99/100",
+      "99/100"
+    ],
+    "exp_H": "2",
+    "strict_orders_zero_based": [
+      [
+        0,
+        1
+      ]
+    ],
+    "worst_corner": [
+      "1/2",
+      "1/2"
+    ],
+    "nominal": [
+      "51/100",
+      "51/100"
+    ],
+    "nominal_price": "357/100",
+    "physical_upkeep": "153/100",
+    "optional_rate": "47/100",
+    "two_positive_support_lower_polynomial": [
+      "407/100",
+      "-2",
+      "2"
+    ],
+    "completed_square": "357/100+2*(q1-1/2)^2",
+    "one_positive_support_price": "603/50-6*sqrt(2)",
+    "sqrt2_strict_upper_bound": "283/200",
+    "root_bound_squared_gap": "89/40000",
+    "normalized_price_ratio": "12",
+    "sufficient_preserving_ratio_bound": "4/3",
+    "scope": "Exact recurrence and arithmetic behind the written support-exhaustion proof of a unique two-partial nominal optimum. The checker does not replace the all-policy seriality theorem or verify the general sufficient price-region proposition."
+  }
+}

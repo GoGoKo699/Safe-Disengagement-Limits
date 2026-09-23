@@ -17,6 +17,16 @@ Preserve the original MIT LICENSE, Copyright (c) 2026 Ruge Lin. Do not change re
 
 The target is evidence-based submission readiness, not a guarantee of acceptance. Do not lower the scientific standard to satisfy the instruction to continue. A failed conjecture or prior-art collision is a reason to choose the next justified investigation, not automatically to abandon the project.
 
+## Current phase — user direction, 23 September 2026
+
+Focus on the research repository. Manuscript writing is the last step, after
+the scientific contribution, prior-art comparison and meaning are settled.
+Pause drafting, editing and rebuilding the existing manuscript; preserve its
+files as the earlier working artifact. Continue proofs, counterexamples,
+primary-source audits and reproducible checks in repository Markdown and code.
+This phase instruction supersedes earlier work-order requests to build or
+expand the paper. It does not pause the continuing research mandate.
+
 ## 2. Start from the repository, not this summary
 
 Inspect the current branch and record its full commit SHA. Read `AGENTS.md`, `README.md`, `STATUS.md`, `work_orders/CURRENT.md`, and `PROVENANCE.md`. Then read the full active checkpoint note and its literature comparison, and inspect the passive checkpoint sufficiently to understand its separate assumptions and known overlap.

@@ -2,6 +2,14 @@
 
 This repository is Falling branch S1: safe removal of a cooperative controller while preserving essential service. Start with README.md, STATUS.md, and work_orders/CURRENT.md.
 
+## Current phase
+
+The user's 23 September 2026 direction is repository research first;
+manuscript writing is the final step. Keep `paper/` unchanged during current
+passes. Work in research notes, verification code, status and work orders.
+No manuscript build is required for a research-only change. Preserve earlier
+artifacts and historical claims; record superseding findings in new notes.
+
 ## Preserve
 
 - Keep the original root LICENSE unchanged.
