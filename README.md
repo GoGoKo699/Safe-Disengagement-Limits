@@ -7,18 +7,17 @@ Theory-first research on cooperative, bounded-time handover to an independent fa
 **Current phase:** repository research first; manuscript writing is the final
 step. The existing manuscript is preserved as an earlier artifact.
 
-**Research status:** the strengthened unequal-rate concentration theorem
-survives the tested direct allocation reductions, including fixed positive
-request-time tolerance. The comparison also identifies standard restricted
-reductions and a log-concavity derivation of the scalar exchange argument;
-that argument is not claimed as new optimization theory. Concentration is
-stable within an explicit region of independent prices and can fail outside
-it. The follow-on viability audit identifies standard control reductions;
-the exact critical separation persists on a calibrated parameter family but
-fails under fixed positive tolerance. A new all-policy counterexample shows
-that heterogeneous residual drains can require two partial modules even with
-proportional loss, positive tolerance and spare operating capacity. Publication
-novelty and an operationally justified application remain
+**Research status:** the current results identify when minimum upkeep
+concentrates preparation. With independent residual drains, every minimum
+has at most one partial coordinate per distinct decay coefficient. Common
+coefficients therefore preserve concentration for any number of modules
+and arbitrary drain durations. Two modules also retain concentration with
+a common drain and unequal coefficients. Both conclusions include nominal
+positive-tolerance designs. Joint coefficient and drain heterogeneity can
+instead force a unique two-partial optimum. Standard allocation/control
+reductions remain explicitly attributed; the small-mismatch counterexample
+does not preserve a fixed positive margin in its limit. Publication novelty
+and an operationally justified application remain
 **unestablished**. No submission readiness or external certification is claimed.
 See [STATUS.md](STATUS.md).
 
@@ -26,7 +25,10 @@ See [STATUS.md](STATUS.md).
 
 | Reading goal | Entry point |
 |---|---|
-| Read the latest contribution decision | [Passes 23–25 assessment](research/2026-09-23-pass23-25-assessment.md) |
+| Read the latest contribution decision | [Unified boundary and duration-bound accounting](research/2026-09-23-pass26-28-assessment.md) |
+| Read the general drain theorem | [Partial ordering and common-coefficient concentration](research/2026-09-23-pass28-partial-order.md), [internal review](research/2026-09-23-pass27-28-review.md) |
+| Check common drains with unequal coefficients | [Two-module all-policy proof](research/2026-09-23-pass26-common-drain.md), [internal review](research/2026-09-23-pass26-review.md), [bounded source comparison](research/2026-09-23-pass26-prior-art.md) |
+| Understand small drain mismatch | [Exact family, concentration penalty and collapsing-limit qualification](research/2026-09-23-pass27-small-drain-mismatch.md) |
 | Test concentration under accounted drain times | [Exact two-partial optimum and precision frontier](research/2026-09-23-pass25-proportional-drain.md), [internal review](research/2026-09-23-pass25-review.md) |
 | Check the viability attribution and its limits | [Primary-source comparison](research/2026-09-23-pass23-viability-prior-art.md), [positive reachability](research/2026-09-23-pass23-positive-reachability.md), [proof review](research/2026-09-23-pass23-proof-review.md), and [calibrated critical family](research/2026-09-23-pass24-critical-family.md) |
 | Read the latest allocation comparison | [Pass-20 assessment](research/2026-09-23-pass20-assessment.md), [geometry and positive reductions](research/2026-09-23-pass20-geometry.md), and [source exchange-condition test](research/2026-09-23-pass20-nested-allocation.md) |
@@ -184,10 +186,17 @@ For proportional loss, [heterogeneous residual drains](research/2026-09-23-pass2
 also break one-partial upkeep concentration: a unique two-partial optimum is
 robustly maintainable after finite cold warmup, including at fixed positive
 request-time tolerance. In that example the drains induce different handoff
-deadlines before any capacity release can help. Common drain durations with
-`ell<=H<=2*ell` instead reduce to the zero-release instantaneous model and
-preserve concentration. The regime with useful intermediate releases remains
-unresolved; the new counterexample is not a general scheduling algorithm.
+deadlines before any capacity release can help. The
+[two-module common-drain theorem](research/2026-09-23-pass26-common-drain.md)
+now preserves concentration even when intermediate releases are useful.
+For any number of modules, a
+[common decay coefficient](research/2026-09-23-pass28-partial-order.md)
+also preserves concentration under arbitrary independent drains. More generally,
+interior partials are limited to one per distinct coefficient and hand off in
+strictly decreasing coefficient order in first-hit maximal-loss witnesses.
+Cold work may still interleave; these are not general seriality or scheduling
+algorithm claims. Unequal coefficients with three or more common-drain modules
+remain unresolved.
 
 For a single version with atomic updates separated by `Delta>M/s`, preparation
 age matters. If a declared protocol permits at most `B` time units of final

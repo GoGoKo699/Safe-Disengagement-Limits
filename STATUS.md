@@ -1,17 +1,26 @@
 # Research status
 
-**23 September 2026 — repository research; passes 23–25 audit critical viability
-and disprove concentration under heterogeneous residual drains. Manuscript work
-is deferred.**
+**23 September 2026 — repository research; passes 26–28 prove common-drain
+two-module concentration and general partial ordering, and quantify a
+nonuniform small-mismatch boundary. Manuscript work remains deferred.**
 This continuation started from actual `main` at
-`8882d1959f62b2e8c54c68eef24848b20347583b`.
+`39bb9856eb4afb0c871f432c9e1da6aa30d8ba18`.
 
 ## Decision
 
-The strongest current candidate is concentration of initial readiness under
-unequal positive proportional loss with instantaneous handoff/release. Every
-upkeep minimizer in that model has at most one partial module, for all
-nonnegative source budgets. A matching cold-prefix
+The current candidate is a structural boundary for upkeep-optimal preparation.
+With arbitrary independent drains, every minimum has at most one interior
+partial per distinct proportional coefficient. Common coefficients therefore
+give concentration for any finite module count, even with unequal drains.
+For two modules, a common drain also preserves concentration with unequal
+coefficients and useful intermediate capacity release. Both statements include
+nominal fixed-positive-tolerance designs. Two-module concentration can fail
+when both coefficients and drains differ; this is not an all-dimensional
+classification, since unequal coefficients with three or more common-drain
+modules remain unresolved.
+
+The existing instantaneous-handoff theorem permits arbitrary positive
+coefficients and any finite module count. A matching cold-prefix
 algorithm computes the frontier using O(n*3^n) real scalar evaluations. An exact
 counterexample proves that a cold prefix can improve the global optimum.
 The common-coefficient O(n*2^n) rational transformed-deadline algorithm remains
@@ -135,6 +144,36 @@ with `ell<=H<=2*ell` reduce exactly to zero-release instantaneous S1 and preserv
 concentration. This is an assumption boundary, not a new general allocation
 method or a solved delayed-release oracle.
 
+Pass 26 proves common-drain concentration for two modules over all policies.
+It first establishes compact actual readiness and attained minimum upkeep.
+An initial-state/input exchange excludes a slower-or-equal first partial;
+the remaining hypothetical two-interior minimum must itself use full-rate
+serial preparation. A genuine two-sided timing variation, including the
+release kink, excludes that minimum. This is not serial optimality for every
+prescribed state. Reduced design caps and support charges give the nominal
+positive-tolerance corollary. The bounded source audit preserves conventional
+delivery-tail/compression framing and does not clear publication priority.
+
+Pass 27 gives an exact family with arbitrarily small positive drain mismatch,
+holding all other model parameters fixed. The zero-deficit concentration
+penalty is `(y-1)^2*(y^2+2*y+3)`, asymptotic to two thirds of the squared
+drain mismatch. The certified positive tolerance, optional slack and handoff
+windows all vanish in the common-drain limit. No local instability at a fixed
+positive preparation window or fixed positive accuracy margin is established.
+Padding both duration bounds to the larger common value costs exactly this
+penalty at zero deficit, giving a concrete conservative-design interpretation.
+
+Pass 28 extracts the arbitrary-module consequence of the same pair argument.
+In every first-hit maximal-loss witness at a minimum, interior partials hand
+off in strictly decreasing coefficient order; a later partial receives no
+input before an earlier partial hands off. All other module paths and events
+can be preserved during the improving perturbation. This proves the distinct-
+coefficient bound and common-coefficient concentration for arbitrary drains,
+including nominal tolerance. Cold/design-bound work can still interleave;
+neither a general serial scheduler nor the unequal-rate multi-module case is
+settled. The new assessment retains the charged-source and independent-service
+limits and does not claim a universal controller-removal cost.
+
 ## Claim ledger
 
 | ID | Claim | Current status |
@@ -181,7 +220,11 @@ method or a solved delayed-release oracle.
 | L2 | Overlapping drains restore uninterrupted-preparation optimality | False; exact three-module optimum `37/9` versus best uninterrupted `38/9` |
 | L3 | Fixed-loss upkeep reduction survives independent residual drains | Proved using actually deadline-feasible subsets; the new oracle is not solved; no feasible state below `max ell_i` |
 | L4 | Proportional loss forces concentration under heterogeneous residual drains | False: unique two-partial optimum, all-policy proof, finite cold startup and positive precision tolerance |
-| L5 | Any positive residual drain destroys concentration | False: common drains with `ell<=H<=2*ell` reduce to the preserving zero-release instantaneous model; useful intermediate releases remain unresolved |
+| L5 | A common drain can destroy two-module concentration through useful intermediate releases | False: every minimum concentrates, including nominal positive-tolerance minima; full all-policy proof and attainment |
+| L6 | Arbitrary unequal drains defeat common-coefficient concentration | False for any finite module count: every minimum has at most one partial coordinate, including nominal tolerance |
+| L7 | Partial coordinates at a minimum may have arbitrary coefficient/handoff order | False: at most one interior partial per distinct coefficient; strictly decreasing coefficient order and no input to a later partial before an earlier one's handoff in first-hit maximal-loss witnesses |
+| L8 | Some uniform positive absolute drain-mismatch threshold guarantees concentration across the pass-27 family | False, but its preparation windows, certified tolerance, optional slack and concentration advantage all vanish in the common limit |
+| L9 | Replacing individual drain bounds by one common bound is free | False in pass 27: exact zero-deficit extra upkeep equals the best-concentrated penalty; the bound remains conservative |
 | J1 | A copied-work amount suffices to characterize spaced-update readiness | False; identical cold preparation has exit bounds `L` or `2L` depending on update age |
 | J2 | One-version spaced-update recurring frontier | Proved with specified event priority and cold-at-update initialization; exact reduction to sporadic-task scheduling |
 | J3 | A mean dirty-rate substitution recovers atomic-reset readiness | False in both directions; distinct uncertainty sets explicitly compared |
@@ -262,9 +305,17 @@ method or a solved delayed-release oracle.
 20. [Proportional residual-drain counterexample](research/2026-09-23-pass25-proportional-drain.md),
     [internal review](research/2026-09-23-pass25-review.md), and
     [revised contribution decision](research/2026-09-23-pass23-25-assessment.md).
+21. [Two-module common-drain theorem](research/2026-09-23-pass26-common-drain.md),
+    [internal review](research/2026-09-23-pass26-review.md), and
+    [bounded delivery-tail source comparison](research/2026-09-23-pass26-prior-art.md).
+22. [Small-mismatch family](research/2026-09-23-pass27-small-drain-mismatch.md),
+    [general partial-order theorem](research/2026-09-23-pass28-partial-order.md),
+    [joint internal review](research/2026-09-23-pass27-28-review.md), and
+    [unified contribution/operational assessment](research/2026-09-23-pass26-28-assessment.md).
 
-[The latest continuation](research/2026-09-23-continuation-pass23-25.md) records
+[The latest continuation](research/2026-09-23-continuation-pass26-28.md) records
 these results and exact restart instructions. The
+[viability/drain continuation](research/2026-09-23-continuation-pass23-25.md),
 [allocation continuation](research/2026-09-23-continuation-pass20-22.md) and
 [passes 18–19 continuation](research/2026-09-22-continuation-pass18-19.md)
 preserve the prior allocation and precision/concentration records.
@@ -322,11 +373,12 @@ immutable-checkpoint output guards; its exact certificates do not replace proofs
 
 ## Next decisive work
 
-Separate unequal handoff deadlines from delayed capacity release. Test the
-smallest common-drain case with `H>2*ell`, where released capacity can help
-later preparation. Require an all-policy proof or counterexample; a serial
-branch calculation cannot settle this question. Keep the source comparison
-bounded and preserve the direct allocation/viability reductions. Do not start
-a general scheduling solver or promote either boundary finding to novelty.
+Test one identified obstruction: with three common-drain modules and unequal
+coefficients, cold work can interrupt two interior partials and change the
+release schedule. The partial-order theorem restricts the pair but does not
+eliminate that cold work. Require a global all-policy proof or counterexample,
+including competitors with nonzero preparation in the third module. After
+one focused cycle reassess significance; do not automatically add dimensions
+or start a general solver. Keep prior-art reductions and access limits visible.
 Manuscript writing remains the final step.
 [CURRENT.md](work_orders/CURRENT.md) specifies the active task.

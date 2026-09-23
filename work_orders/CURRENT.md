@@ -1,59 +1,59 @@
-# Pass 26: isolate common residual drains from unequal handoff deadlines
+# Pass 29: test the cold-interleaving obstruction with common drains
 
 23 September 2026. Repository research first; manuscript writing remains the
-last step. Keep `paper/` unchanged without rebuilding it. Passes 23–25 are
-complete: the critical-startup result has its control-theory attribution and
-calibrated family; heterogeneous drains defeat concentration with positive
-upkeep slack and positive request-time tolerance.
+last step. Preserve `paper/` without edits or builds. Passes 26–28 establish
+common-drain two-module concentration, the qualified small-mismatch family,
+and a general partial-order theorem. This order tests one remaining mechanism.
 
 ## Exact question
 
-Does one-partial minimum-upkeep concentration survive **two modules with one
-common positive drain duration** when `H>2*ell`, so an early released source
-reservation can assist later preparation? This removes the different handoff
-deadlines that drive the pass-25 counterexample. Begin with exact readiness
-and ordinary linked upkeep; no independent prices or general scheduler.
+Can three proportional-loss modules with a common positive drain have a
+minimum-upkeep state with two interior partial coordinates, because cold work
+interrupts their preparation and changes the release schedule? Start from
+two unequal-rate partials and a cold third module, without restricting the
+competitors to that initial-support pattern.
 
-1. Start from actual WORKSPACE.md and current branch, then AGENTS.md, README,
-   STATUS and the latest continuation. Preserve concurrent work and all older
-   findings. Run the eleven suites and ten report comparisons in STATUS.
-2. Read the full pass-6 latency interface, pass-11 proportional concentration,
-   pass-23–25 assessment, pass-25 proof/review, and
-   [pass-26 opening](../research/2026-09-23-pass26-common-drain-opening.md).
-   Its fixed-handoff linear-allocation reduction is exact; its serial-branch
-   calculation is not an all-policy theorem. Keep those scopes distinct.
-3. Fix the interface before analysis: no normal transfers; loss stops only at
-   full-state ownership handoff; drain reserves the source rate until its end;
-   the receiver independently serves new essential work; all drains end by H.
-   Handoffs share deadline `D=H-ell`. The subclass `ell<=H<=2*ell` is already reduced
-   to zero-release S1 and must not be presented as a new problem.
-4. Resolve the smallest obstruction. Either justify a concentration-preserving
-   reduction over all admissible controls, or find an exact counterexample
-   with a lower bound over arbitrary parallel, interrupted and adaptive
-   policies. A best serial schedule, a grid search, and a fixed-handoff LP
-   alone do not settle the question. State any narrower theorem as such.
-5. Use a bounded primary-source comparison (at most two initially) if a
-   residual contribution emerges or an existing theorem appears directly
-   applicable: common delivery/drain tails, release-dependent capacities,
-   and proportional deterioration. Write the mapping and inspect the relevant
-   complete proof. The discounted-input LP certificate is ordinary allocation
-   dual reasoning, not claimed as new theory. Preserve access limitations;
-   no author contact, spending, or repeated inaccessible-endpoint retries.
-6. Stop expanding this branch if the result reduces to known allocation or
-   only repeats a boundary already established. Record that reduction and
-   return to a concise contribution/operational assessment within S1. Do not
-   create a general solver or chase higher dimensions without a reason.
+1. Read actual WORKSPACE.md first, then AGENTS.md, README, STATUS, the latest
+   continuation and this order. Preserve concurrent changes. Run the eleven
+   suites and ten analytical report comparisons in STATUS.
+2. Read full passes 26–28 proofs, their review notes, the bounded source audit,
+   the new contribution assessment, and
+   [the pass-29 opening](../research/2026-09-23-pass29-cold-interleaving-opening.md).
+   Also retain the pass-6 latency counterexamples and instantaneous pass-11
+   concentration theorem with their distinct assumptions.
+3. Use the established reduction exactly: in first-hit maximal-loss witnesses
+   at a putative minimum, interior partials hand off in strictly decreasing
+   coefficient order, and a later partial receives no input before an earlier
+   one hands off. Cold and design-bound modules may still interleave. These
+   facts do not give global seriality or characterize arbitrary initial states.
+4. Keep three modules, a common positive drain, positive proportional losses,
+   ordinary linked upkeep prices and the accounted independent-drain interface.
+   Focus on H>2*ell, where released resource can assist preparation. Common
+   coefficients and the no-useful-release subclass are already solved.
+5. Seek an all-policy preserving argument or an exact counterexample with a
+   global lower bound and matching robust policy. Include initial-full states,
+   both partial handoff orders, reflection, cold prewarming, and competitors
+   with positive initial preparation in the third module. A restricted face,
+   serial enumeration or a time grid cannot establish the proposed minimum.
+6. If a residual theorem or genuinely new obstruction emerges, compare it with
+   at most two close primary results initially and read the needed full proofs.
+   Preserve standard allocation reductions and source-access limits. The
+   provisional Chen metadata in pass 26 is not priority clearance. No broad
+   solver, large simulation, paid access or outside contact is authorized.
+7. After one focused cycle, make a contribution decision. If the only outcome
+   is an unresolved scheduling lemma, state it precisely and reassess whether
+   pursuing it would strengthen the central result. Do not automatically add
+   more modules, prices or constraints to obtain another variant.
 
 ## Verification and continuity
 
-Keep LICENSE, both historical checkpoints, all earlier reports and the full
-manuscript tree unchanged. New analytical work needs complete proofs; small
-exact checks may validate certificates but not arbitrary-policy optimality or
-novelty. No large simulations are needed.
+Keep the original LICENSE, both historical checkpoint directories, earlier
+research notes/reports and manuscript unchanged. New proofs need internal
+adversarial review; finite checks must state their limited scope. Record each
+substantive result, archive/update the order and continue with the next
+scientifically justified task within the session.
 
-After a substantive pass, record its outcome, archive this order, choose the
-next justified task and continue within the session. Before any publish,
-re-read remote main, preserve concurrent changes, verify a committed snapshot,
-and use a non-forced update. Leave exact restart instructions at context or
-execution limits. No submission, outside contact, spending or formal release
-is authorized.
+Before publishing, re-read remote main, preserve concurrent work, verify a
+fixed committed archive, use a non-forced update, and confirm the resulting
+tree. Leave exact restart instructions at limits. Submission, outreach,
+spending and formal release still require separate approval.
