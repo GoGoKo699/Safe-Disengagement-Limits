@@ -1,23 +1,30 @@
 # Research status
 
-**23 September 2026 — repository research; passes 26–28 prove common-drain
-two-module concentration and general partial ordering, and quantify a
-nonuniform small-mismatch boundary. Manuscript work remains deferred.**
+**23 September 2026 — repository research; passes 29–30 establish a minimal
+three-module common-drain failure, its exact unique optimum, positive-tolerance
+frontier and an open family. Manuscript work remains deferred.**
 This continuation started from actual `main` at
-`39bb9856eb4afb0c871f432c9e1da6aa30d8ba18`.
+`9421ea335e53d558be2d95a361908c0b7b579458`.
 
 ## Decision
 
-The current candidate is a structural boundary for upkeep-optimal preparation.
-With arbitrary independent drains, every minimum has at most one interior
-partial per distinct proportional coefficient. Common coefficients therefore
-give concentration for any finite module count, even with unequal drains.
-For two modules, a common drain also preserves concentration with unequal
-coefficients and useful intermediate capacity release. Both statements include
-nominal fixed-positive-tolerance designs. Two-module concentration can fail
-when both coefficients and drains differ; this is not an all-dimensional
-classification, since unequal coefficients with three or more common-drain
-modules remain unresolved.
+The central candidate is now a sharp boundary by module count: common
+independent drains preserve concentration for two modules, but three can have
+a unique two-partial minimum. The explicit all-policy fixture has exact
+upkeep `37/200` and every concentrated ready design costs strictly more than
+`1851/10000`. Its unique nominal optimizer is
+`(3/100+epsilon,1/8+epsilon,0)`, of cost `37/200+3*epsilon`, for
+`0<=epsilon<=1/30000`. The failure persists with fixed positive tolerance,
+finite cold startup and normal slack on a relative open family of common-drain
+parameters. No exact formula at perturbed parameters or outside the certified
+tolerance interval is claimed.
+
+The failure does not require interrupted preparation: a cold final module
+needs both earlier resource releases. Equal decay coefficients still preserve
+concentration for any finite module count and arbitrary independent drains.
+The distinct-coefficient partial-order theorem remains valid. Resource
+production and allocation exchanges have established precedents; priority and
+an operationally justified application remain unresolved.
 
 The existing instantaneous-handoff theorem permits arbitrary positive
 coefficients and any finite module count. A matching cold-prefix
@@ -54,8 +61,8 @@ useful corrections and benchmarks, not replacement novelty claims.
 
 The earlier [working manuscript and checked PDF](paper/README.md) are
 preserved unchanged. Under the user's current direction, writing, editing and
-rebuilding the manuscript are deferred to the final step. All eleven current
-verification suites pass; all ten analytical reports reproduce exactly.
+rebuilding the manuscript are deferred to the final step. All twelve current
+verification suites pass; all eleven analytical reports reproduce exactly.
 Original lost artifacts are not claimed recovered. The historical interruption
 remains in its unchanged continuation note. No submission readiness, formal
 release, external review or engineering validation is asserted.
@@ -174,6 +181,25 @@ neither a general serial scheduler nor the unequal-rate multi-module case is
 settled. The new assessment retains the charged-source and independent-service
 limits and does not claim a universal controller-removal cost.
 
+Pass 29 resolves the common-drain three-module question with an exact
+all-policy separation. Rate barriers force the two earlier handoffs before
+any release; two constant-capacity front-loadings therefore justify the
+fixture-specific serial comparison. Six rational certificates exclude all
+concentrated states up to a budget strictly above the feasible two-partial
+cost. A failed local-minimum calibration and its cheaper concentrated policy
+are retained. Separate reductions show that multiple partials at a
+common-drain minimum require a cold coordinate; a slower cold third module
+cannot sustain the three-module failure.
+
+Pass 30 completes the global optimum proof: the unique initial optimizer is
+`(3/100,1/8,0)`, with exact cost `37/200`. A uniformly positive scalar
+curvature certificate applies after the all-policy support/order reduction.
+The exact nominal positive-tolerance formula and uniqueness follow from this
+optimum and the concentrated-state gap. A slightly more prepared witness
+adds strict deadline slack, giving an open-family proof via joint-parameter
+compactness; the same target has finite radial cold warmup. These are internal
+proofs, not numerical optimization or external certification.
+
 ## Claim ledger
 
 | ID | Claim | Current status |
@@ -225,6 +251,10 @@ limits and does not claim a universal controller-removal cost.
 | L7 | Partial coordinates at a minimum may have arbitrary coefficient/handoff order | False: at most one interior partial per distinct coefficient; strictly decreasing coefficient order and no input to a later partial before an earlier one's handoff in first-hit maximal-loss witnesses |
 | L8 | Some uniform positive absolute drain-mismatch threshold guarantees concentration across the pass-27 family | False, but its preparation windows, certified tolerance, optional slack and concentration advantage all vanish in the common limit |
 | L9 | Replacing individual drain bounds by one common bound is free | False in pass 27: exact zero-deficit extra upkeep equals the best-concentrated penalty; the bound remains conservative |
+| L10 | Common drains preserve concentration for every module count | False: a three-module fixture has unique two-partial optimum `(3/100,1/8,0)`, exact upkeep `37/200`, and strict all-policy concentrated gap; two modules preserve concentration |
+| L11 | A common-drain minimum can have multiple partials with no cold coordinate | False for ordinary physical caps; frozen-prefix tail variation excludes it |
+| L12 | The three-module failure requires preemption or vanishing precision | False: uninterrupted witness, exact positive-tolerance frontier, finite cold warmup and an open family with slack |
+| L13 | `37/200+3*epsilon` is the common-drain fixture's nominal frontier | Proved with unique nominal optimizer for `0<=epsilon<=1/30000`; larger epsilon remains uncharacterized |
 | J1 | A copied-work amount suffices to characterize spaced-update readiness | False; identical cold preparation has exit bounds `L` or `2L` depending on update age |
 | J2 | One-version spaced-update recurring frontier | Proved with specified event priority and cold-at-update initialization; exact reduction to sporadic-task scheduling |
 | J3 | A mean dirty-rate substitution recovers atomic-reset readiness | False in both directions; distinct uncertainty sets explicitly compared |
@@ -313,8 +343,15 @@ limits and does not claim a universal controller-removal cost.
     [joint internal review](research/2026-09-23-pass27-28-review.md), and
     [unified contribution/operational assessment](research/2026-09-23-pass26-28-assessment.md).
 
-[The latest continuation](research/2026-09-23-continuation-pass26-28.md) records
+23. [Common-drain all-policy separation](research/2026-09-23-pass29-cold-test.md),
+    [exact optimum](research/2026-09-23-pass30-exact-optimum.md),
+    [precision and open-family result](research/2026-09-23-pass30-robust-common-drain.md),
+    [internal review](research/2026-09-23-pass29-30-review.md), and
+    [current assessment](research/2026-09-23-pass29-30-assessment.md).
+
+[The latest continuation](research/2026-09-23-continuation-pass29-30.md) records
 these results and exact restart instructions. The
+[common-drain/partial-order continuation](research/2026-09-23-continuation-pass26-28.md),
 [viability/drain continuation](research/2026-09-23-continuation-pass23-25.md),
 [allocation continuation](research/2026-09-23-continuation-pass20-22.md) and
 [passes 18–19 continuation](research/2026-09-22-continuation-pass18-19.md)
@@ -353,6 +390,8 @@ python -B analysis/verify_allocation.py
 cmp build/allocation-verification.json results/allocation-verification.json
 python -B analysis/verify_proportional_drain.py
 cmp build/proportional-drain-verification.json results/proportional-drain-verification.json
+python -B analysis/verify_common_drain.py
+cmp build/common-drain-verification.json results/common-drain-verification.json
 ```
 
 Exact fixed-rate checks include 640 heterogeneous models, 3,592 DP/permutation
@@ -371,14 +410,18 @@ verification preserves `paper/` unchanged and does not rebuild it. The new
 allocation verifier has also passed repeatability, optimization rejection and
 immutable-checkpoint output guards; its exact certificates do not replace proofs.
 
+The common-drain verifier adds exact terminal and barrier identities, six
+rational concentrated-state exclusions, global convexity constants, the
+failed calibration, and positive-tolerance margins. Its twelve-suite route
+and eleven report comparisons support arithmetic reproducibility; continuous
+policy transformations and open-neighborhood claims remain written proofs.
+
 ## Next decisive work
 
-Test one identified obstruction: with three common-drain modules and unequal
-coefficients, cold work can interrupt two interior partials and change the
-release schedule. The partial-order theorem restricts the pair but does not
-eliminate that cold work. Require a global all-policy proof or counterexample,
-including competitors with nonzero preparation in the third module. After
-one focused cycle reassess significance; do not automatically add dimensions
-or start a general solver. Keep prior-art reductions and access limits visible.
-Manuscript writing remains the final step.
+Audit the surviving central boundary against the closest preparation-investment
+and deteriorating-task allocation results, and test one concrete service
+interface against the model's source-budget and immutable-drain assumptions.
+The next pass is a contribution/meaning decision, not a higher-dimensional
+scheduler or another tolerance variant. Preserve any exact prior-art reduction
+or failed interface as a finding. Manuscript writing remains the final step.
 [CURRENT.md](work_orders/CURRENT.md) specifies the active task.

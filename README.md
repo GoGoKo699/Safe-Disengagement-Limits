@@ -7,25 +7,25 @@ Theory-first research on cooperative, bounded-time handover to an independent fa
 **Current phase:** repository research first; manuscript writing is the final
 step. The existing manuscript is preserved as an earlier artifact.
 
-**Research status:** the current results identify when minimum upkeep
-concentrates preparation. With independent residual drains, every minimum
-has at most one partial coordinate per distinct decay coefficient. Common
-coefficients therefore preserve concentration for any number of modules
-and arbitrary drain durations. Two modules also retain concentration with
-a common drain and unequal coefficients. Both conclusions include nominal
-positive-tolerance designs. Joint coefficient and drain heterogeneity can
-instead force a unique two-partial optimum. Standard allocation/control
-reductions remain explicitly attributed; the small-mismatch counterexample
-does not preserve a fixed positive margin in its limit. Publication novelty
-and an operationally justified application remain
-**unestablished**. No submission readiness or external certification is claimed.
-See [STATUS.md](STATUS.md).
+**Research status:** common drain durations preserve minimum-upkeep
+concentration for two modules, but three can have a unique two-partial
+optimum. The new all-policy counterexample has exact upkeep `37/200`, a
+strict gap to every concentrated design, an exact positive-tolerance
+frontier, finite cold startup, and an open family of common-drain failures.
+Equal decay coefficients still preserve concentration for any module count.
+The failure needs neither unequal deadlines nor preemption. Standard
+allocation and resource-producing scheduling ingredients remain attributed;
+publication novelty and an operationally justified application remain
+**unestablished**. See [STATUS.md](STATUS.md).
 
 ## Start here
 
 | Reading goal | Entry point |
 |---|---|
-| Read the latest contribution decision | [Unified boundary and duration-bound accounting](research/2026-09-23-pass26-28-assessment.md) |
+| Read the latest contribution decision | [Minimal common-drain failure and significance](research/2026-09-23-pass29-30-assessment.md) |
+| Check the new global counterexample | [All-policy separation](research/2026-09-23-pass29-cold-test.md), [exact unique optimum](research/2026-09-23-pass30-exact-optimum.md), [internal review](research/2026-09-23-pass29-30-review.md) |
+| Test accuracy and parameter robustness | [Exact positive-tolerance frontier, cold warmup and open-family proof](research/2026-09-23-pass30-robust-common-drain.md) |
+| Compare the new boundary with prior scheduling results | [Resource-production and budget-minimization audit](research/2026-09-23-pass29-prior-art.md) |
 | Read the general drain theorem | [Partial ordering and common-coefficient concentration](research/2026-09-23-pass28-partial-order.md), [internal review](research/2026-09-23-pass27-28-review.md) |
 | Check common drains with unequal coefficients | [Two-module all-policy proof](research/2026-09-23-pass26-common-drain.md), [internal review](research/2026-09-23-pass26-review.md), [bounded source comparison](research/2026-09-23-pass26-prior-art.md) |
 | Understand small drain mismatch | [Exact family, concentration penalty and collapsing-limit qualification](research/2026-09-23-pass27-small-drain-mismatch.md) |
@@ -195,8 +195,13 @@ also preserves concentration under arbitrary independent drains. More generally,
 interior partials are limited to one per distinct coefficient and hand off in
 strictly decreasing coefficient order in first-hit maximal-loss witnesses.
 Cold work may still interleave; these are not general seriality or scheduling
-algorithm claims. Unequal coefficients with three or more common-drain modules
-remain unresolved.
+algorithm claims. Three common-drain modules with unequal coefficients can now
+force a
+[unique two-partial optimum](research/2026-09-23-pass30-exact-optimum.md),
+including an [exact positive-tolerance continuation](research/2026-09-23-pass30-robust-common-drain.md).
+The successful example uses uninterrupted preparation: a cold final module
+needs both earlier resource releases. A general delayed-release scheduling
+algorithm is still not supplied.
 
 For a single version with atomic updates separated by `Delta>M/s`, preparation
 age matters. If a declared protocol permits at most `B` time units of final
@@ -228,6 +233,7 @@ python -B analysis/verify_critical_viability.py
 python -B analysis/verify_precision.py
 python -B analysis/verify_allocation.py
 python -B analysis/verify_proportional_drain.py
+python -B analysis/verify_common_drain.py
 ```
 
 The root runner checks checkpoint hashes, runs both original verifiers in temporary directories, and compares their complete reports with the archived reports. It writes `build/verification.json` without modifying the checkpoints. It refuses optimized Python because the original verifiers use assertions.
@@ -265,7 +271,7 @@ transcendental deadline decisions.
 
 The [critical-viability report](results/critical-viability-verification.json)
 checks the exact startup construction and its interval certificate, with
-floating checks separately labeled. All eleven current suites execute; the
+floating checks separately labeled. All twelve current suites execute; the
 new reports reproduce across runs. The prior lost report remains
 unavailable, so equality with its bytes is not claimed. The
 [recovery verification](research/2026-09-22-pass16-recovery-verification.md)
@@ -279,13 +285,21 @@ not these finite samples.
 The [allocation report](results/allocation-verification.json) checks the exact
 geometric counterexamples, source-hypothesis failure and independent-price
 fixture using rational arithmetic. Its scope does not include proving
-convexity, concentration, or source attribution. All ten analytical reports
+convexity, concentration, or source attribution. All eleven analytical reports
 must reproduce byte-for-byte. No manuscript build is part of this phase.
 
 The [proportional-drain report](results/proportional-drain-verification.json)
 checks the exact trajectory, discounted-work certificate and precision
 constants of the two-partial counterexample. Its all-policy optimality and
 common-drain reduction are written proofs, not numerical searches.
+
+The [common-drain report](results/common-drain-verification.json) checks the
+exact witness, six concentrated-state exclusions, global convexity constants,
+positive-tolerance margins, and the failed earlier calibration using rational
+arithmetic. It does not replace the all-policy and open-neighborhood proofs.
+Run `cmp build/common-drain-verification.json results/common-drain-verification.json`
+after the new verifier. The current route has twelve suites and eleven
+analytical report comparisons.
 
 The theorem concerns maintenance through a specified source budget and forbids
 permanent completion before a command. Independent premaintenance or free

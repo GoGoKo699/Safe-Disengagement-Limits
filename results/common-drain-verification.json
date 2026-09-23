@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction only",
+  "scope": "Finite identities, radical bounds and sign certificates for the displayed witnesses, six branches, global convexity bound and positive-deficit endpoint. Research notes supply all-policy reduction, calculus, robust comparison, compactness, exact optimum and separation proofs. No time grid, numerical optimizer, independent formal proof or novelty certification.",
+  "fixture": {
+    "s": "1",
+    "gamma": [
+      2,
+      1,
+      3
+    ],
+    "M": [
+      "27/242",
+      "7/20",
+      "11679823/10222080"
+    ],
+    "released_rates": [
+      "6075/2662",
+      "1",
+      "1"
+    ],
+    "exp_common_drain": "2",
+    "exp_handoff_deadline": "4",
+    "exp_removal_deadline": "8",
+    "initial": [
+      "3/100",
+      "1/8",
+      "0"
+    ],
+    "upkeep": "37/200",
+    "comparison_budget": "1851/10000",
+    "budget_gap": "1/10000",
+    "full_coordinate_budget_gaps": [
+      "46029/1210000",
+      "1649/10000",
+      "1381140083/425920000"
+    ],
+    "C_barrier_gaps_without_B_without_A": [
+      "373/2560",
+      "4865103/3407360"
+    ]
+  },
+  "witness": {
+    "exp_handoffs": [
+      "11/10",
+      "3/2",
+      "4"
+    ],
+    "A_B_handoff_preparations": [
+      "27/242",
+      "7/20"
+    ],
+    "C_at_A_release_B_release_D": [
+      "7273/31944",
+      "120169/159720",
+      "11679823/10222080"
+    ],
+    "discounted_C_input": "11679823/53240",
+    "C_terminal_constraint_K": "243/40"
+  },
+  "concentrated_certificates": {
+    "radical_square_lower_gaps": [
+      "570393/18800000000",
+      "875193/4700000000",
+      "3104247/158860000"
+    ],
+    "branches": [
+      {
+        "positive_coordinate": "A",
+        "order": "ABC",
+        "exp_tA_bounds": [
+          "10241/10000",
+          "103/100"
+        ],
+        "exp_tB_bounds": [
+          "10241/6500",
+          "103/65"
+        ],
+        "initial_C_upkeep": "0",
+        "deficit_strict_lower_bound": "2920478879781/21970000000000"
+      },
+      {
+        "positive_coordinate": "A",
+        "order": "BAC",
+        "exp_tA_bounds": [
+          "167/100",
+          "42/25"
+        ],
+        "exp_tB_bounds": [
+          "20/13",
+          "20/13"
+        ],
+        "initial_C_upkeep": "0",
+        "deficit_strict_lower_bound": "187570811109141/2924207000000"
+      },
+      {
+        "positive_coordinate": "B",
+        "order": "ABC",
+        "exp_tA_bounds": [
+          "22691/20000",
+          "227/200"
+        ],
+        "exp_tB_bounds": [
+          "18989/13000",
+          "9499/6500"
+        ],
+        "initial_C_upkeep": "0",
+        "deficit_strict_lower_bound": "8534290422217221/233936560000000000"
+      },
+      {
+        "positive_coordinate": "B",
+        "order": "BAC",
+        "exp_tA_bounds": [
+          "184908959/130000000",
+          "1849823/1300000"
+        ],
+        "exp_tB_bounds": [
+          "8149/6500",
+          "8149/6500"
+        ],
+        "initial_C_upkeep": "0",
+        "deficit_strict_lower_bound": "48262213047342791426186382849/2924207000000000000000000000"
+      },
+      {
+        "positive_coordinate": "C",
+        "order": "ABC",
+        "exp_tA_bounds": [
+          "22691/20000",
+          "227/200"
+        ],
+        "exp_tB_bounds": [
+          "22691/13000",
+          "227/130"
+        ],
+        "initial_C_upkeep": "1851/10000",
+        "deficit_strict_lower_bound": "4599746533873437861/233936560000000000"
+      },
+      {
+        "positive_coordinate": "C",
+        "order": "BAC",
+        "exp_tA_bounds": [
+          "22691/13000",
+          "227/130"
+        ],
+        "exp_tB_bounds": [
+          "20/13",
+          "20/13"
+        ],
+        "initial_C_upkeep": "1851/10000",
+        "deficit_strict_lower_bound": "224213187551044101/2924207000000000"
+      }
+    ]
+  },
+  "exact_optimum_certificates": {
+    "Y0_at_left_endpoint_cubed": "215433/53240",
+    "Y0_global_strict_upper": "51/32",
+    "upper_cube_gap": "378837/218071040",
+    "global_F_second_derivative_strict_lower": "11951206724/2515363286777",
+    "F_prime_at_witness_terms": [
+      "-39/55",
+      "39/55"
+    ],
+    "F_prime_at_witness": "0",
+    "F_at_witness": "37/200",
+    "meaning": "Exact arithmetic supporting the written global convexity and equality argument; the verifier does not formalize calculus or the all-policy reduction."
+  },
+  "exact_positive_deficit_certificates": {
+    "epsilon_interval": "0<=epsilon<=1/30000",
+    "nominal_optimizer_expression": "(3/100+epsilon,1/8+epsilon,0)",
+    "optimal_upkeep_expression": "37/200+3*epsilon",
+    "epsilon_endpoint": "1/30000",
+    "nominal_state_at_endpoint": [
+      "901/30000",
+      "3751/30000",
+      "0"
+    ],
+    "endpoint_upkeep": "1851/10000",
+    "coefficient_sums_for_supports_AB_AC_BC_ABC": [
+      3,
+      5,
+      4,
+      6
+    ],
+    "minimum_support_sum": 3,
+    "meaning": "Endpoint and coefficient certificates for the written exact positive-deficit theorem; larger epsilon is uncharacterized, not certified infeasible."
+  },
+  "positive_deficit": {
+    "epsilon": "1/100000",
+    "nominal_state": [
+      "1501/50000",
+      "6251/50000",
+      "0"
+    ],
+    "worst_effective_state": [
+      "3001/100000",
+      "12501/100000",
+      "0"
+    ],
+    "nominal_upkeep": "9253/50000",
+    "gap_below_comparison_budget": "1/25000",
+    "exp_tA_squared": "5686879/4700000",
+    "exp_tA_strict_upper": "109999/100000",
+    "exp_tB_strict_upper": "48749/32500",
+    "C_virtual_terminal_slack_strict_lower": "24679465632123477/1871492480000000000000",
+    "meaning": "The strict-deadline-slack nominal witness has extra preparation beyond the exact nominal optimizer. It supports the written local perturbation argument; no maximum tolerable deficit or neighborhood radius is certified."
+  },
+  "failed_first_calibration": {
+    "two_partial_initial": [
+      "2/243",
+      "5/6",
+      "0"
+    ],
+    "two_partial_upkeep": "413/486",
+    "concentrated_exp_tA_cubed": "3467/2076",
+    "concentrated_upkeep_expression": "4-(121/54)*(3467/2076)^(2/3)",
+    "discounted_C_input": "18133/54",
+    "strict_cost_comparison_square_cube_gap": "6386586797825/618437517507216"
+  }
+}

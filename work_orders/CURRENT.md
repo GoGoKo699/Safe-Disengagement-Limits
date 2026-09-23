@@ -1,59 +1,58 @@
-# Pass 29: test the cold-interleaving obstruction with common drains
+# Pass 31: assess the exact concentration boundary and its service meaning
 
 23 September 2026. Repository research first; manuscript writing remains the
-last step. Preserve `paper/` without edits or builds. Passes 26–28 establish
-common-drain two-module concentration, the qualified small-mismatch family,
-and a general partial-order theorem. This order tests one remaining mechanism.
+last step. Passes 29–30 resolve the three-module common-drain obstruction,
+its exact optimum, fixed-positive-tolerance frontier and local robustness.
+Keep all earlier proofs, reports, historical checkpoints, LICENSE and paper/
+unchanged. Do not expand to another dimension or construct a general solver.
 
 ## Exact question
 
-Can three proportional-loss modules with a common positive drain have a
-minimum-upkeep state with two interior partial coordinates, because cold work
-interrupts their preparation and changes the release schedule? Start from
-two unequal-rate partials and a cold third module, without restricting the
-competitors to that initial-support pattern.
+Does the surviving minimal-dimension concentration boundary provide a
+meaningful new result beyond the closest perishable-preparation investment
+and resource-producing scheduling theorems, and does one defensible
+independent-fallback interface justify its resource and drain assumptions?
 
-1. Read actual WORKSPACE.md first, then AGENTS.md, README, STATUS, the latest
-   continuation and this order. Preserve concurrent changes. Run the eleven
-   suites and ten analytical report comparisons in STATUS.
-2. Read full passes 26–28 proofs, their review notes, the bounded source audit,
-   the new contribution assessment, and
-   [the pass-29 opening](../research/2026-09-23-pass29-cold-interleaving-opening.md).
-   Also retain the pass-6 latency counterexamples and instantaneous pass-11
-   concentration theorem with their distinct assumptions.
-3. Use the established reduction exactly: in first-hit maximal-loss witnesses
-   at a putative minimum, interior partials hand off in strictly decreasing
-   coefficient order, and a later partial receives no input before an earlier
-   one hands off. Cold and design-bound modules may still interleave. These
-   facts do not give global seriality or characterize arbitrary initial states.
-4. Keep three modules, a common positive drain, positive proportional losses,
-   ordinary linked upkeep prices and the accounted independent-drain interface.
-   Focus on H>2*ell, where released resource can assist preparation. Common
-   coefficients and the no-useful-release subclass are already solved.
-5. Seek an all-policy preserving argument or an exact counterexample with a
-   global lower bound and matching robust policy. Include initial-full states,
-   both partial handoff orders, reflection, cold prewarming, and competitors
-   with positive initial preparation in the third module. A restricted face,
-   serial enumeration or a time grid cannot establish the proposed minimum.
-6. If a residual theorem or genuinely new obstruction emerges, compare it with
-   at most two close primary results initially and read the needed full proofs.
-   Preserve standard allocation reductions and source-access limits. The
-   provisional Chen metadata in pass 26 is not priority clearance. No broad
-   solver, large simulation, paid access or outside contact is authorized.
-7. After one focused cycle, make a contribution decision. If the only outcome
-   is an unresolved scheduling lemma, state it precisely and reassess whether
-   pursuing it would strengthen the central result. Do not automatically add
-   more modules, prices or constraints to obtain another variant.
+1. Read actual WORKSPACE.md first, then AGENTS, README, STATUS, the latest
+   continuation and this order. Inspect actual branch and remote before
+   writing or publishing; preserve concurrent work. Run the twelve suites
+   and eleven analytical report comparisons in STATUS.
+2. Read the complete pass-29 all-policy proof, pass-30 exact optimum and
+   robustness proofs, internal review, source comparison and current
+   assessment. Retain the pass-26 two-module theorem, pass-28 coefficient
+   theorem and older counterpolicies. The failed local calibration must
+   remain visible. Do not inherit a claim from a headline alone.
+3. Test at most two close primary results initially. Start from the new
+   resource-production comparison and earlier deterioration/investment
+   source records. Inspect full model and relevant proofs. Seek an actual
+   reduction preserving initial preparation, ongoing calendar-time loss,
+   common handoff deadline and delayed capacity release. Established
+   convexity, serial exchange or resource-production ingredients are not
+   novelty claims. Do not repeatedly retry known inaccessible endpoints.
+4. Work through one concrete service interface or a clearly stated abstract
+   resource interpretation. Account separately for sufficient preparation,
+   independent new essential service, immutable accepted obligations,
+   source reservation during drain, and the pre-command no-transfer rule.
+   Explain whether proportional decay is a justified model or an idealized
+   uncertainty law. Re-test free independent maintenance and early permanent
+   activation; do not redefine essential service to defeat those alternatives.
+5. Produce a concise assumption-to-conclusion and prior-theorem comparison.
+   Either retain a narrowly stated contribution, show an exact prior-art
+   reduction, or identify the specific unproved/unjustified link. Do not
+   call failed direct substitutions publication-priority clearance.
+6. After this focused cycle, choose the next justified S1 question based on
+   the outcome. Preserve negative findings. Further parameter or dimension
+   variants require a concrete scientific reason. Manuscript writing, builds,
+   external contact, submission, spending and formal release remain deferred
+   or separately approval-gated as stated in WORKSPACE.md.
 
 ## Verification and continuity
 
-Keep the original LICENSE, both historical checkpoint directories, earlier
-research notes/reports and manuscript unchanged. New proofs need internal
-adversarial review; finite checks must state their limited scope. Record each
-substantive result, archive/update the order and continue with the next
-scientifically justified task within the session.
-
-Before publishing, re-read remote main, preserve concurrent work, verify a
-fixed committed archive, use a non-forced update, and confirm the resulting
-tree. Leave exact restart instructions at limits. Submission, outreach,
-spending and formal release still require separate approval.
+New numerical work is unnecessary unless it checks a specific exact
+certificate. The current verifier is finite arithmetic, not a proof of the
+continuous control transformations, compactness or novelty. Record each
+substantive outcome, archive/update this order and continue within the
+available session. At limits, leave a coherent committed checkpoint and
+exact restart instructions. Before publishing, verify a fresh fixed-commit
+archive, re-read remote main, use a non-forced update and compare the
+published tree with the tested tree.
